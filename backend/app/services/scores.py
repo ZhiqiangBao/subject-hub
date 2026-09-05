@@ -8,7 +8,9 @@ from sqlalchemy.orm import Session
 
 from ..constants import DIFFICULTIES, SUBJECTS, TYPES, grade_label
 from ..models import ChallengeRun, ItemAnswer, PaperAttempt, User
+from .answers import scores_visible_for_paper
 from .bank import Item, bank
+from .groups import teacher_label
 
 
 def _points(row: ItemAnswer) -> float | None:
@@ -76,10 +78,12 @@ def _source_and_href(db: Session, context_type: str, context_id: int, for_self: 
     return f"试卷 · {title}", href
 
 
-def _item_row(user: User, item: Item, summary: dict[str, Any], source: str, href: str | None) -> dict[str, Any]:
+def _item_row(
+    user: User, item: Item, summary: dict[str, Any], source: str, href: str | None, *, for_self: bool
+) -> dict[str, Any]:
     return {
         "user_id": user.id,
-        "student": user.display_name or user.username,
+        "student": user.username if for_self else teacher_label(user),
         "slug": item.slug,
         "title": item.title or item.slug,
         "subject": item.subject,
@@ -136,6 +140,11 @@ def scores_by_tag(db: Session, users: list[User], for_self: bool) -> dict[str, A
 
     best: dict[tuple[int, str], dict[str, Any]] = {}
     for (user_id, slug, context_type, context_id), parts in bundles.items():
+        if context_type == "paper":
+            attempt = db.get(PaperAttempt, context_id)
+            paper = attempt.paper if attempt else None
+            if not scores_visible_for_paper(paper):
+                continue
         summary = _bundle_summary(parts)
         key = (user_id, slug)
         prev = best.get(key)
@@ -155,7 +164,7 @@ def scores_by_tag(db: Session, users: list[User], for_self: bool) -> dict[str, A
             continue
         user = user_map[user_id]
         source, href = _source_and_href(db, summary["context_type"], summary["context_id"], for_self)
-        items.append(_item_row(user, item, summary, source, href))
+        items.append(_item_row(user, item, summary, source, href, for_self=for_self))
     items.sort(key=lambda r: (r["student"], r["subject_name"], r["title"]))
 
     by_subject: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -173,7 +182,7 @@ def scores_by_tag(db: Session, users: list[User], for_self: bool) -> dict[str, A
             by_topic[tag].append(row)
 
     return {
-        "students": [{"id": u.id, "name": u.display_name or u.username} for u in users],
+        "students": [{"id": u.id, "name": u.username if for_self else teacher_label(u)} for u in users],
         "subjects": [_chip("subject", k, SUBJECTS.get(k, k), v) for k, v in sorted(by_subject.items(), key=lambda x: SUBJECTS.get(x[0], x[0]))],
         "types": [_chip("type", k, TYPES.get(k, k), v) for k, v in sorted(by_type.items(), key=lambda x: TYPES.get(x[0], x[0]))],
         "difficulties": [_chip("difficulty", k, DIFFICULTIES.get(k, k), v) for k, v in sorted(by_diff.items(), key=lambda x: DIFFICULTIES.get(x[0], x[0]))],

@@ -14,13 +14,24 @@ from ..services.access import encode_subjects
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 
+def _client_user(user: User) -> UserOut:
+    return UserOut(
+        id=user.id,
+        username=user.username,
+        role=user.role,
+        grade=user.grade,
+        display_name="" if user.role == "student" else (user.display_name or ""),
+        subjects=user.subjects,
+    )
+
+
 @router.get("/status")
 def auth_status(request: Request) -> dict[str, bool]:
     return {"admin_site": is_admin_site(request)}
 
 
 @router.post("/register", response_model=UserOut)
-def register(body: RegisterIn, request: Request, db: Session = Depends(get_db)) -> User:
+def register(body: RegisterIn, request: Request, db: Session = Depends(get_db)) -> UserOut:
     name = body.username.strip()
     if not name:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "请写一个名字")
@@ -43,16 +54,16 @@ def register(body: RegisterIn, request: Request, db: Session = Depends(get_db)) 
     db.commit()
     db.refresh(user)
     request.session["user_id"] = user.id
-    return user
+    return _client_user(user)
 
 
 @router.post("/login", response_model=UserOut)
-def login(body: LoginIn, request: Request, db: Session = Depends(get_db)) -> User:
+def login(body: LoginIn, request: Request, db: Session = Depends(get_db)) -> UserOut:
     user = db.scalar(select(User).where(User.username == body.username.strip()))
     if not user or not verify_password(body.password, user.password_hash):
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "名字或密码不对")
     request.session["user_id"] = user.id
-    return user
+    return _client_user(user)
 
 
 @router.post("/logout")
@@ -62,5 +73,5 @@ def logout(request: Request) -> dict[str, bool]:
 
 
 @router.get("/me", response_model=UserOut)
-def me(user: User = Depends(get_current_user)) -> User:
-    return user
+def me(user: User = Depends(get_current_user)) -> UserOut:
+    return _client_user(user)

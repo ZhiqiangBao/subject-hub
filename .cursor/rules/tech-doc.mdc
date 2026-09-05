@@ -1,0 +1,21 @@
+---
+description: Keep docs/tech.md in sync with code changes
+alwaysApply: true
+---
+
+# 技术文档必须跟代码一起改
+
+任何会改变行为、接口、表字段、路由或页面职责的改动，**同一轮必须更新** [`docs/tech.md`](docs/tech.md)。
+
+改这些就改文档对应节：
+
+- 新/删/改 FastAPI 路由或函数名 → 第 5 节路由表
+- `services/` 里职责变化 → 第 4 节服务层
+- `models.py` / `db.migrate()` 新列 → 第 2 节表
+- 试卷窗口、发布、评分、匿名、双栏分数 → 第 3、7、8 节
+- 前端页面或组件职责 → 第 6 节
+- 新的「不要打破」约定 → 第 8 节
+
+不要把过期函数名留在文档里。产品口径（题型定义）仍改 `docs/architecture.md`，不要把函数清单写进那篇。
+
+只改文案或纯样式、且不改变谁调谁，可以不改 `tech.md`。

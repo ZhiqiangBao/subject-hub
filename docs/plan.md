@@ -117,7 +117,7 @@ SUBJECT_HUB_LLM_API_KEY    # 内网无鉴权可空
 
 ## 远景（现在不要做）
 
-Windows / WSL 当主机、`.whl` 一键安装、双击 exe 起后台并打开管理员页、手机只做浏览器客户端：见 [远景规划](vision.md)。不要为这些改当前 Ubuntu 装机。
+Windows 主机若做，对照 **Hermes Agent**：脚本装运行时 + 本机后端 + 浏览器当 GUI（不做 Electron 壳、不办签名）。手机只当客户端（以后可套 WebView / 主机下发 APK），不当服务机。详见 [远景规划](vision.md)。正式装机仍是 Ubuntu。不要为这些改当前 `setup-ubuntu.sh`。
 
 ## 明确仍不做
 

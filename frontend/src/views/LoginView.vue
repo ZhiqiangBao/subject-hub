@@ -3,8 +3,8 @@
     <form @submit.prevent="submit">
       <h1>学科 Hub</h1>
       <p class="hint" v-if="adminSite">这是主机后台。家长点「全科」，老师点自己的科目。注册后请用答题端口 8090 登录。</p>
-      <p class="hint" v-else>用中文名字注册即可。注册就是学生账号。管理员请到评测机打开 8091。</p>
-      <label>名字</label>
+      <p class="hint" v-else>用中文登录名注册即可。这个名字会出现在你自己的页面上。注册就是学生账号。管理员请到评测机打开 8091。</p>
+      <label>登录名</label>
       <input v-model="username" required maxlength="32" placeholder="中文也可以，例如 张三" />
       <label>密码</label>
       <input v-model="password" type="password" required />

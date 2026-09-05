@@ -3,6 +3,7 @@
     <div class="topbar">
       <strong>{{ title }}</strong>
       <span class="spacer"></span>
+      <span v-if="mode === 'paper' && item.timed && !locked">剩余 {{ clock }}</span>
       <span v-if="item.total">{{ (item.index ?? 0) + 1 }} / {{ item.total }}</span>
     </div>
     <div class="player">
@@ -10,6 +11,7 @@
         <div class="md" v-html="renderMd(item.left_md)"></div>
       </section>
       <section class="pane right">
+        <SheetNav v-if="mode === 'paper' && sheet.length" :items="sheet" :current="item.slug" @pick="goPaper" />
         <div class="part" v-for="part in item.parts" :key="part.id">
           <div class="md" v-if="part.stem" v-html="renderMd(part.stem)"></div>
           <div v-if="part.type === 'single'">
@@ -20,7 +22,7 @@
               type="button"
               :class="{ on: values[part.id] === c.id }"
               :disabled="locked"
-              @click="setValue(part.id, c.id)"
+              @click="pickSingle(part.id, c.id)"
             >
               {{ c.id }}. <span v-html="renderMd(c.text)"></span>
             </button>
@@ -76,43 +78,36 @@
               <img v-for="p in photos[part.id]" :key="p" :src="'/api/uploads/file/' + p" style="max-height:120px;margin:8px 8px 0 0" />
             </div>
           </div>
-          <p v-if="item.answers?.[part.id]?.status === 'graded'" class="score" :class="item.answers[part.id].score ? 'good' : 'bad'">
+          <p v-if="showScore(part.id)" class="score" :class="item.answers[part.id].score ? 'good' : 'bad'">
             这问 {{ item.answers[part.id].score }} / {{ part.points }} 分
             <span v-if="item.answers[part.id].comment"> · {{ item.answers[part.id].comment }}</span>
           </p>
           <p v-else-if="item.answers?.[part.id]?.status === 'pending'" class="hint">待评分</p>
         </div>
         <p class="err">{{ error }}</p>
-        <p class="hint" v-if="saveNote">{{ saveNote }}</p>
         <p class="hint" v-if="mode === 'paper' && item.section_heading">{{ item.section_heading }}</p>
         <div class="paper-nav" v-if="mode === 'paper'">
           <button class="btn big" type="button" :disabled="!item.prev_slug" @click="goPaper(item.prev_slug)">上一题</button>
-          <button class="btn big" type="button" :disabled="!item.next_slug" @click="goPaper(item.next_slug)">下一题</button>
+          <button class="btn primary big" type="button" :disabled="!item.next_slug" @click="goPaper(item.next_slug)">下一题</button>
         </div>
         <template v-if="mode === 'challenge' && !item.submitted">
-          <p class="hint">闯关是一题一交。想先记下再交，点保存。</p>
-          <button class="btn big" type="button" @click="saveNow">保存</button>
+          <p class="hint">闯关是一题一交。输入会自动记下。</p>
           <button class="btn primary big" type="button" @click="submitChallenge">提交本题</button>
         </template>
         <button v-else-if="mode === 'challenge'" class="btn primary big" type="button" @click="nextChallenge">下一题</button>
-        <template v-else-if="mode === 'paper' && !locked">
-          <p class="hint">试卷不能一题一交。每题先保存，全部写完后交卷。</p>
-          <button class="btn primary big" type="button" @click="saveNow">保存</button>
-          <button class="btn big" type="button" @click="submitPaper">交卷</button>
-          <router-link class="btn ghost" :to="'/paper/' + attemptId">返回目录</router-link>
-        </template>
-        <router-link v-else-if="mode === 'paper'" class="btn ghost" :to="'/paper/' + attemptId">返回目录</router-link>
+        <router-link v-if="mode === 'paper'" class="btn ghost" :to="'/paper/' + attemptId">答题卡</router-link>
       </section>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { api } from "../api";
 import { renderMd } from "../markdown";
 import FormulaField from "../components/FormulaField.vue";
+import SheetNav from "../components/SheetNav.vue";
 import { usesFormulaBar } from "../formulaSymbols";
 
 const symbols = ["²", "³", "₁", "₂", "√", "×", "÷", "°"];
@@ -122,22 +117,51 @@ const item = ref<any>(null);
 const values = ref<Record<string, any>>({});
 const photos = ref<Record<string, string[]>>({});
 const error = ref("");
-const saveNote = ref("");
-let timer: number | undefined;
+const left = ref<number | null>(null);
+let saveTimer: number | undefined;
+let clockTimer: number | undefined;
+let jumping = false;
 
 const mode = computed(() => (route.params.runId ? "challenge" : "paper"));
 const attemptId = computed(() => String(route.params.attemptId || ""));
 const locked = computed(() => Boolean(item.value?.locked || (mode.value === "challenge" && item.value?.submitted)));
 const title = computed(() => item.value?.title || "答题");
 const showFormula = computed(() => usesFormulaBar(item.value?.subject));
+const sheet = computed(() => (item.value?.sheet || []) as { n: number; slug: string; saved?: boolean }[]);
+const autoJump = computed(() => {
+  const parts = item.value?.parts || [];
+  return mode.value === "paper" && !locked.value && parts.length > 0 && parts.every((p: any) => p.type === "single");
+});
+const clock = computed(() => {
+  const s = left.value ?? 0;
+  const m = Math.floor(s / 60);
+  const r = s % 60;
+  return `${m}:${String(r).padStart(2, "0")}`;
+});
+
+function showScore(partId: string) {
+  const ans = item.value?.answers?.[partId];
+  return ans && (ans.status === "graded" || ans.status === "overridden") && ans.score != null;
+}
+
+function applySheet(next: { n: number; slug: string; saved?: boolean }[] | undefined) {
+  if (!item.value || !next) return;
+  item.value.sheet = next;
+}
+
+function markCurrentSaved() {
+  const slug = item.value?.slug;
+  if (!slug || !item.value?.sheet) return;
+  item.value.sheet = item.value.sheet.map((row: any) => (row.slug === slug ? { ...row, saved: true } : row));
+}
 
 async function load() {
   error.value = "";
-  saveNote.value = "";
   if (mode.value === "challenge") {
     item.value = await api(`/api/challenge/${route.params.runId}/item/${route.params.index}`);
   } else {
     item.value = await api(`/api/papers/attempts/${route.params.attemptId}/item/${route.params.slug}`);
+    left.value = item.value?.remaining_sec ?? null;
   }
   const next: Record<string, any> = {};
   const ph: Record<string, string[]> = {};
@@ -152,8 +176,12 @@ async function load() {
 
 function scheduleSave() {
   if (locked.value) return;
-  window.clearTimeout(timer);
-  timer = window.setTimeout(save, 400);
+  window.clearTimeout(saveTimer);
+  saveTimer = window.setTimeout(() => {
+    save().catch((err) => {
+      error.value = err instanceof Error ? err.message : "没保存成";
+    });
+  }, 400);
 }
 
 async function save() {
@@ -163,28 +191,34 @@ async function save() {
       method: "PUT",
       body: JSON.stringify({ parts }),
     });
-  } else {
-    await api(`/api/papers/attempts/${route.params.attemptId}/item/${route.params.slug}/draft`, {
-      method: "PUT",
-      body: JSON.stringify({ parts }),
-    });
+    return;
   }
+  const data = (await api(`/api/papers/attempts/${route.params.attemptId}/item/${route.params.slug}/draft`, {
+    method: "PUT",
+    body: JSON.stringify({ parts }),
+  })) as { sheet?: { n: number; slug: string; saved?: boolean }[] };
+  applySheet(data.sheet);
+  markCurrentSaved();
 }
 
-async function saveNow() {
-  error.value = "";
-  saveNote.value = "";
-  try {
-    await save();
-    saveNote.value = "已保存。";
-  } catch (err) {
-    error.value = err instanceof Error ? err.message : "没保存成";
-  }
-}
-
-function setValue(id: string, value: string) {
-  if (locked.value) return;
+async function pickSingle(id: string, value: string) {
+  if (locked.value || jumping) return;
   values.value[id] = value;
+  if (autoJump.value) {
+    jumping = true;
+    error.value = "";
+    try {
+      await save();
+      const slug = item.value?.next_slug;
+      if (slug) await router.push(`/play/paper/${attemptId.value}/${encodeURIComponent(slug)}`);
+      else await router.push(`/paper/${attemptId.value}`);
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : "没保存成";
+    } finally {
+      jumping = false;
+    }
+    return;
+  }
   scheduleSave();
 }
 
@@ -223,6 +257,7 @@ async function onPhoto(ev: Event, partId: string) {
   })) as { photos: string[] };
   photos.value[partId] = data.photos;
   input.value = "";
+  scheduleSave();
 }
 
 async function submitChallenge() {
@@ -241,30 +276,16 @@ async function submitChallenge() {
 }
 
 async function goPaper(slug: string | null) {
-  if (!slug) return;
+  if (!slug || jumping) return;
   error.value = "";
-  saveNote.value = "";
   if (!locked.value) {
     try {
       await save();
     } catch (err) {
       error.value = err instanceof Error ? err.message : "没保存成";
-      return;
     }
   }
   await router.push(`/play/paper/${attemptId.value}/${encodeURIComponent(slug)}`);
-}
-
-async function submitPaper() {
-  error.value = "";
-  saveNote.value = "";
-  try {
-    await save();
-    await api(`/api/papers/attempts/${attemptId.value}/submit`, { method: "POST" });
-    await router.push(`/paper/${attemptId.value}`);
-  } catch (err) {
-    error.value = err instanceof Error ? err.message : "没交成";
-  }
 }
 
 async function nextChallenge() {
@@ -276,6 +297,32 @@ async function nextChallenge() {
   await router.push(`/play/challenge/${route.params.runId}/${data.index}`);
 }
 
+async function expirePaper() {
+  try {
+    await api(`/api/papers/attempts/${attemptId.value}/submit`, { method: "POST" });
+  } catch {
+    /* 到点由主机收卷；这里失败就回答题卡 */
+  }
+  await router.push(`/paper/${attemptId.value}`);
+}
+
 watch(() => route.fullPath, load);
-onMounted(load);
+onMounted(async () => {
+  await load();
+  if (mode.value === "paper" && item.value?.timed && !locked.value) {
+    clockTimer = window.setInterval(async () => {
+      if (left.value == null) return;
+      if (left.value <= 0) {
+        window.clearInterval(clockTimer);
+        await expirePaper();
+        return;
+      }
+      left.value -= 1;
+    }, 1000);
+  }
+});
+onUnmounted(() => {
+  window.clearTimeout(saveTimer);
+  if (clockTimer) window.clearInterval(clockTimer);
+});
 </script>

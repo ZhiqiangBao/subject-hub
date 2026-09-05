@@ -18,10 +18,13 @@ class User(Base):
     grade: Mapped[int | None] = mapped_column(Integer, nullable=True)
     display_name: Mapped[str] = mapped_column(String(64), default="")
     subjects_json: Mapped[str] = mapped_column(String(256), default="*")
+    group_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    created_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
     runs: Mapped[list["ChallengeRun"]] = relationship(back_populates="user")
     attempts: Mapped[list["PaperAttempt"]] = relationship(back_populates="user")
+    memberships: Mapped[list["StudentGroupMember"]] = relationship(back_populates="user")
 
     @property
     def subjects(self) -> list[str]:
@@ -30,6 +33,42 @@ class User(Base):
             return ["*"]
         ids = [s.strip() for s in raw.replace("，", ",").split(",") if s.strip()]
         return ids or ["*"]
+
+
+class StudentGroup(Base):
+    __tablename__ = "student_groups"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    name: Mapped[str] = mapped_column(String(64))
+    kind: Mapped[str] = mapped_column(String(16), default="group", index=True)
+    grade: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+    parent_id: Mapped[int | None] = mapped_column(ForeignKey("student_groups.id"), nullable=True, index=True)
+    created_by: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+
+    parent: Mapped["StudentGroup | None"] = relationship(
+        back_populates="children",
+        remote_side=[id],
+        foreign_keys=[parent_id],
+    )
+    children: Mapped[list["StudentGroup"]] = relationship(
+        back_populates="parent",
+        foreign_keys=[parent_id],
+    )
+    memberships: Mapped[list["StudentGroupMember"]] = relationship(back_populates="group")
+    audiences: Mapped[list["PaperAudience"]] = relationship(back_populates="group")
+
+
+class StudentGroupMember(Base):
+    __tablename__ = "student_group_members"
+    __table_args__ = (UniqueConstraint("user_id", "group_id"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    group_id: Mapped[int] = mapped_column(ForeignKey("student_groups.id"), index=True)
+
+    user: Mapped[User] = relationship(back_populates="memberships")
+    group: Mapped[StudentGroup] = relationship(back_populates="memberships")
 
 
 class ChallengeRun(Base):
@@ -63,8 +102,28 @@ class Paper(Base):
     sections_json: Mapped[str] = mapped_column(Text, default="[]")
     created_by: Mapped[int] = mapped_column(ForeignKey("users.id"))
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+    released_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    opens_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    closes_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    grading_started_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    scores_released_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
     attempts: Mapped[list["PaperAttempt"]] = relationship(back_populates="paper")
+    audiences: Mapped[list["PaperAudience"]] = relationship(back_populates="paper")
+
+
+class PaperAudience(Base):
+    __tablename__ = "paper_audiences"
+    __table_args__ = (UniqueConstraint("paper_id", "group_id"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    paper_id: Mapped[int] = mapped_column(ForeignKey("papers.id"), index=True)
+    group_id: Mapped[int] = mapped_column(ForeignKey("student_groups.id"), index=True)
+    opens_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    closes_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+
+    paper: Mapped[Paper] = relationship(back_populates="audiences")
+    group: Mapped[StudentGroup] = relationship(back_populates="audiences")
 
 
 class PaperAttempt(Base):

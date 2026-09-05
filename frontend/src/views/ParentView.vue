@@ -8,8 +8,9 @@
     <section v-if="tab === 'progress'">
       <div class="grid">
         <router-link class="card" v-for="s in progress?.students || []" :key="s.id" :to="`/admin/student/${s.id}`">
-          <h2>{{ s.display_name }}</h2>
-          <div class="meta">{{ s.grade_name }}</div>
+          <h2>{{ s.display_name || s.username }}</h2>
+          <div class="meta">登录名 {{ s.username }}</div>
+          <div class="meta">{{ s.class_label || s.grade_name }}</div>
           <div class="meta">{{ s.score ?? 0 }} / {{ s.max_score ?? 0 }} 分<span v-if="s.pending"> · 待评 {{ s.pending }}</span></div>
         </router-link>
       </div>
@@ -22,9 +23,10 @@
       <div class="grid">
         <router-link class="card" v-for="p in papers" :key="p.id" :to="`/admin/quiz/${p.id}`">
           <h2>{{ p.title }}</h2>
-          <div class="meta">{{ p.subject_name }} · {{ p.submitted }}/{{ p.joined }} 人已交</div>
-          <div class="meta" v-if="p.timed">限时 {{ p.duration_minutes }} 分钟<span v-if="p.expired"> · 已截止</span></div>
-          <div class="meta" v-if="p.pending">待评 {{ p.pending }}</div>
+          <div class="meta">{{ p.subject_name }} · {{ p.flow_label }} · {{ p.submitted }}/{{ p.joined }} 人已交</div>
+          <div class="meta" v-if="p.audiences?.length">{{ (p.audiences || []).map((a) => a.label).join("、") }}</div>
+          <div class="meta" v-if="p.opens_at">{{ fmtTime(p.opens_at) }} 至 {{ fmtTime(p.closes_at) }}（{{ zoneLabel }}）<span v-if="p.window === 'waiting'"> · 未到答题时间</span></div>
+          <div class="meta" v-if="p.ungraded">待评 {{ p.ungraded }}</div>
         </router-link>
       </div>
       <p v-if="!papers.length" class="hint">还没有组过卷。去「组卷」生成一份。</p>
@@ -125,11 +127,30 @@
         <input type="file" hidden @change="doFile" />
       </label>
       <h2 style="margin-top:28px">自己出一题</h2>
+      <p class="field-label">科目</p>
       <div class="chips" v-if="meta">
         <button class="chip" v-for="s in meta.subjects" :key="s.id" :class="{ on: plain.subject === s.id }" type="button" @click="plain.subject = s.id">{{ s.name }}</button>
       </div>
+      <p class="field-label">题型</p>
       <div class="chips">
         <button class="chip" v-for="t in plainTypes" :key="t.id" :class="{ on: plain.type === t.id }" type="button" @click="plain.type = t.id">{{ t.name }}</button>
+      </div>
+      <p class="field-label">年级</p>
+      <div class="chips" v-if="meta">
+        <button class="chip" v-for="g in meta.grades" :key="g.id" :class="{ on: plain.grade === g.id }" type="button" @click="plain.grade = g.id">{{ g.name }}</button>
+      </div>
+      <p class="field-label">难度</p>
+      <div class="chips" v-if="meta">
+        <button class="chip" v-for="d in meta.difficulties" :key="d.id" :class="{ on: plain.difficulty === d.id }" type="button" @click="plain.difficulty = d.id">{{ d.name }}</button>
+      </div>
+      <p class="field-label">知识点（可多选）</p>
+      <div class="chips">
+        <button class="chip" v-for="t in plainTagChoices" :key="t" :class="{ on: plain.tags.includes(t) }" type="button" @click="togglePlainTag(t)">{{ t }}</button>
+      </div>
+      <p v-if="!plainTagChoices.length" class="hint">这个科目年级下还没有现成知识点，可以在下面打一个加上。</p>
+      <div class="choice-edit">
+        <input v-model="plainTagDraft" placeholder="没有的知识点，打字回车加上" @keydown.enter.prevent="addPlainTag" />
+        <button class="btn" type="button" @click="addPlainTag">加上</button>
       </div>
       <input v-model="plain.title" placeholder="题目名字（可空）" />
       <textarea v-model="plain.stem" placeholder="题干。选择题可写成 A. … B. …"></textarea>
@@ -139,35 +160,61 @@
     </section>
 
     <section v-if="tab === 'kids' && meta">
-      <input v-model="kid.display_name" placeholder="怎么称呼" />
-      <input v-model="kid.username" placeholder="登录名，中文也可以" maxlength="32" />
+      <h2>已有分组</h2>
+      <p class="hint">班级也是分组。点进去看这个组里的学生，再点学生进档案。</p>
+      <div class="grid">
+        <router-link class="card" v-for="g in groups" :key="g.id" :to="`/admin/accounts/group/${g.id}`">
+          <h2>{{ g.label }}</h2>
+          <div class="meta">{{ g.is_class ? "班级" : g.parent_label ? "班内分组" : "分组" }} · {{ g.count }} 人</div>
+        </router-link>
+        <router-link class="card" v-if="ungrouped" to="/admin/accounts/ungrouped">
+          <h2>未分组</h2>
+          <div class="meta">{{ ungrouped }} 人 · 自己注册的可在这里补真名、加进分组</div>
+        </router-link>
+      </div>
+      <p v-if="!groups.length && !ungrouped" class="hint">还没有分组。先在下面新建一个。</p>
+
+      <h2 style="margin-top:28px">新建分组</h2>
+      <p class="hint">班级一定是分组；分组还可以是班里的一小队，或跨班的组。保存后会出现在上面。</p>
+      <div class="chips">
+        <button class="chip" type="button" :class="{ on: newGroup.mode === 'class' }" @click="newGroup.mode = 'class'">这是一个班级</button>
+        <button class="chip" type="button" :class="{ on: newGroup.mode === 'inner' }" @click="newGroup.mode = 'inner'">班内分组</button>
+        <button class="chip" type="button" :class="{ on: newGroup.mode === 'loose' }" @click="newGroup.mode = 'loose'">其它分组</button>
+      </div>
+      <template v-if="newGroup.mode === 'class'">
+        <p class="field-label">年级</p>
+        <div class="chips">
+          <button class="chip" v-for="g in meta.grades" :key="g.id" :class="{ on: newGroup.grade === g.id }" type="button" @click="newGroup.grade = g.id">{{ g.name }}</button>
+        </div>
+        <input v-model="newGroup.name" placeholder="班名，例如 1班" />
+      </template>
+      <template v-else-if="newGroup.mode === 'inner'">
+        <p class="field-label">挂在哪个班级下面</p>
+        <div class="chips">
+          <button class="chip" v-for="g in classGroups" :key="g.id" :class="{ on: newGroup.parent_id === g.id }" type="button" @click="newGroup.parent_id = g.id">{{ g.label }}</button>
+        </div>
+        <p v-if="!classGroups.length" class="hint">还没有班级，先建一个班级分组。</p>
+        <input v-model="newGroup.name" placeholder="分组名字，例如 竞赛组" />
+      </template>
+      <template v-else>
+        <input v-model="newGroup.name" placeholder="分组名字" />
+      </template>
+      <button class="btn primary" type="button" @click="saveGroup">保存分组</button>
+
+      <h2 style="margin-top:28px">代开账号</h2>
+      <input v-model="kid.display_name" placeholder="真名，不填则等于登录名（学生看不到）" />
+      <input v-model="kid.username" placeholder="登录名，中文也可以，学生用这个登录" maxlength="32" />
       <input v-model="kid.password" placeholder="密码" />
+      <p class="field-label">年级</p>
       <div class="chips">
         <button class="chip" v-for="g in meta.grades" :key="g.id" :class="{ on: kid.grade === g.id }" type="button" @click="kid.grade = g.id">{{ g.name }}</button>
       </div>
-      <p class="hint">学生也可以自己在 8090 注册。这里可以代为开账号。</p>
+      <p class="field-label">加入分组（可多选）</p>
+      <div class="chips">
+        <button class="chip" v-for="g in groups" :key="g.id" :class="{ on: kid.group_ids.includes(g.id) }" type="button" @click="toggleKidGroup(g.id)">{{ g.label }}</button>
+      </div>
+      <p class="hint">学生也可以自己在 8090 注册。登录名注册后改不了，学生自己页面只看到登录名。真名默认等于登录名，只有老师能改、学生看不到。自己注册的先出现在「未分组」，再补真名、加进分组。一个学生可以同时在多个分组里。</p>
       <button class="btn primary" type="button" @click="addKid">添加学生</button>
-    </section>
-
-    <section v-if="tab === 'grade'">
-      <button class="btn ghost" type="button" @click="retryPending">重试未评的主观题</button>
-      <div class="card" v-for="a in queue" :key="a.id" style="margin-bottom:10px">
-        <h2>{{ a.student }} · {{ a.title }}</h2>
-        <p class="meta">{{ a.status_label || a.status }} · {{ a.score ?? "—" }} / {{ a.max_score }}</p>
-        <div class="chips">
-          <button class="btn primary" type="button" @click="openAnswer(a.id)">改判这问</button>
-          <router-link class="btn" :to="reviewLink(a)">看这次全部作答</router-link>
-        </div>
-      </div>
-      <p v-if="!queue.length" class="hint">现在没有主观题要改。</p>
-      <div v-if="current" class="card">
-        <div class="md" v-html="renderMd(current.left_md || '')"></div>
-        <p>{{ current.stem }}</p>
-        <p>学生：{{ current.value }}</p>
-        <img v-for="p in current.photos || []" :key="p" :src="'/api/uploads/file/' + p" style="max-height:160px;margin-right:8px" />
-        <p class="hint">参考：{{ current.reference }}</p>
-        <GradeBox :part="current" @saved="afterGrade" />
-      </div>
     </section>
 
     <section v-if="tab === 'llm'">
@@ -202,9 +249,8 @@
 import { computed, onMounted, reactive, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { api } from "../api";
-import { renderMd } from "../markdown";
+import { displayZone, fmtInZone, zoneName } from "../timeZone";
 import TagScores from "../components/TagScores.vue";
-import GradeBox from "../components/GradeBox.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -214,7 +260,6 @@ const tab = computed(() => {
   if (p === "/admin/assemble") return "assemble";
   if (p === "/admin/bank") return "bank";
   if (p === "/admin/add") return "add";
-  if (p === "/admin/grade") return "grade";
   if (p === "/admin/llm") return "llm";
   if (p === "/admin/accounts") return "kids";
   return "progress";
@@ -227,19 +272,17 @@ const pageTitle = computed(() =>
     bank: "题库",
     add: "加题",
     kids: "学生账号",
-    grade: "改判",
     llm: "模型",
   })[tab.value] || "管理",
 );
 const pageHint = computed(() =>
   ({
-    progress: "点用户卡片看该生成绩和每一次测验。老师只看见自己科目。",
-    quizzes: "组卷后这里会出现本次测验卡片。点进去看参加的学生和排名。",
-    assemble: "按题型和知识点抽题。每类可改大题说明。学生打开 8090 就能做。",
+    progress: "点用户卡片看该生成绩。试卷成绩发布前看不到这一次的作答；改判请去「测验」。老师只看见自己科目。",
+    quizzes: "组卷后这里会出现本次测验。点进去选分组、设答题时间再发布。没选中的分组看不见试卷。",
+    assemble: "按题型和知识点抽题。生成后到「测验」里设答题时间再发布。",
     bank: "按标签选出题目，点进去改题干和答案。保存写到这台电脑，git 更新不会盖掉。",
     add: "从聊天导入，或自己出一题。",
-    kids: "学生也可以自己在 8090 注册。这里可以代为开账号。",
-    grade: "待评分和已评过的主观题都在这里。也可以从学生卡片或测验卡片里改判。",
+    kids: "班级是一种分组；还可以在班里再分组，或建跨班的组。一个学生可以同时在多个分组里。点分组看里面的人，再进学生档案。也可以代开账号。",
     llm: "接到本机对话接口。默认 127.0.0.1:8080/v1。保存后主观题会自动评。",
   })[tab.value] || "",
 );
@@ -248,9 +291,12 @@ const message = ref("");
 const meta = ref<any>(null);
 const progress = ref<any>(null);
 const paste = ref("");
-const queue = ref<any[]>([]);
-const current = ref<any>(null);
 const papers = ref<any[]>([]);
+const zoneLabel = computed(() => zoneName(displayZone.value));
+
+function fmtTime(iso?: string | null) {
+  return fmtInZone(iso);
+}
 const bankItems = ref<any[]>([]);
 const bankTopics = ref<string[]>([]);
 let bankLoading = false;
@@ -297,8 +343,38 @@ function setThinking(mode: "off" | "low" | "on") {
   llm.enable_thinking = true;
   llm.reasoning_effort = mode === "low" ? "low" : "";
 }
-const plain = reactive({ subject: "math", type: "blank", title: "", stem: "", answer: "" });
-const kid = reactive({ username: "", password: "", display_name: "", grade: 7 });
+const plain = reactive({
+  subject: "math",
+  type: "blank",
+  title: "",
+  stem: "",
+  answer: "",
+  grade: 7 as number,
+  difficulty: "medium",
+  tags: [] as string[],
+});
+const plainTopics = ref<string[]>([]);
+const plainTagDraft = ref("");
+const kid = reactive({ username: "", password: "", display_name: "", grade: 7 as number | null, group_ids: [] as number[] });
+const groups = ref<any[]>([]);
+const ungrouped = ref(0);
+const classGroups = computed(() => groups.value.filter((g) => g.is_class));
+const newGroup = reactive({
+  mode: "class" as "class" | "inner" | "loose",
+  name: "",
+  grade: 7 as number | null,
+  parent_id: null as number | null,
+});
+const plainTagChoices = computed(() => {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const t of [...plain.tags, ...plainTopics.value]) {
+    if (!t || seen.has(t)) continue;
+    seen.add(t);
+    out.push(t);
+  }
+  return out;
+});
 const plainTypes = [
   { id: "single", name: "单选" },
   { id: "blank", name: "填空" },
@@ -320,9 +396,10 @@ async function loadForTab() {
   if (tab.value === "quizzes") await loadPapers();
   if (tab.value === "assemble") await loadAssemblePool();
   if (tab.value === "bank") await loadBank();
-  if (tab.value === "grade") await loadQueue();
   if (tab.value === "llm") await loadLlm();
   if (tab.value === "progress") progress.value = await api("/api/parent/progress");
+  if (tab.value === "add") await loadPlainTopics();
+  if (tab.value === "kids") await loadAccounts();
 }
 
 watch(tab, () => {
@@ -357,6 +434,34 @@ async function loadBank() {
     bankLoading = false;
   }
 }
+
+async function loadPlainTopics() {
+  const params = new URLSearchParams();
+  if (plain.subject) params.set("subject", plain.subject);
+  if (plain.grade) params.set("grade", String(plain.grade));
+  const data = (await api(`/api/parent/items?${params}`)) as { topics: string[] };
+  plainTopics.value = data.topics || [];
+}
+
+function togglePlainTag(name: string) {
+  const i = plain.tags.indexOf(name);
+  if (i >= 0) plain.tags.splice(i, 1);
+  else plain.tags.push(name);
+}
+
+function addPlainTag() {
+  const name = plainTagDraft.value.trim();
+  if (!name) return;
+  if (!plain.tags.includes(name)) plain.tags.push(name);
+  plainTagDraft.value = "";
+}
+
+watch(
+  () => [plain.subject, plain.grade],
+  () => {
+    if (tab.value === "add") loadPlainTopics();
+  },
+);
 
 function toggleBankTag(name: string) {
   const i = bankFilter.tags.indexOf(name);
@@ -434,7 +539,7 @@ async function doAssemble() {
         duration_minutes: assemble.duration_minutes,
       }),
     })) as { count: number; id: number };
-    message.value = `已生成测验，共 ${data.count} 题。学生打开 8090 就能做。`;
+    message.value = `已生成测验，共 ${data.count} 题。到「测验」里点发布后，学生才能打开。`;
     await loadPapers();
     await router.push("/admin/quizzes");
   } catch (err) {
@@ -531,8 +636,12 @@ async function doFile(ev: Event) {
 async function doPlain() {
   error.value = "";
   try {
-    const data = (await api("/api/parent/items/plain", { method: "POST", body: JSON.stringify({ ...plain, grade: assemble.grade }) })) as { title: string };
+    const data = (await api("/api/parent/items/plain", { method: "POST", body: JSON.stringify({ ...plain }) })) as { title: string };
     message.value = `已加上：${data.title}`;
+    plain.stem = "";
+    plain.answer = "";
+    plain.title = "";
+    await loadPlainTopics();
   } catch (err) {
     error.value = err instanceof Error ? err.message : "没做成";
   }
@@ -543,40 +652,58 @@ async function updateBank() {
   message.value = data.message;
 }
 
-async function addKid() {
+async function loadAccounts() {
+  const data = (await api("/api/parent/groups")) as { groups: any[]; ungrouped: number };
+  groups.value = data.groups || [];
+  ungrouped.value = data.ungrouped || 0;
+}
+
+function toggleKidGroup(id: number) {
+  const i = kid.group_ids.indexOf(id);
+  if (i >= 0) kid.group_ids.splice(i, 1);
+  else kid.group_ids.push(id);
+}
+
+async function saveGroup() {
   error.value = "";
+  message.value = "";
   try {
-    await api("/api/parent/students", { method: "POST", body: JSON.stringify(kid) });
-    message.value = "学生账号已建好。";
-    progress.value = await api("/api/parent/progress");
+    if (newGroup.mode === "inner" && !newGroup.parent_id) {
+      error.value = "班内分组要先选挂在哪个班级下面";
+      return;
+    }
+    if (!newGroup.name.trim()) {
+      error.value = "请写分组名字";
+      return;
+    }
+    const body: Record<string, unknown> = { name: newGroup.name };
+    if (newGroup.mode === "class") {
+      body.kind = "class";
+      body.grade = newGroup.grade;
+    } else {
+      body.kind = "group";
+      if (newGroup.mode === "inner") body.parent_id = newGroup.parent_id;
+    }
+    await api("/api/parent/groups", { method: "POST", body: JSON.stringify(body) });
+    message.value = "分组已保存，已出现在上面。";
+    newGroup.name = "";
+    await loadAccounts();
   } catch (err) {
     error.value = err instanceof Error ? err.message : "没做成";
   }
 }
 
-async function loadQueue() {
-  const data = (await api("/api/parent/queue")) as { answers: any[] };
-  queue.value = data.answers;
-}
-
-async function openAnswer(id: number) {
-  current.value = await api(`/api/parent/answers/${id}`);
-}
-
-function reviewLink(a: { kind: string; context_id: number; id: number }) {
-  const kind = a.kind === "paper" ? "paper" : "challenge";
-  return `/admin/review/${kind}/${a.context_id}#answer-${a.id}`;
-}
-
-async function afterGrade() {
-  message.value = "已改判。";
-  await loadQueue();
-  if (current.value?.id) current.value = await api(`/api/parent/answers/${current.value.id}`);
-}
-
-async function retryPending() {
-  const data = (await api("/api/parent/grade/retry-pending", { method: "POST" })) as { count: number };
-  message.value = data.count ? `已重新排队 ${data.count} 问。` : "没有待评，或还没配置模型。";
-  await loadQueue();
+async function addKid() {
+  error.value = "";
+  try {
+    await api("/api/parent/students", { method: "POST", body: JSON.stringify(kid) });
+    message.value = "学生账号已建好。";
+    kid.username = "";
+    kid.password = "";
+    kid.display_name = "";
+    await loadAccounts();
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : "没做成";
+  }
 }
 </script>

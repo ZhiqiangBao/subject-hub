@@ -60,6 +60,23 @@ img { max-width: 100%; }
   gap: 8px;
   margin: 12px 0;
 }
+.sheet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+.sheet-n {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-weight: 650;
+}
+.sheet-n.saved { background: var(--accent-soft); border-color: var(--accent); }
+.sheet-n.on { background: var(--accent); color: #fff; border-color: var(--accent); }
 .err { color: var(--bad); min-height: 1.2em; }
 
 .page { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
@@ -78,7 +95,7 @@ h1 { font-size: 28px; margin: 0 0 8px; }
   padding: 18px;
   text-align: left;
 }
-.card h2 { margin: 0 0 6px; font-size: 20px; }
+.card.locked { cursor: default; }
 .card .meta { color: var(--muted); font-size: 14px; }
 
 .auth-page {
@@ -145,7 +162,15 @@ textarea { min-height: 120px; resize: vertical; }
   border-radius: 999px;
   padding: 8px 14px;
 }
-.chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.chip.on { border-color: var(--accent); background: var(--accent-soft); }
+.tz-select {
+  width: auto;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
 .page table {
   width: 100%;
   border-collapse: collapse;

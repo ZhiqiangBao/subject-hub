@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import random
 import subprocess
+from datetime import datetime
 
 from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
 from sqlalchemy import select
@@ -12,18 +13,50 @@ from ..config import DEFAULT_LLM_BASE_URL, ROOT, SKILL_PATH, llm_configured, llm
 from ..constants import DIFFICULTIES, GRADE_LABELS, OBJECTIVE_TYPES, PAPER_SECTIONS, SUBJECTS, TYPES, grade_label
 from ..db import get_db
 from ..deps import get_admin_user, hash_password
-from ..models import ChallengeRun, ItemAnswer, Paper, PaperAttempt, User
-from ..schemas import AssembleIn, GradeIn, ItemEditIn, LlmSettingsIn, PasteIn, PlainItemIn, StudentIn
+from ..models import ChallengeRun, ItemAnswer, Paper, PaperAttempt, PaperAudience, StudentGroup, User
+from ..schemas import AssembleIn, GradeIn, GroupIn, ItemEditIn, LlmSettingsIn, MemberIn, PaperWindowIn, PasteIn, PlainItemIn, StudentIn, StudentPatchIn
 from ..services.access import sees_subject, scoped_subjects
-from ..services.answers import score_context
+from ..services.answers import (
+    effective_comment,
+    effective_score,
+    grade_paper_attempts,
+    paper_can_release_scores,
+    paper_ungraded_count,
+    score_context,
+    scores_visible_for_paper,
+    settle_closed_groups,
+    submit_item,
+)
 from ..services.bank import BankError, bank
 from ..services.ingest import item_from_editor, items_from_text, items_from_zip, plain_item, save_item
 from ..services.paper_layout import fill_heading, section_spec
-from ..services.llm import enqueue, grade_part_llm, list_remote_models, ping_llm, start_worker
+from ..services.llm import enqueue, list_remote_models, ping_llm, start_worker
 from ..services.grade import load_value
 from ..services.review import review_challenge, review_paper
 from ..services.scores import scores_by_tag
-from ..services.timing import paper_ranking, timing_fields
+from ..services.groups import (
+    add_membership,
+    audience_payload,
+    group_row,
+    group_students,
+    list_groups,
+    require_group,
+    remove_membership,
+    roster_for_paper,
+    set_memberships,
+    student_public,
+    teacher_label,
+    ungrouped_count,
+)
+from ..services.timing import (
+    paper_can_start_grade,
+    paper_expired,
+    paper_ranking,
+    paper_scripts,
+    paper_window,
+    timing_fields,
+    utc_naive,
+)
 
 router = APIRouter(prefix="/api/parent", tags=["parent"])
 
@@ -93,16 +126,19 @@ def progress(user: User = Depends(get_admin_user), db: Session = Depends(get_db)
             if not sees_subject(user, paper.subject):
                 continue
             slugs = json.loads(paper.slugs_json)
-            ctx = score_context(db, student.id, "paper", attempt.id, slugs)
-            score += float(ctx["score"])
-            maximum += float(ctx["max_score"])
-            pending += int(ctx["pending"])
+            visible = scores_visible_for_paper(paper)
+            ctx = score_context(db, student.id, "paper", attempt.id, slugs) if visible else {"score": 0, "max_score": 0, "pending": 0}
+            if visible:
+                score += float(ctx["score"])
+                maximum += float(ctx["max_score"])
+                pending += int(ctx["pending"])
             paper_rows.append(
                 {
                     "id": attempt.id,
                     "paper_id": paper.id,
                     "title": paper.title,
                     "status": attempt.status,
+                    "scores_released": visible,
                     **ctx,
                 }
             )
@@ -110,9 +146,11 @@ def progress(user: User = Depends(get_admin_user), db: Session = Depends(get_db)
             {
                 "id": student.id,
                 "username": student.username,
-                "display_name": student.display_name or student.username,
+                "display_name": teacher_label(student),
                 "grade": student.grade,
                 "grade_name": grade_label(student.grade),
+                "group_label": student_public(student)["group_label"],
+                "class_label": student_public(student)["class_label"],
                 "score": round(score, 2),
                 "max_score": round(maximum, 2),
                 "pending": pending,
@@ -150,8 +188,116 @@ def scores_tagged(
     return data
 
 
+@router.get("/groups")
+def get_groups(_user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    return {"groups": list_groups(db), "ungrouped": ungrouped_count(db)}
+
+
+@router.post("/groups")
+def add_group(body: GroupIn, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    name = body.name.strip()
+    if not name:
+        raise HTTPException(400, "请写分组名字")
+    kind = body.kind if body.kind in {"class", "group"} else "group"
+    parent = None
+    grade = body.grade
+    if kind == "class":
+        if not grade:
+            raise HTTPException(400, "班级要选年级")
+        exists = db.scalar(
+            select(StudentGroup).where(
+                StudentGroup.kind == "class", StudentGroup.grade == grade, StudentGroup.name == name
+            )
+        )
+        if exists:
+            raise HTTPException(409, "这个年级已经有这个班了")
+        parent_id = None
+    else:
+        parent_id = body.parent_id
+        if parent_id:
+            parent = require_group(db, parent_id)
+            if parent.kind != "class":
+                raise HTTPException(400, "班内分组请挂在班级下面")
+            grade = parent.grade
+            exists = db.scalar(
+                select(StudentGroup).where(StudentGroup.parent_id == parent.id, StudentGroup.name == name)
+            )
+            if exists:
+                raise HTTPException(409, "这个班里已经有这个分组了")
+        else:
+            exists = db.scalar(
+                select(StudentGroup).where(
+                    StudentGroup.kind == "group",
+                    StudentGroup.parent_id.is_(None),
+                    StudentGroup.name == name,
+                )
+            )
+            if exists:
+                raise HTTPException(409, "已经有这个分组了")
+    group = StudentGroup(name=name, kind=kind, grade=grade, parent_id=parent_id, created_by=user.id)
+    db.add(group)
+    db.commit()
+    db.refresh(group)
+    return group_row(db, group)
+
+
+@router.get("/groups/ungrouped")
+def get_ungrouped(_user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    students = [student_public(u) for u in group_students(db, None)]
+    return {
+        "group": {
+            "id": 0,
+            "name": "未分组",
+            "label": "未分组",
+            "grade": None,
+            "grade_name": "",
+            "count": len(students),
+        },
+        "students": students,
+        "ungrouped": True,
+    }
+
+
+@router.get("/groups/{group_id}")
+def get_group(group_id: int, _user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    group = db.get(StudentGroup, group_id)
+    if not group:
+        raise HTTPException(404, "找不到这个分组")
+    students = [student_public(u) for u in group_students(db, group.id)]
+    row = group_row(db, group)
+    row["count"] = len(students)
+    return {"group": row, "students": students, "ungrouped": False}
+
+
+@router.post("/groups/{group_id}/members")
+def add_group_member(
+    group_id: int, body: MemberIn, _user: User = Depends(get_admin_user), db: Session = Depends(get_db)
+) -> dict:
+    group = require_group(db, group_id)
+    student = db.get(User, body.student_id)
+    if not student or student.role != "student":
+        raise HTTPException(404, "找不到这个学生")
+    add_membership(db, student, group)
+    db.commit()
+    return get_group(group_id, _user, db)
+
+
+@router.delete("/groups/{group_id}/members/{student_id}")
+def remove_group_member(
+    group_id: int, student_id: int, _user: User = Depends(get_admin_user), db: Session = Depends(get_db)
+) -> dict:
+    require_group(db, group_id)
+    student = db.get(User, student_id)
+    if not student or student.role != "student":
+        raise HTTPException(404, "找不到这个学生")
+    group = require_group(db, group_id)
+    remove_membership(db, student, group)
+    db.commit()
+    return get_group(group_id, _user, db)
+
+
 @router.post("/students")
-def add_student(body: StudentIn, _user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+def add_student(body: StudentIn, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
     exists = db.scalar(select(User).where(User.username == body.username.strip()))
     if exists:
         raise HTTPException(409, "这个名字已经有人用了")
@@ -161,27 +307,34 @@ def add_student(body: StudentIn, _user: User = Depends(get_admin_user), db: Sess
         role="student",
         grade=body.grade,
         display_name=(body.display_name or body.username).strip(),
+        created_by=user.id,
     )
     db.add(student)
+    db.flush()
+    set_memberships(db, student, body.group_ids or [], body.grade)
     db.commit()
-    return {"ok": True, "id": student.id}
+    db.refresh(student)
+    return {"ok": True, "id": student.id, "student": student_public(student)}
+
+
+@router.put("/students/{student_id}")
+def update_student(
+    student_id: int, body: StudentPatchIn, _user: User = Depends(get_admin_user), db: Session = Depends(get_db)
+) -> dict:
+    student = db.get(User, student_id)
+    if not student or student.role != "student":
+        raise HTTPException(404, "找不到这个学生")
+    student.display_name = (body.display_name or "").strip() or student.username
+    set_memberships(db, student, body.group_ids, body.grade)
+    db.commit()
+    db.refresh(student)
+    return student_public(student)
 
 
 @router.get("/students")
 def list_students(_user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
     rows = db.scalars(select(User).where(User.role == "student").order_by(User.id)).all()
-    return {
-        "students": [
-            {
-                "id": u.id,
-                "username": u.username,
-                "display_name": u.display_name or u.username,
-                "grade": u.grade,
-                "grade_name": grade_label(u.grade),
-            }
-            for u in rows
-        ]
-    }
+    return {"students": [student_public(u) for u in rows]}
 
 
 @router.get("/students/{student_id}/work")
@@ -216,24 +369,23 @@ def student_work(student_id: int, user: User = Depends(get_admin_user), db: Sess
         if not sees_subject(user, paper.subject):
             continue
         slugs = json.loads(paper.slugs_json)
-        papers.append(
-            {
-                "id": attempt.id,
-                "kind": "paper",
-                "paper_id": paper.id,
-                "title": paper.title,
-                "status": "已交卷" if attempt.status == "submitted" else "未交卷",
-                "total": len(slugs),
-                **score_context(db, student.id, "paper", attempt.id, slugs),
-            }
-        )
+        visible = scores_visible_for_paper(paper)
+        row = {
+            "id": attempt.id,
+            "kind": "paper",
+            "paper_id": paper.id,
+            "title": paper.title,
+            "scores_released": visible,
+            "status": "缺考" if attempt.status == "absent" else "已交卷" if attempt.status == "submitted" else "未交卷",
+            "total": len(slugs),
+        }
+        if visible:
+            row.update(score_context(db, student.id, "paper", attempt.id, slugs))
+        else:
+            row.update({"score": None, "max_score": None, "pending": 0})
+        papers.append(row)
     return {
-        "student": {
-            "id": student.id,
-            "username": student.username,
-            "display_name": student.display_name or student.username,
-            "grade_name": grade_label(student.grade),
-        },
+        "student": student_public(student),
         "challenges": challenges,
         "papers": papers,
     }
@@ -257,9 +409,26 @@ def review_attempt(attempt_id: int, user: User = Depends(get_admin_user), db: Se
     if not attempt:
         raise HTTPException(404, "找不到这份试卷")
     _need_subject(user, attempt.paper.subject)
-    data = review_paper(db, attempt_id)
+    data = review_paper(db, attempt_id, named=False)
     if not data:
         raise HTTPException(404, "找不到这份试卷")
+    return data
+
+
+@router.get("/students/{student_id}/work/paper/{attempt_id}")
+def student_paper_review(
+    student_id: int, attempt_id: int, user: User = Depends(get_admin_user), db: Session = Depends(get_db)
+) -> dict:
+    student = db.get(User, student_id)
+    attempt = db.get(PaperAttempt, attempt_id)
+    if not student or student.role != "student" or not attempt or attempt.user_id != student.id:
+        raise HTTPException(404, "找不到这次作答")
+    _need_subject(user, attempt.paper.subject)
+    if not scores_visible_for_paper(attempt.paper):
+        raise HTTPException(403, "成绩还没发布，不能从学生页看这次作答。改判请去测验。")
+    data = review_paper(db, attempt_id, named=True)
+    if not data:
+        raise HTTPException(404, "找不到这次作答")
     return data
 
 
@@ -343,6 +512,7 @@ def assemble(body: AssembleIn, user: User = Depends(get_admin_user), db: Session
         "kind": paper.kind,
         "count": len(chosen),
         "duration_minutes": duration,
+        "released": False,
         "items": [i.summary() for i in chosen],
         "sections": section_rows,
     }
@@ -357,6 +527,9 @@ def list_papers(user: User = Depends(get_admin_user), db: Session = Depends(get_
             continue
         ranking = paper_ranking(db, paper)
         pending = sum(int(r["pending"]) for r in ranking)
+        ungraded = paper_ungraded_count(db, paper)
+        roster = roster_for_paper(db, paper)
+        joined = len(roster) if paper.audiences else len(paper.attempts)
         out.append(
             {
                 "id": paper.id,
@@ -365,9 +538,13 @@ def list_papers(user: User = Depends(get_admin_user), db: Session = Depends(get_
                 "subject_name": SUBJECTS.get(paper.subject, paper.subject),
                 "kind": paper.kind,
                 "count": len(json.loads(paper.slugs_json)),
-                "joined": len(paper.attempts),
+                "joined": joined,
                 "submitted": sum(1 for r in ranking if r["submitted"]),
                 "pending": pending,
+                "ungraded": ungraded,
+                "can_release_scores": paper_can_release_scores(db, paper),
+                "scripts": len(paper.attempts),
+                "audiences": audience_payload(paper),
                 **timing_fields(paper),
             }
         )
@@ -380,7 +557,10 @@ def paper_detail(paper_id: int, user: User = Depends(get_admin_user), db: Sessio
     if not paper:
         raise HTTPException(404, "找不到这份试卷")
     _need_subject(user, paper.subject)
-    ranking = paper_ranking(db, paper)
+    scripts = paper_scripts(db, paper)
+    ranking = [row for row in scripts if row["complete"]]
+    ungraded = paper_ungraded_count(db, paper)
+    roster = roster_for_paper(db, paper)
     return {
         "id": paper.id,
         "title": paper.title,
@@ -388,10 +568,135 @@ def paper_detail(paper_id: int, user: User = Depends(get_admin_user), db: Sessio
         "subject_name": SUBJECTS.get(paper.subject, paper.subject),
         "kind": paper.kind,
         "count": len(json.loads(paper.slugs_json)),
+        "scripts": scripts,
         "ranking": ranking,
-        "students": ranking,
+        "ungraded": ungraded,
+        "can_release_scores": paper_can_release_scores(db, paper),
+        "audiences": audience_payload(paper),
+        "joined": len(roster) if paper.audiences else len(paper.attempts),
         **timing_fields(paper),
     }
+
+
+def _apply_window(paper: Paper, body: PaperWindowIn) -> None:
+    opens = utc_naive(body.opens_at)
+    closes = utc_naive(body.closes_at)
+    if closes <= opens:
+        raise HTTPException(400, "结束时间必须晚于开始时间")
+    paper.opens_at = opens
+    paper.closes_at = closes
+    paper.duration_minutes = max(1, int((closes - opens).total_seconds() // 60))
+
+
+def _apply_audiences(db: Session, paper: Paper, body: PaperWindowIn) -> None:
+    specs = body.audiences or []
+    if not specs:
+        raise HTTPException(400, "请至少选一个分组作为测验对象。")
+    seen: set[int] = set()
+    wanted: list[tuple[int, datetime | None, datetime | None]] = []
+    for spec in specs:
+        if spec.group_id in seen:
+            continue
+        seen.add(spec.group_id)
+        require_group(db, spec.group_id)
+        opens = utc_naive(spec.opens_at) if spec.opens_at else None
+        closes = utc_naive(spec.closes_at) if spec.closes_at else None
+        if (opens is None) != (closes is None):
+            raise HTTPException(400, "分组单独时间要同时写开始和结束")
+        if opens and closes and closes <= opens:
+            raise HTTPException(400, "分组结束时间必须晚于开始时间")
+        wanted.append((spec.group_id, opens, closes))
+    existing = {row.group_id: row for row in list(paper.audiences or [])}
+    keep = {gid for gid, _, _ in wanted}
+    for gid, opens, closes in wanted:
+        row = existing.get(gid)
+        if row:
+            row.opens_at = opens
+            row.closes_at = closes
+        else:
+            db.add(PaperAudience(paper_id=paper.id, group_id=gid, opens_at=opens, closes_at=closes))
+    for gid, row in existing.items():
+        if gid not in keep:
+            db.delete(row)
+
+
+@router.post("/papers/{paper_id}/release")
+def release_paper(
+    paper_id: int,
+    body: PaperWindowIn,
+    user: User = Depends(get_admin_user),
+    db: Session = Depends(get_db),
+) -> dict:
+    paper = db.get(Paper, paper_id)
+    if not paper:
+        raise HTTPException(404, "找不到这份试卷")
+    _need_subject(user, paper.subject)
+    if paper.released_at:
+        raise HTTPException(400, "已经发布了")
+    _apply_window(paper, body)
+    _apply_audiences(db, paper, body)
+    paper.released_at = datetime.utcnow()
+    db.commit()
+    return paper_detail(paper_id, user, db)
+
+
+@router.post("/papers/{paper_id}/window")
+def set_paper_window(
+    paper_id: int,
+    body: PaperWindowIn,
+    user: User = Depends(get_admin_user),
+    db: Session = Depends(get_db),
+) -> dict:
+    paper = db.get(Paper, paper_id)
+    if not paper:
+        raise HTTPException(404, "找不到这份试卷")
+    _need_subject(user, paper.subject)
+    if not paper.released_at:
+        raise HTTPException(400, "请先发布试卷")
+    if paper.grading_started_at:
+        raise HTTPException(400, "已经开始评分，不能再改时间")
+    if paper_window(paper) == "closed":
+        raise HTTPException(400, "答题已经截止")
+    if paper_window(paper) == "open" and utc_naive(body.opens_at) > datetime.utcnow():
+        raise HTTPException(400, "已经开考，不能把开始时间改到以后")
+    _apply_window(paper, body)
+    _apply_audiences(db, paper, body)
+    db.commit()
+    return paper_detail(paper_id, user, db)
+
+
+@router.post("/papers/{paper_id}/start-grade")
+def start_grade(paper_id: int, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    paper = db.get(Paper, paper_id)
+    if not paper:
+        raise HTTPException(404, "找不到这份试卷")
+    _need_subject(user, paper.subject)
+    if not paper_can_start_grade(paper):
+        raise HTTPException(400, "答题还没截止，不能开始评分")
+    settle_closed_groups(db, paper)
+    if not paper.grading_started_at:
+        paper.grading_started_at = datetime.utcnow()
+    n = grade_paper_attempts(db, paper)
+    db.commit()
+    out = paper_detail(paper_id, user, db)
+    out["graded_items"] = n
+    return out
+
+
+@router.post("/papers/{paper_id}/release-scores")
+def release_scores(paper_id: int, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    paper = db.get(Paper, paper_id)
+    if not paper:
+        raise HTTPException(404, "找不到这份试卷")
+    _need_subject(user, paper.subject)
+    if not paper.grading_started_at:
+        raise HTTPException(400, "请先开始评分")
+    ungraded = paper_ungraded_count(db, paper)
+    if ungraded:
+        raise HTTPException(400, f"还有 {ungraded} 问没出分（含模型排队），出齐才能发布成绩")
+    paper.scores_released_at = datetime.utcnow()
+    db.commit()
+    return paper_detail(paper_id, user, db)
 
 
 @router.get("/items")
@@ -495,7 +800,16 @@ async def ingest_file(file: UploadFile = File(...), user: User = Depends(get_adm
 @router.post("/items/plain")
 def add_plain(body: PlainItemIn, user: User = Depends(get_admin_user)) -> dict:
     _need_subject(user, body.subject)
-    item = plain_item(body.subject, body.type, body.stem, body.answer, body.grade, body.difficulty, body.title)
+    item = plain_item(
+        body.subject,
+        body.type,
+        body.stem,
+        body.answer,
+        body.grade,
+        body.difficulty,
+        body.title,
+        body.tags,
+    )
     save_item(item)
     bank.reload()
     return {"ok": True, "title": item.title}
@@ -525,16 +839,21 @@ def get_answer(answer_id: int, user: User = Depends(get_admin_user), db: Session
     student = db.get(User, row.user_id)
     return {
         "id": row.id,
-        "student": student.display_name if student else "",
+        "student": teacher_label(student),
         "title": item.title,
         "stem": part.stem,
         "left_md": item.left_md,
         "value": load_value(row.value_json),
         "photos": json.loads(row.photos_json or "[]"),
         "status": row.status,
-        "score": row.override_score if row.status == "overridden" else row.score,
+        "score": effective_score(row),
+        "llm_score": row.score,
+        "admin_score": row.override_score,
         "max_score": row.max_score,
-        "comment": row.override_comment or row.llm_comment,
+        "comment": effective_comment(row),
+        "llm_comment": row.llm_comment,
+        "admin_comment": row.override_comment,
+        "admin_touched": row.override_score is not None,
         "rubric": part.rubric,
         "reference": part.reference,
     }
@@ -555,16 +874,22 @@ def queue(user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -
             continue
         if item and not sees_subject(user, item.subject):
             continue
+        if row.context_type == "paper":
+            attempt = db.get(PaperAttempt, row.context_id)
+            if not scores_visible_for_paper(attempt.paper if attempt else None):
+                continue
         student = db.get(User, row.user_id)
         out.append(
             {
                 "id": row.id,
-                "student": (student.display_name or student.username) if student else "",
+                "student": teacher_label(student),
                 "student_id": row.user_id,
                 "title": item.title if item else row.item_slug,
                 "status": row.status,
                 "status_label": {"pending": "待评分", "graded": "已评分", "overridden": "已改判"}.get(row.status, row.status),
-                "score": row.override_score if row.status == "overridden" else row.score,
+                "score": effective_score(row),
+                "llm_score": row.score,
+                "admin_score": row.override_score,
                 "max_score": row.max_score,
                 "kind": row.context_type,
                 "context_id": row.context_id,
@@ -581,25 +906,36 @@ def grade(body: GradeIn, user: User = Depends(get_admin_user), db: Session = Dep
     item = bank.get(row.item_slug)
     _need_subject(user, item.subject)
     if body.regrade:
-        part = next(p for p in item.parts if p.id == row.part_id)
         photos = json.loads(row.photos_json or "[]")
-        result = grade_part_llm(item, part, str(load_value(row.value_json) or ""), photos)
-        if result:
-            row.score = float(result["total"])
-            row.llm_json = json.dumps(result, ensure_ascii=False)
-            row.llm_comment = result.get("comment")
-            row.status = "graded"
-        else:
-            enqueue(row.id, row.item_slug, row.part_id, photos)
+        row.score = None
+        row.llm_json = None
+        row.llm_comment = None
+        if row.override_score is None:
             row.status = "pending"
+            row.graded_at = None
         db.commit()
-        return {"ok": True, "status": row.status, "score": row.score}
+        enqueue(row.id, row.item_slug, row.part_id, photos)
+        return {
+            "ok": True,
+            "status": row.status,
+            "score": effective_score(row),
+            "llm_score": None,
+            "admin_score": row.override_score,
+            "comment": effective_comment(row),
+            "llm_comment": None,
+        }
     row.override_score = float(body.score)
     row.override_comment = body.comment
     row.override_by = user.id
     row.status = "overridden"
     db.commit()
-    return {"ok": True, "score": row.override_score}
+    return {
+        "ok": True,
+        "score": row.override_score,
+        "llm_score": row.score,
+        "admin_score": row.override_score,
+        "comment": row.override_comment,
+    }
 
 
 @router.post("/grade/retry-pending")

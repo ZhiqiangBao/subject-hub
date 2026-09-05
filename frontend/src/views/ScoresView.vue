@@ -21,7 +21,7 @@
           <td>{{ r.kind }}</td>
           <td><router-link :to="r.href">{{ r.title }}</router-link></td>
           <td>{{ r.status }}</td>
-          <td>{{ r.score }} / {{ r.max_score }}<span v-if="r.pending">（待评 {{ r.pending }}）</span></td>
+          <td>{{ r.score == null ? "—" : `${r.score} / ${r.max_score}` }}<span v-if="r.pending">（待评 {{ r.pending }}）</span></td>
         </tr>
       </tbody>
     </table>
@@ -40,7 +40,7 @@ type Row = {
   title: string;
   status: string;
   href: string;
-  score: number;
+  score: number | null;
   max_score: number;
   pending: number;
 };

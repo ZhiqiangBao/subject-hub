@@ -13,9 +13,9 @@ from ..db import get_db
 from ..deps import get_current_user
 from ..models import ChallengeRun, Paper, PaperAttempt, User
 from ..schemas import ChallengeStartIn, DraftIn
-from ..services.answers import item_state, save_draft, score_context, submit_item
+from ..services.answers import item_state, save_draft, score_context, scores_visible_for_paper, submit_item
 from ..services.bank import BankError, bank
-from ..services.timing import timing_fields
+from ..services.timing import audience_for_user, paper_released, paper_visible_to, timing_fields
 
 router = APIRouter(prefix="/api", tags=["student"])
 
@@ -36,6 +36,10 @@ def home(user: User = Depends(get_current_user), db: Session = Depends(get_db)) 
     papers = db.scalars(select(Paper).order_by(Paper.id.desc())).all()
     paper_out = []
     for paper in papers:
+        if not paper_released(paper):
+            continue
+        if not paper_visible_to(paper, user):
+            continue
         attempt = db.scalar(
             select(PaperAttempt).where(PaperAttempt.paper_id == paper.id, PaperAttempt.user_id == user.id)
         )
@@ -48,7 +52,7 @@ def home(user: User = Depends(get_current_user), db: Session = Depends(get_db)) 
                 "kind": paper.kind,
                 "status": attempt.status if attempt else "未开始",
                 "attempt_id": attempt.id if attempt else None,
-                **timing_fields(paper),
+                **timing_fields(paper, audience_for_user(paper, user)),
             }
         )
     return {
@@ -57,7 +61,6 @@ def home(user: User = Depends(get_current_user), db: Session = Depends(get_db)) 
             "username": user.username,
             "role": user.role,
             "grade": user.grade,
-            "display_name": user.display_name or user.username,
         },
         "subjects": subjects,
         "grades": [{"id": k, "name": v} for k, v in GRADE_LABELS.items()],
@@ -100,14 +103,20 @@ def my_scores(user: User = Depends(get_current_user), db: Session = Depends(get_
     for attempt in attempts:
         paper = attempt.paper
         slugs = json.loads(paper.slugs_json)
+        ctx = score_context(db, user.id, "paper", attempt.id, slugs)
+        visible = scores_visible_for_paper(paper)
+        status = "已交卷" if attempt.status == "submitted" else "未交卷"
+        if attempt.status == "submitted" and not visible:
+            status = "已交卷，成绩未公布"
+            ctx = {**ctx, "score": None, "pending": 0}
         papers.append(
             {
                 "id": attempt.id,
                 "kind": "试卷",
                 "title": paper.title,
-                "status": "已交卷" if attempt.status == "submitted" else "未交卷",
+                "status": status,
                 "href": f"/paper/{attempt.id}",
-                **score_context(db, user.id, "paper", attempt.id, slugs),
+                **ctx,
             }
         )
     return {"challenges": challenges, "papers": papers}

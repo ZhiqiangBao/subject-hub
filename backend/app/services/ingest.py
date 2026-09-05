@@ -245,7 +245,16 @@ def item_from_editor(slug: str, subject: str, itype: str, payload: dict[str, Any
 CHOICE_LINE = re.compile(r"^([A-D])[\.．、]\s*(.+)$", re.I | re.M)
 
 
-def plain_item(subject: str, itype: str, stem: str, answer: str, grade: int | None, difficulty: str, title: str) -> Item:
+def plain_item(
+    subject: str,
+    itype: str,
+    stem: str,
+    answer: str,
+    grade: int | None,
+    difficulty: str,
+    title: str,
+    tags: list[str] | None = None,
+) -> Item:
     if subject not in SUBJECTS:
         subject = "chinese"
     if itype not in OBJECTIVE_TYPES and itype not in {"short", "essay"}:
@@ -266,6 +275,7 @@ def plain_item(subject: str, itype: str, stem: str, answer: str, grade: int | No
         "grade": grade or 7,
         "difficulty": difficulty or "medium",
         "type": itype,
+        "tags": [str(t).strip() for t in (tags or []) if str(t).strip()],
         "points": points,
         "stem": stem.strip(),
     }

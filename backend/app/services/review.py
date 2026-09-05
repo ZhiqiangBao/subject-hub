@@ -10,6 +10,7 @@ from ..constants import OBJECTIVE_TYPES, SUBJECTS, TYPES
 from ..models import ChallengeRun, ItemAnswer, PaperAttempt, User
 from .bank import BankError, bank
 from .grade import load_value
+from .groups import teacher_label
 
 
 def _status_label(status: str) -> str:
@@ -42,17 +43,14 @@ def _part_review(db: Session, user_id: int, context_type: str, context_id: int, 
         )
     )
     status = row.status if row else "draft"
-    effective = None
-    if row and status == "overridden":
-        effective = row.override_score
-    elif row and status == "graded":
-        effective = row.score
     photos = []
     if row and row.photos_json:
         try:
             photos = json.loads(row.photos_json)
         except json.JSONDecodeError:
             photos = []
+    from .answers import effective_comment, effective_score
+
     return {
         "answer_id": row.id if row else None,
         "part_id": part.id,
@@ -65,10 +63,15 @@ def _part_review(db: Session, user_id: int, context_type: str, context_id: int, 
         "photos": photos,
         "status": status,
         "status_label": _status_label(status),
-        "score": effective,
+        "score": effective_score(row),
+        "llm_score": row.score if row else None,
+        "admin_score": row.override_score if row else None,
         "raw_score": row.score if row else None,
         "max_score": part.points,
-        "comment": (row.override_comment or row.llm_comment) if row else None,
+        "comment": effective_comment(row),
+        "llm_comment": row.llm_comment if row else None,
+        "admin_comment": row.override_comment if row else None,
+        "admin_touched": bool(row and row.override_score is not None),
         "reference": part.reference,
         "rubric": part.rubric,
         "choices": [{"id": c["id"], "text": c["text"]} for c in (part.choices or [])],
@@ -121,8 +124,10 @@ def review_challenge(db: Session, run_id: int) -> dict[str, Any]:
         "id": run.id,
         "title": f"闯关 · {SUBJECTS.get(run.subject, run.subject)}",
         "status": "进行中" if run.status == "active" else "已完成",
+        "anonymous": False,
+        "can_grade": True,
         "student_id": run.user_id,
-        "student": (student.display_name or student.username) if student else "",
+        "student": teacher_label(student),
         "items": items,
         "score": round(sum(i["score"] for i in items), 2),
         "max_score": round(sum(i["max_score"] for i in items), 2),
@@ -130,21 +135,24 @@ def review_challenge(db: Session, run_id: int) -> dict[str, Any]:
     }
 
 
-def review_paper(db: Session, attempt_id: int) -> dict[str, Any]:
+def review_paper(db: Session, attempt_id: int, *, named: bool = False) -> dict[str, Any]:
     attempt = db.get(PaperAttempt, attempt_id)
     if not attempt:
         return {}
     paper = attempt.paper
-    student = db.get(User, attempt.user_id)
     slugs = json.loads(paper.slugs_json)
     items = [_item_review(db, attempt.user_id, "paper", attempt.id, slug, i) for i, slug in enumerate(slugs)]
+    student = db.get(User, attempt.user_id) if named else None
     return {
         "kind": "paper",
         "id": attempt.id,
+        "paper_id": paper.id if paper else None,
         "title": paper.title if paper else "试卷",
         "status": "已交卷" if attempt.status == "submitted" else "未交卷",
-        "student_id": attempt.user_id,
-        "student": (student.display_name or student.username) if student else "",
+        "anonymous": not named,
+        "can_grade": not named,
+        "student_id": attempt.user_id if named else None,
+        "student": teacher_label(student),
         "items": items,
         "score": round(sum(i["score"] for i in items), 2),
         "max_score": round(sum(i["max_score"] for i in items), 2),

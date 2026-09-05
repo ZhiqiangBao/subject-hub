@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime
 from typing import Any
 
 from pydantic import BaseModel, Field
@@ -28,8 +29,38 @@ class UserOut(BaseModel):
 class StudentIn(BaseModel):
     username: str = Field(min_length=1, max_length=32)
     password: str = Field(min_length=1, max_length=64)
-    grade: int = Field(ge=1, le=12)
+    grade: int | None = Field(default=None, ge=1, le=12)
     display_name: str = Field(default="", max_length=64)
+    group_ids: list[int] = Field(default_factory=list)
+
+
+class StudentPatchIn(BaseModel):
+    display_name: str = Field(default="", max_length=64)
+    grade: int | None = Field(default=None, ge=1, le=12)
+    group_ids: list[int] | None = None
+
+
+class GroupIn(BaseModel):
+    name: str = Field(min_length=1, max_length=64)
+    kind: str = "group"
+    grade: int | None = Field(default=None, ge=1, le=12)
+    parent_id: int | None = None
+
+
+class MemberIn(BaseModel):
+    student_id: int
+
+
+class PaperAudienceIn(BaseModel):
+    group_id: int
+    opens_at: datetime | None = None
+    closes_at: datetime | None = None
+
+
+class PaperWindowIn(BaseModel):
+    opens_at: datetime
+    closes_at: datetime
+    audiences: list[PaperAudienceIn] = Field(default_factory=list)
 
 
 class ChallengeStartIn(BaseModel):
@@ -74,11 +105,12 @@ class PlainItemIn(BaseModel):
     grade: int | None = None
     difficulty: str = "medium"
     title: str = ""
+    tags: list[str] = Field(default_factory=list)
 
 
 class GradeIn(BaseModel):
     answer_id: int
-    score: float
+    score: float = 0
     comment: str = ""
     regrade: bool = False
 

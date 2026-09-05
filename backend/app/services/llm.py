@@ -17,25 +17,198 @@ from .bank import Item, Part
 
 _work: queue.Queue[tuple[int, str, str, list[str]]] = queue.Queue()
 _started = False
+LLM_FAIL_PREFIX = "模型这次没评上："
+_GRADE_TIMEOUT = 180.0
+_PING_TIMEOUT = 45.0
+
+
+def _strip_think(text: str) -> str:
+    text = text or ""
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.S | re.I)
+    if re.search(r"</think>", text, flags=re.I):
+        text = re.split(r"</think>", text, flags=re.I)[-1]
+    text = re.sub(r"<think>.*", "", text, flags=re.S | re.I)
+    return text.strip()
+
+
+def _json_blobs(text: str) -> list[str]:
+    text = (text or "").strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?", "", text, flags=re.I).strip()
+        text = re.sub(r"```\s*$", "", text).strip()
+    blobs: list[str] = []
+    i = 0
+    n = len(text)
+    while i < n:
+        start = text.find("{", i)
+        if start < 0:
+            break
+        depth = 0
+        in_str = False
+        esc = False
+        end = -1
+        for j in range(start, n):
+            ch = text[j]
+            if in_str:
+                if esc:
+                    esc = False
+                elif ch == "\\":
+                    esc = True
+                elif ch == '"':
+                    in_str = False
+                continue
+            if ch == '"':
+                in_str = True
+            elif ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    end = j
+                    break
+        if end < 0:
+            break
+        blobs.append(text[start : end + 1])
+        i = end + 1
+    return blobs
+
+
+def _loads_loose(raw: str) -> dict[str, Any] | None:
+    candidates = [raw, re.sub(r",\s*([}\]])", r"\1", raw)]
+    for blob in candidates:
+        try:
+            data = json.loads(blob)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(data, dict):
+            return data
+        if isinstance(data, list) and data and all(isinstance(x, dict) for x in data):
+            return {"items": data}
+    return None
 
 
 def _extract_json(text: str) -> dict[str, Any] | None:
-    text = text.strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```(?:json)?", "", text).strip()
-        text = re.sub(r"```$", "", text).strip()
+    text = _strip_think(text)
+    direct = _loads_loose(text.strip())
+    if direct:
+        return direct
+    scored: list[tuple[int, dict[str, Any]]] = []
+    for blob in _json_blobs(text):
+        data = _loads_loose(blob)
+        if not data:
+            continue
+        keys = {str(k).lower() for k in data}
+        rank = 0
+        if "items" in keys or "分项" in keys:
+            rank += 4
+        if keys & {"total", "score", "总分", "分数"}:
+            rank += 3
+        if keys & {"comment", "评语"}:
+            rank += 1
+        scored.append((rank, data))
+    if not scored:
+        return None
+    scored.sort(key=lambda row: row[0], reverse=True)
+    return scored[0][1]
+
+
+def _as_float(value: Any) -> float | None:
+    if value is None or isinstance(value, bool):
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    text = str(value).strip().replace("，", ".").replace("分", "")
+    text = re.sub(r"[^\d.\-]+", "", text)
+    if not text or text in {".", "-", "-."}:
+        return None
     try:
-        data = json.loads(text)
-        return data if isinstance(data, dict) else None
-    except json.JSONDecodeError:
-        match = re.search(r"\{.*\}", text, re.S)
-        if not match:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def _pick(data: dict[str, Any], *names: str) -> Any:
+    lower = {str(k).lower(): v for k, v in data.items()}
+    for name in names:
+        if name in data:
+            return data[name]
+        if name.lower() in lower:
+            return lower[name.lower()]
+    return None
+
+
+def _coerce_grade(parsed: dict[str, Any], part: Part) -> dict[str, Any] | None:
+    rubric = list(part.rubric or [])
+    if not rubric:
+        rubric = [{"id": "total", "points": part.points, "require": ""}]
+    max_by_id = {str(row["id"]): float(row["points"]) for row in rubric}
+    raw_items = _pick(parsed, "items", "分项", "scores")
+    if isinstance(raw_items, dict):
+        raw_items = [{"id": k, **(v if isinstance(v, dict) else {"score": v})} for k, v in raw_items.items()]
+    if not isinstance(raw_items, list):
+        raw_items = []
+
+    cleaned: list[dict[str, Any]] = []
+    used: set[str] = set()
+    for index, row in enumerate(raw_items):
+        if not isinstance(row, dict):
+            continue
+        rid = str(_pick(row, "id", "item", "name", "要点") or "").strip()
+        if not rid or rid not in max_by_id or rid in used:
+            leftover = [str(r["id"]) for r in rubric if str(r["id"]) not in used]
+            if index < len(leftover):
+                rid = leftover[index]
+            elif leftover:
+                rid = leftover[0]
+            else:
+                continue
+        cap = max_by_id.get(rid, float(part.points))
+        score = _as_float(_pick(row, "score", "points", "分", "分数"))
+        if score is None:
+            continue
+        score = min(max(0.0, score), cap)
+        used.add(rid)
+        cleaned.append(
+            {
+                "id": rid,
+                "score": round(score, 2),
+                "reason": str(_pick(row, "reason", "comment", "评语", "说明") or ""),
+            }
+        )
+
+    claimed = _as_float(_pick(parsed, "total", "score", "总分", "分数"))
+    comment = str(_pick(parsed, "comment", "评语", "reason", "说明") or "")
+    if not cleaned:
+        if claimed is None:
             return None
-        try:
-            data = json.loads(match.group(0))
-            return data if isinstance(data, dict) else None
-        except json.JSONDecodeError:
-            return None
+        rid = str(rubric[0]["id"])
+        cap = max_by_id.get(rid, float(part.points))
+        score = min(max(0.0, claimed), cap, float(part.points))
+        cleaned = [{"id": rid, "score": round(score, 2), "reason": comment}]
+        claimed = score
+
+    total = round(sum(row["score"] for row in cleaned), 2)
+    if total > float(part.points) + 1e-6:
+        scale = float(part.points) / total if total else 1
+        for row in cleaned:
+            row["score"] = round(row["score"] * scale, 2)
+        total = round(sum(row["score"] for row in cleaned), 2)
+    if claimed is not None:
+        claimed = min(max(0.0, claimed), float(part.points))
+        if abs(claimed - total) > 0.05:
+            if not raw_items:
+                total = round(claimed, 2)
+                cleaned = [{"id": str(rubric[0]["id"]), "score": total, "reason": comment}]
+            # otherwise keep item sum; small models often mis-add
+    if not str(comment).strip():
+        comment = "；".join(
+            str(row.get("reason") or "").strip() for row in cleaned if str(row.get("reason") or "").strip()
+        )
+    return {
+        "items": cleaned,
+        "total": total,
+        "comment": str(comment).strip(),
+    }
 
 
 def _image_part(path: Path) -> dict[str, Any] | None:
@@ -50,11 +223,15 @@ def _messages(item: Item, part: Part, answer_text: str, photos: list[str], visio
     rubric_txt = "\n".join(
         f"- {row['id']}: 满分 {row['points']}。要求：{row['require']}" for row in part.rubric
     ) or f"- total: 满分 {part.points}。按参考答案酌情给分"
+    ids = ", ".join(str(row["id"]) for row in (part.rubric or [{"id": "total"}]))
     system = (
         "你是家庭作业评分助手。只评这一问的主观作答。"
-        "必须只输出一段 JSON，不要Markdown围栏以外的说明。"
-        '格式：{"items":[{"id":"...","score":0,"reason":"..."}],"total":0,"comment":"..."}。'
-        "total 必须等于 items 分数之和，每项不超过该条满分。不要提密钥。"
+        "不要输出思考过程，不要 Markdown 围栏，不要解释。"
+        "只输出一个 JSON 对象。"
+        f'格式：{{"items":[{{"id":"...","score":0,"reason":"..."}}],"total":0,"comment":"..."}}。'
+        f"items 的 id 必须是：{ids}。"
+        "total 必须等于 items 分数之和，每项不超过该条满分。"
+        "comment 是给学生看的评语，必须写一两句：对在哪里、扣在哪里。不要提密钥。"
     )
     text = (
         f"科目：{item.subject}\n题型：{part.type}\n"
@@ -151,14 +328,44 @@ def _thinking_variants(enable_thinking: bool, reasoning_effort: str = "") -> lis
     return [extras, {"enable_thinking": True}, {}]
 
 
+def _request_variants(enable_thinking: bool, reasoning_effort: str, want_json: bool) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for extra in _thinking_variants(enable_thinking, reasoning_effort):
+        options = [{**extra, "response_format": {"type": "json_object"}}, extra] if want_json else [extra]
+        for row in options:
+            key = json.dumps(row, sort_keys=True, ensure_ascii=False)
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append(row)
+    return out
+
+
 def _assistant_text(data: dict[str, Any]) -> str:
+    chunks: list[str] = []
+    msg: dict[str, Any] = {}
     try:
-        msg = data["choices"][0]["message"]
+        choice = data["choices"][0]
     except (KeyError, IndexError, TypeError):
-        return ""
-    text = str((msg or {}).get("content") or "")
-    text = re.sub(r"<think>.*?</think>", "", text, flags=re.S | re.I)
-    return text.strip()
+        choice = {}
+    if isinstance(choice, dict):
+        maybe_msg = choice.get("message")
+        if isinstance(maybe_msg, dict):
+            msg = maybe_msg
+        text = choice.get("text")
+        if text:
+            chunks.append(str(text))
+    if msg:
+        for key in ("content", "reasoning_content", "reasoning"):
+            value = msg.get(key)
+            if value:
+                chunks.append(str(value))
+    joined = "\n".join(chunks)
+    visible = _strip_think(str(msg.get("content") or ""))
+    if visible:
+        return visible
+    return _strip_think(joined)
 
 
 def _post_chat(
@@ -171,13 +378,14 @@ def _post_chat(
     temperature: float = 0,
     max_tokens: int | None = None,
     timeout: float = 60.0,
+    want_json: bool = False,
 ) -> dict[str, Any]:
     base: dict[str, Any] = {"model": model, "messages": messages, "temperature": temperature}
     if max_tokens is not None:
         base["max_tokens"] = max_tokens
     last_error: Exception | None = None
     with httpx.Client(timeout=timeout) as client:
-        for extra in _thinking_variants(enable_thinking, reasoning_effort):
+        for extra in _request_variants(enable_thinking, reasoning_effort, want_json):
             try:
                 resp = client.post(url, headers=headers, json={**base, **extra})
                 if resp.status_code == 400:
@@ -213,27 +421,30 @@ def ping_llm(
         url,
         _auth_headers(api_key),
         model,
-        [{"role": "user", "content": "只回复一个字：好"}],
+        [{"role": "user", "content": "只回复一个字：好。不要解释。"}],
         enable_thinking,
         reasoning_effort,
-        max_tokens=16,
+        max_tokens=64,
+        timeout=_PING_TIMEOUT,
     )
     text = _assistant_text(data)
     if not text:
-        raise ValueError("接口通了，但返回格式不是对话")
+        raw = json.dumps(data, ensure_ascii=False)[:240]
+        raise ValueError(f"接口通了，但回复空着。原始片段：{raw}")
     return text
 
 
-def grade_part_llm(item: Item, part: Part, answer_text: str, photos: list[str]) -> dict[str, Any] | None:
+def grade_part_attempt(item: Item, part: Part, answer_text: str, photos: list[str]) -> tuple[dict[str, Any] | None, str, bool]:
+    """Return (result, error, retryable)."""
     cfg = llm_settings()
     if not (cfg["base_url"] and cfg["model"]):
-        return None
+        return None, "还没有接上模型", False
     if not part.rubric and not part.reference:
-        return None
+        return None, "这问没有细则也没有参考答案，无法自动评", False
     url = cfg["base_url"].rstrip("/") + cfg["chat_path"]
     headers = _auth_headers(cfg["api_key"])
 
-    def call(vision: bool) -> dict[str, Any] | None:
+    def call(vision: bool) -> tuple[dict[str, Any] | None, str, bool]:
         try:
             data = _post_chat(
                 url,
@@ -242,56 +453,38 @@ def grade_part_llm(item: Item, part: Part, answer_text: str, photos: list[str]) 
                 _messages(item, part, answer_text, photos, vision),
                 cfg.get("enable_thinking") == "1",
                 cfg.get("reasoning_effort") or ("none" if cfg.get("enable_thinking") != "1" else ""),
+                max_tokens=1200,
+                timeout=_GRADE_TIMEOUT,
+                want_json=True,
             )
-        except Exception:
-            return None
+        except httpx.TimeoutException:
+            return None, "模型超时，可以再评一次", True
+        except Exception as exc:
+            return None, f"没连上模型：{exc}", True
         content = _assistant_text(data)
-        parsed = _extract_json(str(content or ""))
+        if not content:
+            return None, "模型回了空内容", True
+        parsed = _extract_json(content)
         if not parsed:
-            return None
-        items = parsed.get("items") or []
-        if not isinstance(items, list) or not items:
-            return None
-        total = 0.0
-        max_by_id = {row["id"]: float(row["points"]) for row in part.rubric}
-        if not max_by_id:
-            max_by_id = {"total": float(part.points)}
-        cleaned = []
-        for row in items:
-            if not isinstance(row, dict):
-                continue
-            rid = str(row.get("id") or "total")
-            cap = max_by_id.get(rid, part.points)
-            try:
-                score = float(row.get("score") or 0)
-            except (TypeError, ValueError):
-                return None
-            if score < 0 or score > cap + 1e-6:
-                return None
-            score = min(score, cap)
-            total += score
-            cleaned.append({"id": rid, "score": score, "reason": str(row.get("reason") or "")})
-        claimed = parsed.get("total")
-        try:
-            claimed_f = float(claimed)
-        except (TypeError, ValueError):
-            return None
-        if abs(claimed_f - total) > 0.05:
-            return None
-        if total > part.points + 1e-6:
-            return None
-        return {
-            "items": cleaned,
-            "total": round(total, 2),
-            "comment": str(parsed.get("comment") or ""),
-            "photos_used": bool(vision and photos),
-        }
+            snippet = re.sub(r"\s+", " ", content)[:180]
+            return None, f"模型没有给出能用的评分 JSON。回复片段：{snippet}", False
+        coerced = _coerce_grade(parsed, part)
+        if not coerced:
+            snippet = re.sub(r"\s+", " ", content)[:180]
+            return None, f"评分 JSON 对不上这一问。回复片段：{snippet}", False
+        coerced["photos_used"] = bool(vision and photos)
+        return coerced, "", False
 
-    result = call(vision=bool(photos))
+    result, err, retryable = call(vision=bool(photos))
     if result is None and photos:
-        result = call(vision=False)
+        result, err, retryable = call(vision=False)
         if result is not None:
             result["comment"] = (result.get("comment") or "") + "（图片未评）"
+    return result, err, retryable
+
+
+def grade_part_llm(item: Item, part: Part, answer_text: str, photos: list[str]) -> dict[str, Any] | None:
+    result, _err, _retry = grade_part_attempt(item, part, answer_text, photos)
     return result
 
 
@@ -311,36 +504,52 @@ def start_worker() -> None:
 
         while True:
             answer_id, slug, part_id, photos = _work.get()
+            db = None
             try:
                 db = SessionLocal()
                 row = db.get(ItemAnswer, answer_id)
-                if not row or row.status == "overridden":
-                    db.close()
+                if not row or row.status == "draft":
                     continue
                 try:
                     item = bank.get(slug)
                     part = next(p for p in item.parts if p.id == part_id)
                 except Exception:
-                    db.close()
+                    if row:
+                        row.llm_comment = LLM_FAIL_PREFIX + "找不到这道题"
                     continue
                 text = str(load_value(row.value_json) or "")
-                result = grade_part_llm(item, part, text, photos)
+                result, err, _retry = grade_part_attempt(item, part, text, photos)
                 row = db.get(ItemAnswer, answer_id)
-                if not row or row.status == "overridden":
-                    db.close()
+                if not row or row.status == "draft":
                     continue
                 if result:
-                    row.score = float(result["total"])
-                    row.llm_json = json.dumps(result, ensure_ascii=False)
-                    row.llm_comment = result.get("comment")
-                    row.status = "graded"
-                    row.graded_at = datetime.utcnow()
+                    from .answers import apply_llm_score
+
+                    apply_llm_score(
+                        row,
+                        float(result["total"]),
+                        comment=result.get("comment") or "",
+                        llm_json=json.dumps(result, ensure_ascii=False),
+                    )
                 else:
-                    row.status = "pending"
+                    if row.override_score is None:
+                        row.status = "pending"
+                    row.llm_comment = LLM_FAIL_PREFIX + (err or "未知原因")
                 db.commit()
-                db.close()
-            except Exception:
-                pass
+            except Exception as exc:
+                if db:
+                    try:
+                        row = db.get(ItemAnswer, answer_id)
+                        if row and row.status != "draft":
+                            if row.override_score is None:
+                                row.status = "pending"
+                            row.llm_comment = LLM_FAIL_PREFIX + str(exc)
+                            db.commit()
+                    except Exception:
+                        db.rollback()
+            finally:
+                if db:
+                    db.close()
 
     threading.Thread(target=loop, name="llm-grade", daemon=True).start()
     _requeue_pending()
