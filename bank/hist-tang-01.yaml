@@ -1,0 +1,20 @@
+slug: hist-tang-01
+title: 唐朝
+subject: history
+grade: 7
+difficulty: easy
+type: single
+tags: [隋唐]
+points: 5
+stem: |
+  下列哪一位是唐朝的建立者？
+choices:
+  - id: A
+    text: 李世民
+  - id: B
+    text: 李渊
+  - id: C
+    text: 朱元璋
+  - id: D
+    text: 刘邦
+answer: B

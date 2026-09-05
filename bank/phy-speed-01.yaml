@@ -1,0 +1,12 @@
+slug: phy-speed-01
+title: 匀速路程
+subject: physics
+grade: 7
+difficulty: easy
+type: numeric
+tags: [速度]
+points: 5
+stem: |
+  一辆车以 $10\,\mathrm{m/s}$ 匀速行驶 $6$ 秒，路程是多少米？
+answer: 60
+tolerance: 0

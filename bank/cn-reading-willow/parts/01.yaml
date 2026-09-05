@@ -1,0 +1,13 @@
+type: single
+stem: 这段文字主要写的是哪个季节？
+points: 4
+choices:
+  - id: A
+    text: 春天
+  - id: B
+    text: 夏天
+  - id: C
+    text: 秋天
+  - id: D
+    text: 冬天
+answer: A

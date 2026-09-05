@@ -1,0 +1,13 @@
+slug: en-word-01
+title: 单词填空
+subject: english
+grade: 7
+difficulty: easy
+type: blank
+tags: [词汇]
+points: 5
+stem: |
+  I go to school by ______ every morning.（公交车）
+answer:
+  - bus
+  - Bus

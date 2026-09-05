@@ -1,0 +1,20 @@
+slug: cn-pinyin-01
+title: 多音字
+subject: chinese
+grade: 7
+difficulty: easy
+type: single
+tags: [字词]
+points: 5
+stem: |
+  “行”在“银行”中读音是？
+choices:
+  - id: A
+    text: xíng
+  - id: B
+    text: háng
+  - id: C
+    text: hèng
+  - id: D
+    text: xìng
+answer: B

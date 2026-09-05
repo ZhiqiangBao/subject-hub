@@ -1,0 +1,281 @@
+<template>
+  <div v-if="item">
+    <div class="topbar">
+      <strong>{{ title }}</strong>
+      <span class="spacer"></span>
+      <span v-if="item.total">{{ (item.index ?? 0) + 1 }} / {{ item.total }}</span>
+    </div>
+    <div class="player">
+      <section class="pane left">
+        <div class="md" v-html="renderMd(item.left_md)"></div>
+      </section>
+      <section class="pane right">
+        <div class="part" v-for="part in item.parts" :key="part.id">
+          <div class="md" v-if="part.stem" v-html="renderMd(part.stem)"></div>
+          <div v-if="part.type === 'single'">
+            <button
+              class="choice"
+              v-for="c in part.choices"
+              :key="c.id"
+              type="button"
+              :class="{ on: values[part.id] === c.id }"
+              :disabled="locked"
+              @click="setValue(part.id, c.id)"
+            >
+              {{ c.id }}. <span v-html="renderMd(c.text)"></span>
+            </button>
+          </div>
+          <div v-else-if="part.type === 'multiple'" class="chips">
+            <button
+              class="chip"
+              v-for="c in part.choices"
+              :key="c.id"
+              type="button"
+              :class="{ on: (values[part.id] || []).includes(c.id) }"
+              :disabled="locked"
+              @click="toggleMulti(part.id, c.id)"
+            >
+              {{ c.id }}. {{ c.text }}
+            </button>
+          </div>
+          <template v-else-if="part.type === 'blank'">
+            <FormulaField
+              v-if="showFormula"
+              v-model="values[part.id]"
+              :subject="item.subject"
+              :disabled="locked"
+              placeholder="填空。点符号按钮，根号积分用括号包住范围"
+              @change="scheduleSave"
+            />
+            <input
+              v-else
+              v-model="values[part.id]"
+              :disabled="locked"
+              placeholder="填空"
+              @input="scheduleSave"
+            />
+          </template>
+          <input
+            v-else-if="part.type === 'numeric'"
+            v-model="values[part.id]"
+            :disabled="locked"
+            placeholder="填数字"
+            @input="scheduleSave"
+          />
+          <div v-else>
+            <textarea v-model="values[part.id]" :disabled="locked" placeholder="用普通话说就行" @input="scheduleSave"></textarea>
+            <div class="chips" v-if="!locked && showFormula">
+              <button class="chip" type="button" v-for="sym in symbols" :key="sym" @click="insert(part.id, sym)">{{ sym }}</button>
+            </div>
+            <div v-if="part.allow_photo && !locked">
+              <label class="btn">拍演算纸
+                <input type="file" accept="image/*" capture="environment" hidden @change="onPhoto($event, part.id)" />
+              </label>
+            </div>
+            <div v-if="photos[part.id]?.length">
+              <img v-for="p in photos[part.id]" :key="p" :src="'/api/uploads/file/' + p" style="max-height:120px;margin:8px 8px 0 0" />
+            </div>
+          </div>
+          <p v-if="item.answers?.[part.id]?.status === 'graded'" class="score" :class="item.answers[part.id].score ? 'good' : 'bad'">
+            这问 {{ item.answers[part.id].score }} / {{ part.points }} 分
+            <span v-if="item.answers[part.id].comment"> · {{ item.answers[part.id].comment }}</span>
+          </p>
+          <p v-else-if="item.answers?.[part.id]?.status === 'pending'" class="hint">待评分</p>
+        </div>
+        <p class="err">{{ error }}</p>
+        <p class="hint" v-if="saveNote">{{ saveNote }}</p>
+        <p class="hint" v-if="mode === 'paper' && item.section_heading">{{ item.section_heading }}</p>
+        <div class="paper-nav" v-if="mode === 'paper'">
+          <button class="btn big" type="button" :disabled="!item.prev_slug" @click="goPaper(item.prev_slug)">上一题</button>
+          <button class="btn big" type="button" :disabled="!item.next_slug" @click="goPaper(item.next_slug)">下一题</button>
+        </div>
+        <template v-if="mode === 'challenge' && !item.submitted">
+          <p class="hint">闯关是一题一交。想先记下再交，点保存。</p>
+          <button class="btn big" type="button" @click="saveNow">保存</button>
+          <button class="btn primary big" type="button" @click="submitChallenge">提交本题</button>
+        </template>
+        <button v-else-if="mode === 'challenge'" class="btn primary big" type="button" @click="nextChallenge">下一题</button>
+        <template v-else-if="mode === 'paper' && !locked">
+          <p class="hint">试卷不能一题一交。每题先保存，全部写完后交卷。</p>
+          <button class="btn primary big" type="button" @click="saveNow">保存</button>
+          <button class="btn big" type="button" @click="submitPaper">交卷</button>
+          <router-link class="btn ghost" :to="'/paper/' + attemptId">返回目录</router-link>
+        </template>
+        <router-link v-else-if="mode === 'paper'" class="btn ghost" :to="'/paper/' + attemptId">返回目录</router-link>
+      </section>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed, onMounted, ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { api } from "../api";
+import { renderMd } from "../markdown";
+import FormulaField from "../components/FormulaField.vue";
+import { usesFormulaBar } from "../formulaSymbols";
+
+const symbols = ["²", "³", "₁", "₂", "√", "×", "÷", "°"];
+const route = useRoute();
+const router = useRouter();
+const item = ref<any>(null);
+const values = ref<Record<string, any>>({});
+const photos = ref<Record<string, string[]>>({});
+const error = ref("");
+const saveNote = ref("");
+let timer: number | undefined;
+
+const mode = computed(() => (route.params.runId ? "challenge" : "paper"));
+const attemptId = computed(() => String(route.params.attemptId || ""));
+const locked = computed(() => Boolean(item.value?.locked || (mode.value === "challenge" && item.value?.submitted)));
+const title = computed(() => item.value?.title || "答题");
+const showFormula = computed(() => usesFormulaBar(item.value?.subject));
+
+async function load() {
+  error.value = "";
+  saveNote.value = "";
+  if (mode.value === "challenge") {
+    item.value = await api(`/api/challenge/${route.params.runId}/item/${route.params.index}`);
+  } else {
+    item.value = await api(`/api/papers/attempts/${route.params.attemptId}/item/${route.params.slug}`);
+  }
+  const next: Record<string, any> = {};
+  const ph: Record<string, string[]> = {};
+  for (const part of item.value.parts) {
+    const ans = item.value.answers?.[part.id];
+    next[part.id] = ans?.value ?? (part.type === "multiple" ? [] : "");
+    ph[part.id] = ans?.photos || [];
+  }
+  values.value = next;
+  photos.value = ph;
+}
+
+function scheduleSave() {
+  if (locked.value) return;
+  window.clearTimeout(timer);
+  timer = window.setTimeout(save, 400);
+}
+
+async function save() {
+  const parts = { ...values.value };
+  if (mode.value === "challenge") {
+    await api(`/api/challenge/${route.params.runId}/item/${route.params.index}/draft`, {
+      method: "PUT",
+      body: JSON.stringify({ parts }),
+    });
+  } else {
+    await api(`/api/papers/attempts/${route.params.attemptId}/item/${route.params.slug}/draft`, {
+      method: "PUT",
+      body: JSON.stringify({ parts }),
+    });
+  }
+}
+
+async function saveNow() {
+  error.value = "";
+  saveNote.value = "";
+  try {
+    await save();
+    saveNote.value = "已保存。";
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : "没保存成";
+  }
+}
+
+function setValue(id: string, value: string) {
+  if (locked.value) return;
+  values.value[id] = value;
+  scheduleSave();
+}
+
+function toggleMulti(id: string, choice: string) {
+  if (locked.value) return;
+  const cur: string[] = Array.isArray(values.value[id]) ? [...values.value[id]] : [];
+  const i = cur.indexOf(choice);
+  if (i >= 0) cur.splice(i, 1);
+  else cur.push(choice);
+  values.value[id] = cur;
+  scheduleSave();
+}
+
+function insert(id: string, sym: string) {
+  values.value[id] = String(values.value[id] || "") + sym;
+  scheduleSave();
+}
+
+async function onPhoto(ev: Event, partId: string) {
+  const input = ev.target as HTMLInputElement;
+  const file = input.files?.[0];
+  if (!file) return;
+  const fd = new FormData();
+  fd.append("file", file);
+  const ctx = mode.value === "challenge" ? "challenge" : "paper";
+  const ctxId = mode.value === "challenge" ? route.params.runId : route.params.attemptId;
+  const slug = item.value.slug;
+  const data = (await fetch(`/api/uploads/${ctx}/${ctxId}/${slug}/${partId}`, {
+    method: "POST",
+    body: fd,
+    credentials: "include",
+  }).then(async (res) => {
+    const j = await res.json();
+    if (!res.ok) throw new Error(j.detail || "照片没传上去");
+    return j;
+  })) as { photos: string[] };
+  photos.value[partId] = data.photos;
+  input.value = "";
+}
+
+async function submitChallenge() {
+  error.value = "";
+  try {
+    await save();
+    const data = (await api(`/api/challenge/${route.params.runId}/item/${route.params.index}/submit`, {
+      method: "POST",
+      body: JSON.stringify({ parts: values.value }),
+    })) as { done?: boolean; next?: number | null };
+    if (data.done) await router.push(`/challenge/${route.params.runId}/result`);
+    else item.value = { ...item.value, submitted: true, ...data };
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : "没做成";
+  }
+}
+
+async function goPaper(slug: string | null) {
+  if (!slug) return;
+  error.value = "";
+  saveNote.value = "";
+  if (!locked.value) {
+    try {
+      await save();
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : "没保存成";
+      return;
+    }
+  }
+  await router.push(`/play/paper/${attemptId.value}/${encodeURIComponent(slug)}`);
+}
+
+async function submitPaper() {
+  error.value = "";
+  saveNote.value = "";
+  try {
+    await save();
+    await api(`/api/papers/attempts/${attemptId.value}/submit`, { method: "POST" });
+    await router.push(`/paper/${attemptId.value}`);
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : "没交成";
+  }
+}
+
+async function nextChallenge() {
+  const data = (await api(`/api/challenge/${route.params.runId}`)) as { index: number; total: number; status: string };
+  if (data.status === "done" || data.index >= data.total) {
+    await router.push(`/challenge/${route.params.runId}/result`);
+    return;
+  }
+  await router.push(`/play/challenge/${route.params.runId}/${data.index}`);
+}
+
+watch(() => route.fullPath, load);
+onMounted(load);
+</script>

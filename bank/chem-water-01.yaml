@@ -1,0 +1,14 @@
+slug: chem-water-01
+title: 水的化学式
+subject: chemistry
+grade: 7
+difficulty: easy
+type: blank
+tags: [化学式]
+points: 5
+stem: |
+  水的化学式是 ______ 。
+answer:
+  - H2O
+  - H₂O
+  - h2o

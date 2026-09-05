@@ -1,0 +1,12 @@
+slug: math-value-01
+title: 一次函数的值
+subject: math
+grade: 7
+difficulty: easy
+type: numeric
+tags: [一次函数, 求值]
+points: 5
+stem: |
+  已知 $y=2x+1$，当 $x=3$ 时，$y$ 等于多少？
+answer: 7
+tolerance: 0

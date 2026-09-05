@@ -1,0 +1,9 @@
+type: single
+stem: 更符合集体生活要求的是哪一种看法？
+points: 4
+choices:
+  - id: A
+    text: 只由班长决定
+  - id: B
+    text: 大家商量、人人有责
+answer: B

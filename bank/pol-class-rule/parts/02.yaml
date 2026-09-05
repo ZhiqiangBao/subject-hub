@@ -1,0 +1,12 @@
+type: short
+stem: 用一两句话说明，为什么班级的事需要大家参与。
+points: 6
+reference: |
+  班级是集体，每个人都是主人，商量才能照顾到更多同学的意见。
+rubric:
+  - id: idea
+    points: 4
+    require: 说到集体、责任或共同商量
+  - id: language
+    points: 2
+    require: 语句通顺

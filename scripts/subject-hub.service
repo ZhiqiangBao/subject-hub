@@ -1,0 +1,20 @@
+[Unit]
+Description=学科 Hub（家庭答题站）
+After=network.target
+
+[Service]
+Type=simple
+User=@USER@
+WorkingDirectory=@ROOT@
+Environment=SUBJECT_HUB_ROOT=@ROOT@
+Environment=PYTHONPATH=@ROOT@/backend
+Environment=SUBJECT_HUB_HOST=0.0.0.0
+Environment=SUBJECT_HUB_PORT=8090
+Environment=SUBJECT_HUB_ADMIN_HOST=127.0.0.1
+Environment=SUBJECT_HUB_ADMIN_PORT=8091
+ExecStart=@ROOT@/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8090
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

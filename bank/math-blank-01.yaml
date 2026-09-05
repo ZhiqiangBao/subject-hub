@@ -1,0 +1,13 @@
+slug: math-blank-01
+title: 有理数加法
+subject: math
+grade: 7
+difficulty: easy
+type: blank
+tags: [有理数]
+points: 5
+stem: |
+  $(-3)+5=$ （只填得数）
+answer:
+  - "2"
+  - "+2"

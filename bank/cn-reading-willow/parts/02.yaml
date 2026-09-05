@@ -1,0 +1,12 @@
+type: short
+stem: 用自己的话说一说，作者为什么觉得这是一年里最好的日子。
+points: 6
+reference: |
+  因为春天柳树发芽、景色美好，普通的下午也让人觉得珍贵。
+rubric:
+  - id: meaning
+    points: 4
+    require: 说到春天、柳树或普通日子也很珍贵
+  - id: language
+    points: 2
+    require: 语句通顺

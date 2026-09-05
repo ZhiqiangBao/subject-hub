@@ -1,0 +1,20 @@
+slug: bio-cell-01
+title: 细胞
+subject: biology
+grade: 7
+difficulty: easy
+type: single
+tags: [细胞]
+points: 5
+stem: |
+  生物体结构和功能的基本单位是什么？
+choices:
+  - id: A
+    text: 器官
+  - id: B
+    text: 细胞
+  - id: C
+    text: 组织
+  - id: D
+    text: 系统
+answer: B

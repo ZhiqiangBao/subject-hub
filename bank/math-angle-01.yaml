@@ -1,0 +1,12 @@
+slug: math-angle-01
+title: 余角
+subject: math
+grade: 7
+difficulty: easy
+type: numeric
+tags: [角]
+points: 5
+stem: |
+  一个角是 $35^\circ$，它的余角是多少度？
+answer: 55
+tolerance: 0

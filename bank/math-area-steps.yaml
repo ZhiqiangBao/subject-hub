@@ -1,0 +1,32 @@
+slug: math-area-steps
+title: 长方形面积
+subject: math
+grade: 7
+difficulty: easy
+type: steps
+tags: [面积]
+allow_photo: true
+points: 10
+stem: |
+  一个长方形长 $8$，宽 $3$，面积是多少？请写出主要步骤，也可以拍演算纸。
+parts:
+  - id: process
+    type: short
+    stem: 写出主要步骤（也可以只拍照）
+    points: 6
+    allow_photo: true
+    reference: |
+      面积 = 长 × 宽 = 8 × 3 = 24
+    rubric:
+      - id: method
+        points: 3
+        require: 用到长乘宽
+      - id: calc
+        points: 3
+        require: 计算过程正确
+  - id: final
+    type: numeric
+    stem: 最终得数
+    points: 4
+    answer: 24
+    tolerance: 0
