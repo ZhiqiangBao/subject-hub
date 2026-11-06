@@ -1,0 +1,694 @@
+{
+  "documents": 38,
+  "pdf_pages": 4128,
+  "passed": true,
+  "failures": [],
+  "documents_with_quality_notes": 13,
+  "quality_notes": [
+    {
+      "source": "义务教育-2022/00-义务教育课程方案（2022年版）.pdf",
+      "issues": [
+        {
+          "type": "empty_page",
+          "page": 7
+        }
+      ],
+      "too_short_pages": [],
+      "language_limitation": null
+    },
+    {
+      "source": "义务教育-2022/05-义务教育英语课程标准（2022年版）.pdf",
+      "issues": [],
+      "too_short_pages": [],
+      "language_limitation": "中文主体使用zh-Hans-CN；仅追加拉丁字母占比较高的Tesseract行；英文拼写、大小写与标点仍需原图复核。"
+    },
+    {
+      "source": "义务教育-2022/06-义务教育日语课程标准（2022年版）.pdf",
+      "issues": [],
+      "too_short_pages": [],
+      "language_limitation": "中文主体使用zh-Hans-CN；ja模型对中文正文误识较多，仅追加含假名的行；日文汉字行仍需原图复核。"
+    },
+    {
+      "source": "义务教育-2022/07-义务教育俄语课程标准（2022年版）.pdf",
+      "issues": [],
+      "too_short_pages": [],
+      "language_limitation": "中文主体使用zh-Hans-CN；仅追加西里尔字母占比较高的Tesseract行；俄文重音、近形字与混排需对照原图。"
+    },
+    {
+      "source": "义务教育-2022/16-义务教育劳动课程标准（2022年版）.pdf",
+      "issues": [
+        {
+          "type": "empty_page",
+          "page": 2
+        }
+      ],
+      "too_short_pages": [],
+      "language_limitation": null
+    },
+    {
+      "source": "普通高中-2017-2020修订/1.普通高中课程方案（2017年版2020年修订）.pdf",
+      "issues": [
+        {
+          "type": "empty_page",
+          "page": 7
+        },
+        {
+          "type": "empty_page",
+          "page": 9
+        }
+      ],
+      "too_short_pages": [],
+      "language_limitation": null
+    },
+    {
+      "source": "普通高中-2017-2020修订/17.普通高中日语课程标准（2017年版2020年修订）.pdf",
+      "issues": [],
+      "too_short_pages": [],
+      "language_limitation": "中文主体使用zh-Hans-CN；ja模型对中文正文误识较多，仅追加含假名的行；日文汉字行仍需原图复核。"
+    },
+    {
+      "source": "普通高中-2017-2020修订/18.普通高中俄语课程标准（2017年版2020年修订）.pdf",
+      "issues": [],
+      "too_short_pages": [],
+      "language_limitation": "中文主体使用zh-Hans-CN；仅追加西里尔字母占比较高的Tesseract行；俄文重音、近形字与混排需对照原图。"
+    },
+    {
+      "source": "普通高中-2017-2020修订/19.普通高中德语课程标准（2017年版2020年修订）.pdf",
+      "issues": [
+        {
+          "type": "abnormal_characters",
+          "page": 94,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 8,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 8,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 95,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 8,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 8,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 103,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 10,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 10,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 104,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 3,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 3,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 131,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 132,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 143,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        }
+      ],
+      "too_short_pages": [],
+      "language_limitation": null
+    },
+    {
+      "source": "普通高中-2017-2020修订/21.普通高中西班牙语课程标准（2017年版2020年修订）.pdf",
+      "issues": [
+        {
+          "type": "empty_page",
+          "page": 7
+        }
+      ],
+      "too_short_pages": [],
+      "language_limitation": null
+    },
+    {
+      "source": "普通高中-2017-2020修订/3.普通高中数学课程标准（2017年版2020年修订）.pdf",
+      "issues": [
+        {
+          "type": "abnormal_characters",
+          "page": 19,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 20,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 27,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 28,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 29,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 35,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 3,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 3,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 37,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 39,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 46,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 47,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 48,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 51,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 52,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 55,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 60,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 61,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 64,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 67,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 69,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 71,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 72,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 73,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 4,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 4,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 74,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 3,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 3,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 75,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 126,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 145,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 146,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 4,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 4,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 158,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 1,
+            "suspicious_placeholder_runs": 0
+          }
+        },
+        {
+          "type": "abnormal_characters",
+          "page": 173,
+          "raw": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          },
+          "cleaned": {
+            "replacement_characters": 0,
+            "nul_characters": 0,
+            "private_use_characters": 2,
+            "suspicious_placeholder_runs": 0
+          }
+        }
+      ],
+      "too_short_pages": [],
+      "language_limitation": null
+    },
+    {
+      "source": "普通高中-2017-2020修订/4.普通高中英语课程标准（2017年版2020年修订）.pdf",
+      "issues": [],
+      "too_short_pages": [],
+      "language_limitation": "中文主体使用zh-Hans-CN；仅追加拉丁字母占比较高的Tesseract行；英文拼写、大小写与标点仍需原图复核。"
+    },
+    {
+      "source": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+      "issues": [
+        {
+          "type": "empty_page",
+          "page": 7
+        }
+      ],
+      "too_short_pages": [],
+      "language_limitation": null
+    }
+  ]
+}

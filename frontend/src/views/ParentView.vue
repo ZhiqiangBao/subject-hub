@@ -118,7 +118,9 @@
     </section>
 
     <section v-if="tab === 'add'">
-      <h2>从聊天导入</h2>
+      <GenerateQuestions :meta="meta" />
+      <details class="card" style="margin-top:28px">
+      <summary>从聊天导入</summary>
       <p class="hint">先复制出题说明，贴到任意聊天人工智能里，用普通人说话。回来把回复全文贴上，或上传 `.yaml` / `.yml`，或多个 yaml 打成的 `.zip`。不要传 Word、PDF。</p>
       <button class="btn" type="button" @click="copySkill">复制出题说明</button>
       <textarea v-model="paste" placeholder="把人工智能的回复整段贴在这里"></textarea>
@@ -126,7 +128,9 @@
       <label class="btn">选择文件
         <input type="file" hidden @change="doFile" />
       </label>
-      <h2 style="margin-top:28px">自己出一题</h2>
+      </details>
+      <details class="card" style="margin-top:16px">
+      <summary>自己出一题</summary>
       <p class="field-label">科目</p>
       <div class="chips" v-if="meta">
         <button class="chip" v-for="s in meta.subjects" :key="s.id" :class="{ on: plain.subject === s.id }" type="button" @click="plain.subject = s.id">{{ s.name }}</button>
@@ -157,6 +161,7 @@
       <input v-model="plain.answer" placeholder="答案，例如 B，或 12，或填空文字" />
       <button class="btn primary" type="button" @click="doPlain">加到题库</button>
       <button class="btn ghost" type="button" @click="updateBank">更新题库</button>
+      </details>
     </section>
 
     <section v-if="tab === 'kids' && meta">
@@ -251,6 +256,7 @@ import { useRoute, useRouter } from "vue-router";
 import { api } from "../api";
 import { displayZone, fmtInZone, zoneName } from "../timeZone";
 import TagScores from "../components/TagScores.vue";
+import GenerateQuestions from "../components/GenerateQuestions.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -281,9 +287,9 @@ const pageHint = computed(() =>
     quizzes: "组卷后这里会出现本次测验。点进去选分组、设答题时间再发布。没选中的分组看不见试卷。",
     assemble: "按题型和知识点抽题。生成后到「测验」里设答题时间再发布。",
     bank: "按标签选出题目，点进去改题干和答案。保存写到这台电脑，git 更新不会盖掉。",
-    add: "从聊天导入，或自己出一题。",
+    add: "按年级和知识点生成练习，检查后入库。也可以导入已有题目。",
     kids: "班级是一种分组；还可以在班里再分组，或建跨班的组。一个学生可以同时在多个分组里。点分组看里面的人，再进学生档案。也可以代开账号。",
-    llm: "接到本机对话接口。默认 127.0.0.1:8080/v1。保存后主观题会自动评。",
+    llm: "统一管理出题和判题使用的模型。地址、密钥和思考设置保存后同时生效。",
   })[tab.value] || "",
 );
 const error = ref("");

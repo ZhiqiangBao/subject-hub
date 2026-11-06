@@ -5,6 +5,10 @@
       :value="model"
       :disabled="disabled"
       :placeholder="placeholder"
+      autocomplete="off"
+      autocapitalize="off"
+      autocorrect="off"
+      :spellcheck="false"
       @input="onInput"
     />
     <div class="chips" v-if="!disabled">
@@ -28,7 +32,7 @@
           <p><strong>积分</strong>点「∫()dx」，被积式写在括号里。写 ∫(x+1)dx。</p>
           <p><strong>分数</strong>点「分数」得到 ( )/()。简单的也可以直接写 1/2。</p>
         </template>
-        <p>老师答案也用同一套按钮，两边才能对上。</p>
+        <p>普通键盘也能输入：1/2、x^2、sqrt(2)。系统会识别常见等价写法；括号决定公式的作用范围。</p>
         <button class="btn primary" type="button" @click="help = false">知道了</button>
       </div>
     </div>

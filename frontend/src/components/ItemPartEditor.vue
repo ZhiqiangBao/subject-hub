@@ -16,7 +16,7 @@
     <template v-else-if="part.type === 'blank'">
       <div class="blank-form" v-for="(_form, i) in blankForms" :key="i">
         <FormulaField v-if="showFormula" v-model="blankForms[i]" :subject="subject" placeholder="一种正确写法" />
-        <input v-else v-model="blankForms[i]" placeholder="一种正确写法" />
+        <input v-else v-model="blankForms[i]" placeholder="一种正确写法" autocomplete="off" autocapitalize="off" autocorrect="off" :spellcheck="false" />
         <button class="btn ghost" type="button" @click="removeBlank(i)">去掉</button>
       </div>
       <button class="choice add-form" type="button" @click="addBlank">＋ 再加一种写法</button>

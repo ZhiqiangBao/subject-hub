@@ -144,7 +144,7 @@ def machine_grade_row(row: ItemAnswer, item: Item, empty_subjective_zero: bool =
     now = datetime.utcnow()
     photos = _photos(row)
     if part.type in OBJECTIVE_TYPES:
-        apply_llm_score(row, grade_objective(part, load_value(row.value_json)))
+        apply_llm_score(row, grade_objective(part, load_value(row.value_json), item.subject))
         return
     text = load_value(row.value_json)
     blank = (text is None or str(text).strip() in {"", "None"}) and not photos

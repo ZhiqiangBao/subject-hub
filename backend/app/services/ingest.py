@@ -65,7 +65,7 @@ def items_from_zip(data: bytes) -> list[Item]:
     return items
 
 
-def save_item(item: Item) -> Path:
+def save_item(item: Item, *, exclusive: bool = False) -> Path:
     ensure_dirs()
     path = LOCAL_BANK_DIR / f"{item.slug}.yaml"
     payload: dict[str, Any] = {
@@ -124,7 +124,8 @@ def save_item(item: Item) -> Path:
             payload["tolerance"] = part.tolerance
         if part.unit:
             payload["unit"] = part.unit
-    path.write_text(yaml.safe_dump(payload, allow_unicode=True, sort_keys=False), encoding="utf-8")
+    with path.open("x" if exclusive else "w", encoding="utf-8") as output:
+        output.write(yaml.safe_dump(payload, allow_unicode=True, sort_keys=False))
     return path
 
 

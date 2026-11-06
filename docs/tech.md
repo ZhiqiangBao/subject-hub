@@ -11,7 +11,7 @@
 | 路径 | 作用 |
 | --- | --- |
 | `backend/app/main.py` | FastAPI 入口。`lifespan` 建表、`migrate()`、读题库、启动 LLM 后台线程；另绑 `ADMIN_PORT`（默认 8091）只给本机注册管理员。8090 提供学生站 + 同一套 API。静态页来自 `frontend/dist`。未知 `/api/` 返回 JSON 404「找不到这个接口，重启答题服务后再试」（常见原因：改了路由但 **uvicorn 没重启**）。uvicorn **不热重载**。 |
-| `backend/app/config.py` | 路径、端口、LLM 配置（环境变量优先，否则 `data/llm.json`）。 |
+| `backend/app/config.py` | 路径、端口、LLM 配置（环境变量优先，否则 `data/llm.env`）；出题和判题共用 `llm_settings()`。 |
 | `backend/app/db.py` | SQLite：`data/subject-hub.db`。`migrate()` 给旧库加列/建表：`users.created_by`、`student_groups`（`kind`/`parent_id`）、`student_group_members`、`paper_audiences`。旧 `users.group_id` 启动时拷进 members，之后不要再写。 |
 | `backend/app/models.py` | ORM 表。 |
 | `backend/app/schemas.py` | 请求体。 |
@@ -20,6 +20,7 @@
 | `backend/app/api/` | HTTP 路由。 |
 | `backend/app/services/` | 业务，路由尽量只调这里。 |
 | `bank/` | 随仓库走的题。 |
+| `docs/standards/` | AI 出题用的课标 Markdown、索引、页级转换清单和目视校正记录；PDF 留本地，MD 随 Git 发布。转换与核验入口见该目录 README。 |
 | `data/` | 不进 Git：库、本机题 `local-bank/`、上传图、LLM 配置。 |
 | `frontend/src/` | Vue 3。改完要 `npm run build`，uvicorn 才吃到 `dist`。 |
 
@@ -141,6 +142,9 @@ assemble（released_at 空）
 | `review.py` | `review_challenge` / `review_paper` | 闯关带姓名、可改判。试卷默认匿名可改判；`named=True` 给学生页只读。 |
 | `bank.py` | `Bank` / `Item` / `Part` | 先读 `bank/` 再读 `data/local-bank/`，同 slug 本机覆盖。内存对象，不是 ORM。 |
 | `ingest.py` | `items_from_text` / `plain_item` / `save_item` | 导入与白话出题，写入本机 yaml。 |
+| `curriculum.py` | `lookup` | 按科目、1～9/10～12 年级定位课标 Markdown，检索正文页，返回源路径、PDF 页码和原文。义务教育数学按“小学部分/初中部分”和第一至第四学段切片，跨页保持所属学段；不借初中内容给小学出题。缺库或无匹配时拒绝出题；小学物化生史不直接套初中课标。 |
+| `generation.py` | `generate` / `validate` | 读取课标原文，使用统一模型配置生成题目；校验元数据、选项、答案、分值和评分细则后返回预览，不写题库。模型可返回依据不足/超学段错误，不强制编题。 |
+| `blank.py` | `normalize` / `equivalent_blank` / `numeric_value` | 填空写法规范化；保留大小写与英文词间空格，区分化学上下标，规范英语词中的直/弯撇号。数学、物理、化学的有限数值式用受限 AST 与 Fraction 精确比较；`numeric` 也接受分数、百分数和科学记数，再按原有容差比较。不执行输入代码，不做任意代数化简。 |
 | `paper_layout.py` | `paper_layout` / `heading_for_slug` | 组卷大题标题。 |
 | `scores.py` | `scores_by_tag` | 按知识点汇总。学生自己看用登录名；老师看用真名。 |
 | `access.py` | `sees_subject` / `scoped_subjects` | 老师只看见自己科目。 |
@@ -213,9 +217,11 @@ assemble（released_at 空）
 | `POST /papers/{id}/release-scores` | `release_scores` | 须已开始评分，且 `paper_ungraded_count==0`。 |
 | `GET/PUT /items` | 题库列表/编辑 | 写本机 yaml。 |
 | `POST /ingest/*` `POST /items/plain` | 粘贴/文件/白话加题 | |
+| `POST /items/generate` | `generate_items` | 管理员按科目、年级、难度、题型、题数（1～5）和 `topic` 出题；受科目权限限制。返回编辑格式题目、课标源路径/页码及学段提示。 |
+| `POST /items/generated/save` | `save_generated_item` | 校验编辑后的单题，确认后写本机题库。服务端生成安全 slug，独占创建文件，重复编号返回 409，避免覆盖已有题。 |
 | `GET /answers/{id}` `POST /grade` `POST /grade/retry-pending` | 改判接口 | `regrade` 只清机评列。无独立改判页；测验页可重试未评。 |
 | `GET /queue` | `queue` | 残留接口；未发成绩的试卷作答不进队列。 |
-| `GET/PUT /llm` `POST /llm/test` | 模型地址 | 密钥不回学生端。 |
+| `GET/POST /llm` `POST /llm/test` | 统一模型配置 | 出题和判题共用地址、密钥、模型、思考配置；密钥不回前端。 |
 
 ### `api/uploads.py` — `/api/uploads`
 
@@ -242,6 +248,7 @@ assemble（released_at 空）
 | `AdminStudentView.vue` | 一名学生 | 登录名只读。可改真名/年级/多个分组。真名学生看不到。闯关可点；试卷未发成绩不能看作答，不跳进测验。 |
 | `AdminAttemptView.vue` | 一份作答 | 测验路径匿名可改判；学生路径发布后只读。 |
 | `AdminItemView.vue` | 改题 | `ItemPartEditor` |
+| `GenerateQuestions.vue` | 加题页的 AI 出题 | 选择科目、年级、难度、题型、题数，描述知识点；显示来源页码，编辑题干/答案后逐题确认入库。模型配置链接指向同一 `/admin/llm`；聊天导入与手工加题收在折叠区。 |
 | `GradeBox.vue` | 改判 | 管理员分可改；模型分只读参考；再评不覆盖手改 |
 | `SheetNav.vue` | 题号卡 | `pick` 跳题 |
 | `TimezoneBar.vue` | 顶栏时区下拉 | 默认北京，可改；`localStorage` 记住 |
@@ -269,7 +276,9 @@ assemble（released_at 空）
 | 单选跳转 / 题号卡 / 自动保存 | `PlayerView.vue`，`papers.paper_draft` 返回 `sheet` |
 | 未保存完不能交 | `answers.paper_save_progress`，`papers.paper_submit`，`PaperView` |
 | 客观题判分规则 | `services/grade.py` |
+| 填空等价写法 | `services/blank.py`；`grade_objective(..., subject)` 接收科目，`answers.machine_grade_row` 透传题目科目。候选答案数组表示同一个空的多种可接受写法。 |
 | 主观题提示词/JSON | `services/llm.py` |
+| AI 出题/课标检索 | `services/generation.py`、`services/curriculum.py`、`parent.generate_items`、`GenerateQuestions.vue`；资料位于 `docs/standards/`，离线检索用 `scripts/lookup_standard.py` |
 | 组卷抽题 | `parent.assemble`，`bank.list` |
 | 新题型 | `constants.py` + `grade.py` + `PlayerView` + `ItemPartEditor` + 出题 skill |
 | SQLite 新列 | `models.py` **和** `db.migrate()` |
@@ -292,6 +301,8 @@ assemble（released_at 空）
 11. 班级是分组的一种；分组可挂在班级下。一个学生可同时在多个分组。新发布的测验必须指定分组；组内未作答截止后记缺考 0 分，不进模型。
 12. `users.group_id` 是旧列，读写以 `student_group_members` 为准。
 13. 试卷「开始评分」必须等全部对象窗口截止；接口 `start_grade` 未截止返回 400。没有截止时间的旧作业除外。闯关提交本题仍立刻判。
+14. AI 出题和主观判分共用一处模型配置。生成预览不写库，管理员确认后才保存；不能将模型生成内容当成已经人工核准的题目。
+15. 课标 Markdown 保留 PDF 页界与来源。课标按学段规定要求，不能据此断言某个年级某学期已学完；OCR 中不清楚的公式和表格须回查源 PDF。
 
 ---
 

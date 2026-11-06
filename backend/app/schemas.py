@@ -149,3 +149,19 @@ class LlmSettingsIn(BaseModel):
     keep_key: bool = False
     enable_thinking: bool = False
     reasoning_effort: str = "none"
+
+
+class GenerateItemsIn(BaseModel):
+    subject: str
+    grade: int = Field(ge=1, le=12, strict=True)
+    difficulty: str
+    type: str
+    count: int = Field(ge=1, le=5, strict=True)
+    topic: str = Field(min_length=1, max_length=500)
+
+
+class GeneratedItemSaveIn(ItemEditIn):
+    slug: str
+    subject: str
+    grade: int = Field(ge=1, le=12, strict=True)
+    type: str

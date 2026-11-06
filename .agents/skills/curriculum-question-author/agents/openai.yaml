@@ -1,0 +1,4 @@
+interface:
+  display_name: "课标辅助出题"
+  short_description: "按年级与科目查阅本地课标全文，原创生成练习题并核对出处"
+  default_prompt: "Use $curriculum-question-author to draft curriculum-aligned practice questions."

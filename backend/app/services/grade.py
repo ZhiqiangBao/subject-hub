@@ -5,6 +5,7 @@ import re
 from typing import Any
 
 from .bank import Part
+from .blank import equivalent_blank, numeric_value
 from ..constants import OBJECTIVE_TYPES, SUBJECTIVE_TYPES
 
 
@@ -34,7 +35,7 @@ _LATEX_TO_SYM = (
 
 
 def _norm_text(value: Any) -> str:
-    text = str(value or "").strip()
+    text = "" if value is None else str(value).strip()
     text = text.replace("$$", "").replace("$", "")
     for src, dst in _LATEX_TO_SYM:
         text = text.replace(src, dst)
@@ -57,7 +58,7 @@ def _as_set(value: Any) -> set[str]:
     return {_norm_text(x) for x in str(value).replace("，", ",").split(",") if x.strip()}
 
 
-def grade_objective(part: Part, value: Any) -> float:
+def grade_objective(part: Part, value: Any, subject: str | None = None) -> float:
     if part.type not in OBJECTIVE_TYPES:
         return 0.0
     if part.type == "single":
@@ -68,13 +69,11 @@ def grade_objective(part: Part, value: Any) -> float:
         got = _as_set(value)
         return part.points if got == expected and expected else 0.0
     if part.type == "blank":
-        accepted = {_norm_text(x) for x in ([part.answer] if not isinstance(part.answer, list) else part.answer)}
-        return part.points if _norm_text(value) in accepted and accepted else 0.0
+        return part.points if equivalent_blank(value, part.answer, subject) else 0.0
     if part.type == "numeric":
-        try:
-            got = float(str(value).replace("，", ".").strip())
-            expected = float(part.answer)
-        except (TypeError, ValueError):
+        got = numeric_value(value)
+        expected = numeric_value(part.answer)
+        if got is None or expected is None:
             return 0.0
         tol = float(part.tolerance or 0)
         return part.points if abs(got - expected) <= max(tol, 1e-9) else 0.0

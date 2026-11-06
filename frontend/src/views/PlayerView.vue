@@ -54,6 +54,10 @@
               v-model="values[part.id]"
               :disabled="locked"
               placeholder="填空"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              :spellcheck="false"
               @input="scheduleSave"
             />
           </template>
@@ -61,7 +65,11 @@
             v-else-if="part.type === 'numeric'"
             v-model="values[part.id]"
             :disabled="locked"
-            placeholder="填数字"
+            placeholder="填数值，例如 0.5、1/2 或 50%"
+            autocomplete="off"
+            autocapitalize="off"
+            autocorrect="off"
+            :spellcheck="false"
             @input="scheduleSave"
           />
           <div v-else>

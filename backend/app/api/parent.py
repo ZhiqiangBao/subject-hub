@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 import subprocess
 from datetime import datetime
 
@@ -14,7 +15,7 @@ from ..constants import DIFFICULTIES, GRADE_LABELS, OBJECTIVE_TYPES, PAPER_SECTI
 from ..db import get_db
 from ..deps import get_admin_user, hash_password
 from ..models import ChallengeRun, ItemAnswer, Paper, PaperAttempt, PaperAudience, StudentGroup, User
-from ..schemas import AssembleIn, GradeIn, GroupIn, ItemEditIn, LlmSettingsIn, MemberIn, PaperWindowIn, PasteIn, PlainItemIn, StudentIn, StudentPatchIn
+from ..schemas import GenerateItemsIn, GeneratedItemSaveIn, AssembleIn, GradeIn, GroupIn, ItemEditIn, LlmSettingsIn, MemberIn, PaperWindowIn, PasteIn, PlainItemIn, StudentIn, StudentPatchIn
 from ..services.access import sees_subject, scoped_subjects
 from ..services.answers import (
     effective_comment,
@@ -28,6 +29,8 @@ from ..services.answers import (
     submit_item,
 )
 from ..services.bank import BankError, bank
+from ..services.curriculum import CurriculumError
+from ..services.generation import GenerationError, generate, validate
 from ..services.ingest import item_from_editor, items_from_text, items_from_zip, plain_item, save_item
 from ..services.paper_layout import fill_heading, section_spec
 from ..services.llm import enqueue, list_remote_models, ping_llm, start_worker
@@ -725,6 +728,40 @@ def list_bank_items(
         rows = [i for i in rows if all(t in i.tags for t in need)]
     rows.sort(key=lambda i: (i.subject, i.grade, i.title, i.slug))
     return {"items": [i.summary() for i in rows], "topics": topics, "count": len(rows)}
+
+
+@router.post("/items/generate")
+def generate_items(body: GenerateItemsIn, user: User = Depends(get_admin_user)) -> dict:
+    if body.subject not in SUBJECTS or body.difficulty not in DIFFICULTIES or body.type not in TYPES or not body.topic.strip():
+        raise HTTPException(400, "出题参数不正确，请检查科目、难度、题型和知识点")
+    _need_subject(user, body.subject)
+    try:
+        return generate(body.model_dump())
+    except (GenerationError, CurriculumError) as exc:
+        raise HTTPException(400, str(exc)) from None
+
+
+@router.post("/items/generated/save")
+def save_generated_item(body: GeneratedItemSaveIn, user: User = Depends(get_admin_user)) -> dict:
+    if body.subject not in SUBJECTS or body.difficulty not in DIFFICULTIES or body.type not in TYPES:
+        raise HTTPException(400, "题目参数不正确")
+    _need_subject(user, body.subject)
+    if not re.fullmatch(r"generated-[0-9a-f]{32}", body.slug):
+        raise HTTPException(400, "题目编号无效，请重新生成")
+    if body.slug in bank.items:
+        raise HTTPException(409, "题目编号已存在，请重新生成")
+    payload = body.model_dump()
+    try:
+        # Apply the same strict structural checks after editing, then preserve the issued slug.
+        validate({"items": [payload]}, {**payload, "count": 1})
+        item = item_from_editor(body.slug, body.subject, body.type, payload)
+        save_item(item, exclusive=True)
+    except FileExistsError:
+        raise HTTPException(409, "题目编号已存在，请重新生成") from None
+    except (GenerationError, BankError, ValueError, TypeError):
+        raise HTTPException(400, "题目内容无效，请检查题干、答案和分值") from None
+    bank.reload()
+    return bank.get(body.slug).editor()
 
 
 @router.get("/items/{slug}")
