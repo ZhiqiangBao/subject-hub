@@ -15321,6 +15321,1074 @@
           "issues": []
         }
       ]
+    },
+    "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf": {
+      "total_pages": 91,
+      "reviewed_pages": 91,
+      "corrected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91
+      ],
+      "uncertain_pages": [],
+      "pages": [
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": "恢复封面标题顺序和原图清晰可辨的人民教育出版社标识。",
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            null,
+            "将印刷页码移至页末，恢复视觉阅读顺序。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "校正“三个代表”前多余的OCR空格。",
+            "移回页脚并修正“三个代表”前空格。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            null,
+            "将印刷页码移至页末，恢复视觉阅读顺序。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码移至页末，恢复视觉阅读顺序。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "修正引号间多余空格。",
+            "移回页脚并修正术语间多余空格。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复目录标题、正确阅读顺序和页码对应，并移回页脚。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "重建目录续页，恢复条目、页码对应及页脚位置。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置在页首的印刷页码移至页末；逐图确认正文完整。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置在页首的印刷页码移至页末；逐图确认正文完整。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置在页首的印刷页码移至页末；逐图确认正文完整。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置在页首的印刷页码移至页末；逐图确认正文完整。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置于正文前的印刷页码移至页末，恢复原图阅读顺序。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置于正文前的印刷页码移至页末，恢复原图阅读顺序。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置于正文前的印刷页码移至页末，恢复原图阅读顺序。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置于正文前的印刷页码移至页末，恢复原图阅读顺序。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置于正文前的印刷页码移至页末，恢复版面阅读顺序。",
+            "恢复原图页末印刷页码9，并同步全文候选。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置于正文前的印刷页码移至页末，恢复版面阅读顺序。",
+            "恢复原图页末印刷页码10，并同步全文候选。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "重建图示中的课程层次和“基础/递进、拓展/延伸”关系，并修正学分前空格。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将误置于正文前的印刷页码移至页末，恢复版面阅读顺序。",
+            "恢复原图页末印刷页码12，并同步全文候选。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码移至页末，并补齐专题编号与标题之间的间隔。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码移至页末，并补齐专题编号与标题之间的间隔。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码移至页末，并补齐专题编号与标题之间的间隔。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码移至页末，并补齐专题编号与标题之间的间隔。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "补齐1.23、1.24编号与标题间隔，并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "规范活动主题标签并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "修正书名号与引号间空格并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "移回印刷页码，保留完整活动过程。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "补全活动主题标签并移回页码；正文逐行核对。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "补全“模块1”标题间隔并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "规范专题编号与标题间隔，移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "规范专题编号与标题间隔，移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "规范活动主题标签并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "规范模块标题并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "规范2.1至2.6专题编号与标题间隔并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "移回印刷页码，正文已逐行核对。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "补全活动主题标签并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "规范模块标题和专题编号间隔并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "规范专题编号与标题间隔并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "补全活动主题标签并移回页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码33移至页末",
+            "核对跨页段落及模块1标题"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码34移至页末",
+            "核对1.1–1.5标题编号与正文"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码35移至页末",
+            "核对1.6–1.7标题、教学提示"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码36移至页末",
+            "核对年表活动目标、过程与说明"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码37移至页末",
+            "规范模块2与2.1–2.2标题间距"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码38移至页末",
+            "核对2.3–2.7各类史料条目与标题"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码39移至页末",
+            "恢复活动主题标签与标题分隔"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码40移至页末",
+            "恢复跨页引文连续文本并清除断行空格"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行校对学业质量表的层级与各条描述",
+            "将原表格恢复为两列对应关系",
+            "将印刷页码移至页末"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行校对学业质量表的层级与各条描述",
+            "将原表格恢复为两列对应关系",
+            "将印刷页码移至页末"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行校对学业质量表的层级与各条描述",
+            "将原表格恢复为两列对应关系",
+            "将印刷页码移至页末"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行校对学业质量表的层级与各条描述",
+            "将原表格恢复为两列对应关系",
+            "将印刷页码移至页末"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码45移至页末",
+            "核对实施建议开篇及第1项前半"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码46移至页末",
+            "清除教学目标示例引文的断行空格"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码47移至页末",
+            "逐段核对课程结构分析与（1）（2）"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码48移至页末",
+            "核对商鞅变法示例和综合主题说明"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码49移至页末",
+            "恢复活动主题标签与标题分隔",
+            "核对历代疆域活动第（1）（2）项"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码50移至页末",
+            "核对活动说明、教学理念第3项"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码51移至页末",
+            "清除“学习中心课堂”后断行空格"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码52移至页末",
+            "清除明清专题引文的断行空格",
+            "核对教学问题与史料研习段落"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码53移至页末",
+            "核对周本纪史料、问题与教学案例"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 62,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码54移至页末",
+            "清除“云计算”“互联网+”术语的断行空格"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码55移至页末",
+            "核对网络学习案例步骤一至五"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码56移至页末",
+            "核对评价目标两项及页末续段"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码57移至页末",
+            "核对工业革命评价示例与多维评价"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 66,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码58移至页末",
+            "核对评价反馈与学业水平考试性质"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 67,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码59移至页末",
+            "核对命题原则与新情境分类"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 68,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码60移至页末",
+            "清除典型试题引文中的断行空格",
+            "放大核对康有为引文中“与名者”原字"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 69,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码61移至页末",
+            "清除材料2引文中的断行空格及英文逗号",
+            "核对水平1/2说明标记"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 70,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码62移至页末",
+            "按原图恢复二战起点及主要主张者两列表格"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 71,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码63移至页末",
+            "核对教材编写建议与页末断句"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 72,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码64移至页末",
+            "核对教科书内容选择四项"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 73,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码65移至页末",
+            "核对教科书内容编排形式（1）–（4）"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 74,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码66移至页末",
+            "核对内容编排形式（5）（6）与辅助材料"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 75,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码67移至页末",
+            "核对地方与学校实施建议第1–3项"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 76,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码68移至页末",
+            "核对课程资源定义及图书馆资源建议"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 77,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码69移至页末",
+            "核对网络、校外、教师课程资源及专用教室建议"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 78,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行对照PDF原图；恢复唯物史观、时空观念两张素养水平表，明确唯物史观水平1–2及水平3–4合并描述",
+            "将印刷页码70移至页末"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 79,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行对照PDF原图；恢复史料实证、历史解释、家国情怀三张素养水平表及水平1–2合并描述",
+            "将印刷页码71移至页末"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 80,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行对照PDF原图；恢复家国情怀水平3–4合并描述并保留续表标记",
+            "将印刷页码72移至页末"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 81,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码73移至页末",
+            "规范附录编号及课程专题引用间距",
+            "核对教学目标与导入"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 82,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图逐处转录两幅城市图的布局、城门、街区与河道标签",
+            "将印刷页码74移至页末"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 83,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码75移至页末",
+            "清除材料2引文中的断行空格"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 84,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "将印刷页码76移至页末",
+            "核对长安与东京布局比较及学习任务"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 85,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐格重建东市、西市图中被OCR打乱并重复的全部商铺标签，恢复诗文内容与页末印刷页码77。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 86,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行核对整页引文和正文，清理OCR引号间距并恢复页末印刷页码78。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 87,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "恢复漏识的页首续句；重建东京城示意图的城墙层级、城门、河道、桥市、寺庙和图例；恢复页末印刷页码79。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 88,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行核对整页三段史料和正文，恢复页末印刷页码80。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 89,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行核对学业质量水平1至3续文，恢复页末印刷页码81。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 90,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行核对学业质量水平4与示例说明，恢复页末印刷页码82。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/6.普通高中历史课程标准（2017年版2020年修订）.pdf",
+          "page": 91,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐行核对附录末页两段完整正文，恢复页末印刷页码83。"
+          ],
+          "independent_reviewer_checked": true
+        }
+      ]
     }
   }
 }
