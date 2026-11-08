@@ -109656,8 +109656,8 @@
       "markdown": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.md",
       "pdf_sha256": "7a187079f1fffe8ae834fdeff25bac9dd0e7de6b979db40fd875786dc0365977",
       "total_pages": 66,
-      "markdown_characters": 43583,
-      "text_characters": 42326,
+      "markdown_characters": 43771,
+      "text_characters": 42435,
       "source_text_pages": [
         1,
         2,
@@ -109729,7 +109729,15 @@
       "ocr_pages": [],
       "ocr_languages": [],
       "ocr_engines": [],
-      "visual_correction_pages": [],
+      "visual_correction_pages": [
+        1,
+        18,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
       "language_limitation": null,
       "empty_pages": [],
       "too_short_pages": [],
@@ -109753,27 +109761,31 @@
         "body": "目录之后首个正文长度不少于200字符的页面",
         "table_or_formula_candidate": "从未选页面中回退，需核对是否含表格或公式；使用非空页回退"
       },
-      "quality_sample_status": "原图和清理后OCR文本已保存；转换器未做人工视觉判定",
+      "quality_sample_status": "已逐页查看原图；待核细节见visual-review.json和Markdown中的待核标记",
       "qa_sample_artifacts": [],
       "issues": [],
       "pages": [
         {
           "page": 1,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 45,
-          "non_whitespace_characters": 41,
+          "characters": 53,
+          "non_whitespace_characters": 48,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "视觉核对PDF第1页：封面底部“人民教育出版社”原文漏识，按原图补录。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 2,
@@ -109791,7 +109803,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 3,
@@ -109802,14 +109815,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 758,
+          "characters": 757,
           "non_whitespace_characters": 726,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 4,
@@ -109827,7 +109841,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 5,
@@ -109838,14 +109853,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 815,
+          "characters": 814,
           "non_whitespace_characters": 782,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 6,
@@ -109863,7 +109879,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 7,
@@ -109874,14 +109891,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 347,
+          "characters": 346,
           "non_whitespace_characters": 320,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 8,
@@ -109892,14 +109910,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 435,
+          "characters": 431,
           "non_whitespace_characters": 403,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 9,
@@ -109917,7 +109936,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 10,
@@ -109928,14 +109948,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 770,
+          "characters": 766,
           "non_whitespace_characters": 737,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 11,
@@ -109953,7 +109974,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 12,
@@ -109971,7 +109993,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 13,
@@ -109989,7 +110012,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 14,
@@ -110000,14 +110024,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 741,
+          "characters": 740,
           "non_whitespace_characters": 703,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 15,
@@ -110025,7 +110050,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 16,
@@ -110043,7 +110069,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 17,
@@ -110061,25 +110088,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 18,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 638,
-          "non_whitespace_characters": 584,
+          "characters": 705,
+          "non_whitespace_characters": 669,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "Luna逐页核对后，主代理独立查看源图验收，恢复课程类别、学分或学业质量级别与完整条目的表格对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 19,
@@ -110090,14 +110122,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 432,
+          "characters": 431,
           "non_whitespace_characters": 409,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 20,
@@ -110108,14 +110141,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 754,
+          "characters": 751,
           "non_whitespace_characters": 721,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 21,
@@ -110133,7 +110167,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 22,
@@ -110144,14 +110179,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 687,
+          "characters": 686,
           "non_whitespace_characters": 656,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 23,
@@ -110169,7 +110205,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 24,
@@ -110180,14 +110217,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 718,
+          "characters": 717,
           "non_whitespace_characters": 686,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 25,
@@ -110205,7 +110243,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 26,
@@ -110216,14 +110255,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 706,
+          "characters": 705,
           "non_whitespace_characters": 675,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 27,
@@ -110241,7 +110281,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 28,
@@ -110252,14 +110293,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 722,
+          "characters": 721,
           "non_whitespace_characters": 690,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 29,
@@ -110270,14 +110312,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 666,
+          "characters": 665,
           "non_whitespace_characters": 632,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 30,
@@ -110288,14 +110331,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 745,
+          "characters": 744,
           "non_whitespace_characters": 715,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 31,
@@ -110306,14 +110350,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 680,
+          "characters": 679,
           "non_whitespace_characters": 647,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 32,
@@ -110324,14 +110369,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 661,
+          "characters": 660,
           "non_whitespace_characters": 630,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 33,
@@ -110342,14 +110388,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 596,
+          "characters": 595,
           "non_whitespace_characters": 562,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 34,
@@ -110360,14 +110407,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 697,
+          "characters": 696,
           "non_whitespace_characters": 665,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 35,
@@ -110385,7 +110433,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 36,
@@ -110396,14 +110445,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 750,
+          "characters": 749,
           "non_whitespace_characters": 719,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 37,
@@ -110421,7 +110471,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 38,
@@ -110432,14 +110483,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 666,
+          "characters": 665,
           "non_whitespace_characters": 631,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 39,
@@ -110450,14 +110502,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 663,
+          "characters": 662,
           "non_whitespace_characters": 629,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 40,
@@ -110468,14 +110521,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 730,
+          "characters": 729,
           "non_whitespace_characters": 700,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 41,
@@ -110493,7 +110547,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 42,
@@ -110504,104 +110559,125 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 821,
+          "characters": 820,
           "non_whitespace_characters": 786,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 43,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 359,
-          "non_whitespace_characters": 340,
+          "characters": 383,
+          "non_whitespace_characters": 355,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "Luna逐页核对后，主代理独立查看源图验收，恢复课程类别、学分或学业质量级别与完整条目的表格对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 44,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 915,
-          "non_whitespace_characters": 878,
+          "characters": 947,
+          "non_whitespace_characters": 916,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "Luna逐页核对后，主代理独立查看源图验收，恢复课程类别、学分或学业质量级别与完整条目的表格对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 45,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 1007,
-          "non_whitespace_characters": 967,
+          "characters": 1028,
+          "non_whitespace_characters": 997,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "Luna逐页核对后，主代理独立查看源图验收，恢复课程类别、学分或学业质量级别与完整条目的表格对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 46,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 963,
-          "non_whitespace_characters": 926,
+          "characters": 980,
+          "non_whitespace_characters": 952,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "Luna逐页核对后，主代理独立查看源图验收，恢复课程类别、学分或学业质量级别与完整条目的表格对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 47,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 905,
-          "non_whitespace_characters": 870,
+          "characters": 921,
+          "non_whitespace_characters": 893,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "Luna逐页核对后，主代理独立查看源图验收，恢复课程类别、学分或学业质量级别与完整条目的表格对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 48,
@@ -110612,14 +110688,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 128,
+          "characters": 127,
           "non_whitespace_characters": 122,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 49,
@@ -110637,7 +110714,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 50,
@@ -110648,14 +110726,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 768,
+          "characters": 767,
           "non_whitespace_characters": 737,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 51,
@@ -110673,7 +110752,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 52,
@@ -110684,14 +110764,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 659,
+          "characters": 658,
           "non_whitespace_characters": 631,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 53,
@@ -110709,7 +110790,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 54,
@@ -110720,14 +110802,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 774,
+          "characters": 773,
           "non_whitespace_characters": 743,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 55,
@@ -110745,7 +110828,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 56,
@@ -110756,14 +110840,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 780,
+          "characters": 778,
           "non_whitespace_characters": 747,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 57,
@@ -110781,7 +110866,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 58,
@@ -110792,14 +110878,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 805,
+          "characters": 804,
           "non_whitespace_characters": 770,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 59,
@@ -110810,14 +110897,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 693,
+          "characters": 692,
           "non_whitespace_characters": 658,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 60,
@@ -110828,14 +110916,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 810,
+          "characters": 808,
           "non_whitespace_characters": 777,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 61,
@@ -110853,7 +110942,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 62,
@@ -110871,7 +110961,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 63,
@@ -110882,14 +110973,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 458,
+          "characters": 444,
           "non_whitespace_characters": 406,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 64,
@@ -110900,14 +110992,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 414,
+          "characters": 394,
           "non_whitespace_characters": 352,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 65,
@@ -110925,7 +111018,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 66,
@@ -110936,16 +111030,86 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 723,
+          "characters": 722,
           "non_whitespace_characters": 690,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         }
-      ]
+      ],
+      "visual_reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "visual_review_uncertain_pages": []
     },
     {
       "source_pdf": "普通高中-2017-2020修订/20.普通高中法语课程标准（2017年版2020年修订）.pdf",
@@ -135154,7 +135318,7 @@
       "visual_review_uncertain_pages": []
     }
   ],
-  "visual_correction_page_count": 653,
+  "visual_correction_page_count": 660,
   "ocr_backends": {
     "zh-Hans-CN": {
       "ready": true,

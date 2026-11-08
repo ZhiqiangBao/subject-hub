@@ -8025,6 +8025,500 @@
           "issues": []
         }
       ]
+    },
+    "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf": {
+      "total_pages": 66,
+      "reviewed_pages": 66,
+      "corrected_pages": [
+        1,
+        18,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "uncertain_pages": [],
+      "pages": [
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "封面底部出版者“人民教育出版社”漏识，已按原图补录"
+          ]
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": true,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": false,
+          "issues": [
+            "“体认”原图字样清晰，按原文保留；主代理已独立核实。"
+          ],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": true,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": true,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": true,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": true,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 62,
+          "status": "checked",
+          "changed": false,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": false,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": false,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": false,
+          "issues": [],
+          "independent_visual_acceptance": true
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/2.普通高中语文课程标准（2017年版2020年修订）.pdf",
+          "page": 66,
+          "status": "checked",
+          "changed": false,
+          "issues": [],
+          "independent_visual_acceptance": true
+        }
+      ]
     }
   }
 }
