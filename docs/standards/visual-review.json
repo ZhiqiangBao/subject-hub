@@ -5374,6 +5374,1756 @@
           "issues": []
         }
       ]
+    },
+    "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf": {
+      "total_pages": 86,
+      "reviewed_pages": 86,
+      "corrected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ],
+      "uncertain_pages": [],
+      "pages": [
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "封面版本文字及出版社标识OCR错漏"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "标题层级OCR错识",
+            "必须误识",
+            "空格与折行修复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉及章节层级错识",
+            "融入误识",
+            "折行修复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章节编号漏识",
+            "融入误识",
+            "折行修复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "“语言”漏字",
+            "引号及连接号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "目录页码错序"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章节编号漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "项目编号漏标",
+            "融入及连接号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章节及项目编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "项目编号漏标"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "编号标点及折行修复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "编号标点及折行修复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "编号标点及折行修复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "编号标点及折行修复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "图示标签结构化说明"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉OCR错识",
+            "“入关”误识",
+            "小节编号格式"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“秦朝”误识",
+            "“传入”“入藏”“纳入”错识",
+            "小节编号间距"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "学业要求小节编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“入手”错识",
+            "页脚页码错识",
+            "编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "条目边界与引号规范化"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "“外敌入侵”错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章节编号标点及间距错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "“一二·九运动”漏字",
+            "编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "“深入研讨”错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“进入”字词OCR错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "“加入”错识",
+            "章节编号格式"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“进入”字词OCR错识",
+            "学业要求编号格式"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "“融入”“深入”错识",
+            "编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“收入”“进入”错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "阿拉伯—伊斯兰文化连接号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "内容/学业要求编号格式"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "编号格式错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“步入”错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "小节编号格式"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "学业要求/教学提示编号格式",
+            "小节编号格式"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "“深入探讨”错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“进入”错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉错识",
+            "项目编号格式"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "项目和学业要求编号格式"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "学业要求/教学提示编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“深入”错识",
+            "项目引文误识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "表格行列错序/主题漏字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "表格行列错序；“进入工业时代”漏识“入”字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "表格行列错序；“入手”“深入”等识别错字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "表格行列错序；主题标题阅读顺序错乱"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "标题编号标点及正文编号格式错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "知识图谱表格列错序/文字串行；重建列对应关系"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "续表行列错序；列表编号和表格文字识别错乱"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "编号格式及正文断行错乱；跨页表述补齐"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "知识图谱表格列错序；“传入”误识；跨页票证词识别错乱"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "知识图谱列序错乱；活动列表换行和编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "活动编号/段落识别格式错乱"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "学业质量表格列序错乱；多处文字错误与标点编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "学业质量表格文字串行；错字、标点修正"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 62,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "标题层级漏识；列表编号和多处字词识别错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "列表编号/断行错乱；“一体”等内容识别错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉串入正文；多层列表编号和段落识别错乱"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "切入/编号错识；多处段落需依原图复核"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 66,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "标题末尾混入“用”；批判性思维及正文多处识别错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 67,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉和列表编号错识；正文有漏识/断页"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 68,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "标题末尾混入“用”；评价标题及末行错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 69,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "跨页截断；评价标题编号和正文换行错乱"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 70,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“纳入/扬长补短/投入”等错字和编号错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 71,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章节题名和“命题原则”错识；列表编号需恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 72,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "标题/编号错识；跨页“纵横联系”拆分"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 73,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "古诗漏“一”字；年表被打散且部分错字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 74,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "年表与评分标准表格行列错乱；“进入”等识别错字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 75,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "示例标签OCR括号错误；正文需逐句校正"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 76,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "示例标签/页眉串行；多处正文错字与段落需校正"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 77,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "多页论述/小标题及“点—线”标点需恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 78,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章节页眉串入“用”；标题层级和多处正文校正"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 79,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "编号层级/间距错乱；正文复核"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 80,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章节页眉串入“用”；“介入”等错字需修正"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 81,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "小节编号/标题错识，段落标点需依原图恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 82,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉串入“用”；圈码标题误识为点号/罗马字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 83,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "圈码“①–④”被错识为点号/字母；正文编号需恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 84,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉串入“用”；圈码错识，行尾跨页"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 85,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "圈码“②/③/①”等被错识为点号或字母，正文错识和跨页断句需修复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/03-义务教育历史课程标准（2022年版）.pdf",
+          "page": 86,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉串入“用”；跨页词及正文错识"
+          ]
+        }
+      ]
+    },
+    "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf": {
+      "total_pages": 76,
+      "reviewed_pages": 76,
+      "corrected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "uncertain_pages": [],
+      "pages": [
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "封面出版信息和英文社名OCR错漏"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "前言、指导思想标题漏识",
+            "必须误识",
+            "正文折行与页码"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "修订原则主标题序号漏识",
+            "融入误识",
+            "页末未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "三、主要变化标题首字漏识",
+            "融入误识",
+            "页眉与页码"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "健康、语言条目漏“言”",
+            "教—学—评连接符误识",
+            "页眉清理"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "目录条目和页码OCR顺序错乱",
+            "附录条目识别及页码对应"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "课程理念标题序号/标点",
+            "融入、深入误识",
+            "页末未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉标题序号漏识",
+            "理念条目编号标点缺失"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "课程目标标题序号漏识",
+            "小节序号标点异常"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "课程目标页眉漏识",
+            "小节编号标点异常"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "目标要求标题序号漏识",
+            "条目编号标点缺失",
+            "页末未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "课程目标页眉序号漏识",
+            "条目编号标点异常"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "内容要求多层编号符号被OCR拆错",
+            "段落和标题核对"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "学业要求及教学策略编号标点错识",
+            "页末未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "深入与差别字形误识",
+            "小节编号标点错识",
+            "页末未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "多层级编号标点大量错识",
+            "页眉清理",
+            "术语与页末未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "朱鹮漏字",
+            "入侵误识",
+            "编号/小节分层"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "凤眼蓝漏字",
+            "入侵误识",
+            "小节编号/页眉噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "概念3与生态系统层级编号OCR错识",
+            "页码“15”误识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "学业要求/教学提示编号错识",
+            "页眉噪声",
+            "页末未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "4.1条目编号与描述跨栏错位",
+            "页面边界与页码"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "4.1–4.3条目层级编号标点错识",
+            "页眉噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "教学提示编号标点与层级",
+            "页眉与页码"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "概念5层级编号标点错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "5.2–5.5多级编号标点错识",
+            "二氧化碳漏“二”"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "概念6与6.1/6.2多层编号",
+            "页眉噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "学业要求编号标点及“差别”字形",
+            "教学提示编号"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "ECMO括注识别噪声",
+            "教学提示编号标点",
+            "跨页活动句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "7.1/7.1.1编号格式",
+            "跨页句子及内容要求层级"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "7.2与8.1/8.2层级编号严重丢失/错识",
+            "条目描述与序号错位",
+            "跨页学业要求"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "教学提示序号/标点识别噪声",
+            "书名与人名核对"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "概念9和9.1层级编号",
+            "跨页未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "9.2编号",
+            "OCR“装人水”据图校为“装入水”"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "9.3层级编号",
+            "跨页活动描述"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "学业要求/教学提示编号",
+            "3D打印字符"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "跨页教学提示编号和层级"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "标题层级和章节全文"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "生态议题段“尝试”漏字",
+            "全页四类情境核对"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "课程实施主标题",
+            "教学目标编号",
+            "跨页未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“深入”OCR识别为“深人”",
+            "跨页句、教学条目层级"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "探究活动条目编号/标点",
+            "跨页概念建构句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章节标题编号及完整条文",
+            "跨页评价标准"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "评价标准跨页续句",
+            "“个性化学习”漏识",
+            "第5条标题编号"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "评价原则层级编号",
+            "课堂评价圈码",
+            "跨页内容"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "②至⑤圈码标题OCR漏识",
+            "评价类型内容层级"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“融入真实情境”误识为“融人”",
+            "2标题编号",
+            "末句跨页"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "命题规划/题目命制层级编号",
+            "问题情境跨页"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "教材编写层级编号及政策名称/引号核对"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "教材内容选择标题编号",
+            "“编入”OCR误为“编人”"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "一方面条目漏字",
+            "教材组织标题编号",
+            "课程资源开发标题"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "标题编号",
+            "跨页句衔接"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "课程资源条目标题编号",
+            "与前页“探究、制作”跨页衔接"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "6标题编号",
+            "区域教研标题跨页"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“深入”误识为“深人”",
+            "“研训一体”跨页"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "校本教研和培训条目编号",
+            "多处“深人”误识",
+            "跨页培训重点"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "培训重点跨页衔接",
+            "多处“深人”误识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "附录案例题目与器具标点",
+            "实验步骤编号及完整性"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "案例2名称/页码",
+            "活动目标、器具与步骤完整性"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 62,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "图1标签与图号",
+            "细胞名词填空线被OCR漏读",
+            "图绘制空框"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“区别”错识",
+            "破折号样式",
+            "案例3跨页未完句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "教学环节圈码",
+            "图2三处标签及箭头说明",
+            "主代理复核：图2流向已显式标注"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "图3、图4标签被OCR拆散/串栏",
+            "环节圈码"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 66,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "概念形成与迁移应用编号",
+            "案例点评结构"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 67,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "有性生殖漏识生字",
+            "尺寸/人数范围符号",
+            "图5基因符号标签"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 68,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "表1列头与空白行/合并列",
+            "圈码编号",
+            "案例点评跨页"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 69,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“入手”误识为“人手”",
+            "案例5数值/单位与图6"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 70,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“泌尿系统”误读漏“系”",
+            "“深入理解”识别错误",
+            "案例6段跨页"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 71,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "图7标签",
+            "量与单位、入/插字词",
+            "图示流程"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 72,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "图8/图9标签与箭头示意",
+            "跨页句"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 73,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "圈码①②识别为符号",
+            "跨页空气泵句衔接"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 74,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "图10步骤文字标签",
+            "表2多层行列结构、图样、实验数量/卵数"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 75,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "评分标准表行列与合并单元格",
+            "典型作答OCR漏字（“补充实验”）",
+            "主代理复核：1分两种典型作答分行"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/12-义务教育生物学课程标准（2022年版）.pdf",
+          "page": 76,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "续表表头与行列结构",
+            "题（2）和（3）各分值特征/典型作答"
+          ]
+        }
+      ]
     }
   }
 }
