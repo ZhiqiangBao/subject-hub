@@ -1822,6 +1822,2002 @@
           "issues": []
         }
       ]
+    },
+    "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf": {
+      "total_pages": 73,
+      "reviewed_pages": 73,
+      "corrected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "uncertain_pages": [
+        62
+      ],
+      "pages": [
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "封面出版者标识被OCR误识，按原图补录可读中英文名称。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页名误识为乱码；“必须”误识为“心须”。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉严重误识；“融入”误识为“融人”。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉缺“前言”；节标题编号“三、”漏识；“融入”误识。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉误识；“教—学—评”连接号误识；“语言”漏字。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉误识；目录末三项页码分离，需恢复逐项对应。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "正文与原图对应；OCR未保留印刷页脚1。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "大标题“二、”误识为“一、”；第二项编号漏标点；“融入”误识。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉标题乱码；第三、第四项编号漏标点；“进入”误识为“进人”，“校外”误识。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉乱码；第五项编号标点误识。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "大标题编号“三、”漏识；小节编号标点错识；页末内容跨页。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉误识；编号标点错误；“解习近平”与上一页“了解”跨页；正文底部截断。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉漏标题；小节“健全人格”编号漏点号。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉误识；小节编号缺点号；“（二）总目标”与首条目标处于页末。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉误识；“意外”误识为“意夕卜”；页末词语跨页。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉误识；学段表被打散、跨页列对应错位，漏掉大量单元格内容；逐列重建政治认同表。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "续表跨页列内容错序，多个单元格漏行；恢复四学段政治认同条目。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "道德修养学段表多列错序、漏行；补回第二学段“公共卫生”等遗漏并恢复完整行列。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "续表列顺序混乱；恢复劳动与法治观念各学段条目对应。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "续表仍按多个窄列输出，法律观念与健全人格条目错位；按原图重建列。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "健全人格、责任意识条目跨页并列，OCR列序错乱；逐学段恢复。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "责任意识续表多列错位；五四学制说明需校正数字、顺序和年级。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "第四章标题编号漏识；“融入”“入学”被误识为同音字。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图逐列恢复入学教育、道德教育表格，修正页眉及漏识、错识内容。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图逐列恢复道德教育与生命安全和健康教育续表，补全安全隐患要求及教学提示。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图逐列恢复生命安全与健康教育、法治教育和中华优秀传统文化与革命传统教育三组条目。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图逐列恢复中华优秀传统文化与革命传统教育续表，校正中共党史、少先队和国家安全相关条目。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对学业要求标题和学段标题；按原图恢复第二学段引言及表格列序、标点。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复道德教育续表的主题、内容要求与教学提示列，保留全部八项。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复生命安全与健康教育和法治教育续表，修正三列错位及标点。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复法治教育、中华优秀传统文化与革命传统教育续表，逐项对齐提示内容。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复中华优秀传统文化、革命传统和国情教育续表，按主题对齐内容要求与教学提示。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对学业要求、第三学段标题和引言，恢复正确标点及道德教育表格。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复道德教育、生命安全与健康教育表格，校正列序和条目。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复生命安全与健康教育、法治教育续表，校正安全与法律条目及教学提示。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复法治教育和传统文化续表的各条内容与教学提示，正确分配主题栏。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图重建中华优秀传统文化与革命传统教育续表，校正称谓、标点和引文。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复传统文化与革命传统教育、国情教育续表，校正各条对应关系。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "校正国情教育续表、“学业要求”标题及错识“进入”“共赢”，按原图恢复整段学业要求。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对第四学段介绍和生命安全与健康教育表格，恢复7～9年级、主题及列序。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复生命安全与健康教育和法治教育续表，修正“处理负面情绪”识别错误。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复法治教育续表，校正引文、国家统一及各制度条目。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复法治教育续表，校正民法典、刑罚、国家安全和国际组织条目。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复中华优秀传统文化教育表，重建长段教学提示并校正引语标点。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复革命传统教育续表，修正连续正文、标点和教学提示对应关系。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复革命传统教育续表，校正改革开放与新时代两项内容及其提示。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复国情教育续表及其学业要求开头，修正页内错序和“佇今”乱码。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图补齐第三学段学业要求结尾及五四学制说明，校正学制符号与错序。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图补齐学业质量标题、分节标题和定义段落。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "对照原图重建第一、第二学段学业质量描述表，保留跨页未完句。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图接续第二学段描述并重建第三学段描述，校正页眉、跨页顺序和表格内容。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对第四学段质量标准表、学制脚注，修正“进入”错字并恢复整段表格。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对课程实施与教学建议开篇，恢复标题和编号，修正章节内错识。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图核对教学建议第1至3项，修正章节编号、专业术语及拆页接续。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图核对实践体验和评价建议，修正“课程实施”标题及句段位置。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图校正评价基本原则与内容，恢复教—学—评连接号及跨页未完句。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图核对评价方法、课堂评价，校正标题与分页接续。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "修正期终评价、章节编号，并按原图核对各评价环节及学业水平考试开头。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对学业水平考试性质、命题原则与规划，修正章节编号和术语。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图校正考试题目命制要求和评分标准，修复被拆开的跨页句。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 62,
+          "status": "uncertain",
+          "changed": true,
+          "issues": [
+            "按原图重建样题1图示说明和题干；卫星导航图下说明首行仍无法可靠辨读，明确标记未猜。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图补正样题2甲骨文字形说明、王阳明姓名及样题3开头内容，修复OCR错乱。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图恢复垃圾分类法规节选、样题说明和教材编写建议开头，校正法律条款标点。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图校正教材编写原则与教材内容选择，修复融入、编号及术语错识。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 66,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图续接教材内容选择，校正“相结合”“区域差异”及章节标题和跨页内容。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 67,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图校正课程资源章节标题、编号及三项资源建设要求。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 68,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图校正教师培训章节，修复“优势互补”“深入领会”等错识并保留页末跨页词。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 69,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图校正教师培训与教学研究段落，修复深入调研、补短板等识别错误。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 70,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图校正教研方式与校本教研内容，恢复章节编号及“问题—反思—改进—实践”原文。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 71,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图重建附录政治认同两学段对照表，修复多列顺序和错字。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 72,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图重建附录道德修养、法治观念两学段对照表，修正错位与缺字。"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+          "page": 73,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "按原图重建附录健全人格、责任意识两学段对照表，恢复列序与全部条目。"
+          ]
+        }
+      ]
+    },
+    "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf": {
+      "total_pages": 109,
+      "reviewed_pages": 109,
+      "corrected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "uncertain_pages": [],
+      "pages": [
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "封面版本空格、中文出版信息与英文社名OCR错漏"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "前言标题识别错误",
+            "儿童青少年识别错误",
+            "断行引号空格需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“融入”误识别为“融人”"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“三、主要变化”章标题首字漏识",
+            "“融入”误识别",
+            "引号周围空格与连字符需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "学段衔接句漏“语文”",
+            "“教—学—评”连接符识别异常"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "目录页附录条目和页码被OCR拆散、漏识",
+            "页眉识别噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "第2条标点误识别",
+            "第3条序号误识别"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉OCR噪声",
+            "第4、5条序号标点误识别",
+            "“注重积累”漏字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章标题漏首字",
+            "条目编号标点错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉OCR噪声",
+            "条目编号标点错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "总目标第1至8项编号标点错识或漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“3～5”等年级范围符号和括号误识",
+            "栏目标题方括号识别偏差",
+            "项目编号标点错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“儿童诗”识别错误",
+            "栏目标题方括号识别偏差",
+            "项目编号标点错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "条目序号标点和学段范围OCR偏差",
+            "栏目标签形式不准"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "条目编号标点错误",
+            "栏目标签识别不准确"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "条目编号标点错误",
+            "栏目标签识别不准确"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "栏目标签形式不准",
+            "序号标点识别错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "页首“发言”漏录",
+            "栏目标签形式不准",
+            "序号标点识别错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "学段范围符号误识",
+            "栏目标签与序号错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "阅读条目编号漏识及标点错误",
+            "栏目标签需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“增强表达效果”漏字",
+            "条目编号标点错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "条目序号标点误识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "百分比范围符号漏识",
+            "“儿童文学”误识",
+            "句末标点漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“奠定语文基础”漏字",
+            "编号、学段范围和栏目标签格式错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "学段范围符号、子项括号和标点格式不统一"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "教学提示栏目括号形式不准"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "发展型任务群序号标点误识",
+            "栏目括号和子项格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“公共生活规则”错字",
+            "学段范围与子项编号需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "栏目标签、学段范围、分项标点格式不准"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "学习内容栏目标签与项目格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "学段区间和子项格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "教学提示栏目括号、标点与引号空格需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "学习内容栏目标签、学段范围和子项标点需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "表达效果句句号漏识",
+            "年级区间和栏目标签需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "拓展型任务群序号标点错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“儿歌集”“儿童文学”误识",
+            "学段范围和栏目格式错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "学段区间和栏目标签格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "学习内容栏目标签误识",
+            "学段范围及子项格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "学段范围和子项标点格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "教学提示标签和编号格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "学段范围格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "学段范围标点格式错误"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "页末“活动总结”严重错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“撰写活动总结”严重错识",
+            "学段范围格式需规范"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“语言”漏字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "章标题序号“六、”漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "小标题序号及标点"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉文字需校正",
+            "小标题序号缺少标点"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "多处形近字及短语错识",
+            "引号中短横线识别"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“有效指导”错识",
+            "“命题原则”错识",
+            "页眉识别噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "“引入”错识",
+            "页眉识别噪声",
+            "标题编号标点"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "“深入”错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "教材编写建议序号及标点错识",
+            "页眉需整理"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "条目8序号误识为符号",
+            "多处序号标点错识",
+            "页眉识别噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉OCR噪声",
+            "“资源互补”错识",
+            "标题序号标点"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 62,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉OCR噪声",
+            "“深入”错识",
+            "标题序号标点"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉OCR噪声",
+            "“纳入”错识",
+            "标题序号标点"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉OCR噪声",
+            "条目8序号误识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "诗文清单列错位",
+            "编号和诗题/作者对应恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 66,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "诗文清单列错位",
+            "多个诗句提示错识",
+            "作者对应恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 67,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "诗文清单行列错位",
+            "多处诗题括注错识",
+            "作者对应恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 68,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "两部分篇目连续编号恢复",
+            "诗题与作者对应恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 69,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "初中诗文清单列错位",
+            "多处诗题及诗句错识",
+            "论语段落完整恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 70,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "文言篇目清单行列错位",
+            "选段符号和文本恢复",
+            "作者对应恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 71,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "专名/书名OCR错识",
+            "“儿童诗歌”“补充推荐”等恢复"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 72,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "术语OCR错识：补充式、补语",
+            "编号标点错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 73,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "基本字表分栏/顺序OCR错乱",
+            "部首变体OCR错识",
+            "说明文字漏字"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 74,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "字表列顺序错乱",
+            "部首变体及多个汉字错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 75,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "字表列顺序错乱",
+            "分组标题错位",
+            "部首变体错识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 76,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "字表栏序和笔画分组整理"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 77,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "常用字表按列OCR打散，编号和字形逐项复核"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 78,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "常用字表按列OCR打散，编号和字形逐项复核"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 79,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "原OCR将页码插入字表中部"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 80,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "365号汉字错识为“隹”",
+            "339号误加符号",
+            "附录页眉误置于表内"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 81,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉识别噪声",
+            "原OCR将页码插入字表中部"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 82,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "OCR漏识G、H分组标题",
+            "页眉混入字表中"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 83,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "650号、655号汉字错识",
+            "页眉及页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 84,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "OCR漏识J分组标题",
+            "页眉混入字表中"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 85,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "漏识865号“杰”",
+            "漏识K分组标题",
+            "页码位置及页眉"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 86,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "漏识L分组标题",
+            "1019号“兰”错识",
+            "页码位置及页眉"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 87,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "1120、1126号编号形近错识",
+            "页码位置及页眉"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 88,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "漏识N分组标题",
+            "页眉混入字表",
+            "页码漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 89,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "O字母识别成0",
+            "漏识Q分组标题",
+            "页码识别并入表中"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 90,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "漏识R分组标题",
+            "1429/1509号汉字错识",
+            "页眉混入字表"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 91,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "漏识S分组标题",
+            "页码位置错乱",
+            "页眉识别噪声"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 92,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "漏识T分组标题",
+            "页眉混入字表",
+            "页码漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 93,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "漏识W分组标题",
+            "逐项核对字形",
+            "页眉需整理"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 94,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "1877误识别",
+            "1893字符漏识",
+            "X分组标题漏识",
+            "附录页眉位置",
+            "页码漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 95,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "2026首字误识别",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 96,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "Y分组标题漏识",
+            "2111与2117序号误识别",
+            "附录页眉位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 97,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "Z分组标题漏识",
+            "2275首字误识别",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 98,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "附录页眉位置",
+            "2386/2399/2402字形误识别",
+            "页码漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 99,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "页眉噪声",
+            "2413首字误识别",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 100,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "A/B/C分组及标题位置",
+            "错字字形",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 101,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "D/E/F分组位置",
+            "179、207字形误识",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 102,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "G/H/J分组及页眉",
+            "225、235、305等字形误识",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 103,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "K/L分组标题",
+            "354、400、419字形误识",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 104,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "M/N分组和附录页眉",
+            "页码漏识"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 105,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "O/P/Q/R分组标题",
+            "618字形误识",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 106,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "S/T/W分组",
+            "649、740字形漏识/误识",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 107,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "X/Y分组",
+            "862字形误识",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 108,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR错序",
+            "Z分组和附录页眉",
+            "890、953字符漏识/误识",
+            "页码位置"
+          ]
+        },
+        {
+          "source_pdf": "义务教育-2022/02-义务教育语文课程标准（2022年版）.pdf",
+          "page": 109,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "四栏OCR次序与页眉页码核对"
+          ]
+        }
+      ]
     }
   }
 }

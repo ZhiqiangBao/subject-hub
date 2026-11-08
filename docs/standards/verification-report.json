@@ -3,7 +3,7 @@
   "pdf_pages": 4128,
   "passed": true,
   "failures": [],
-  "documents_with_quality_notes": 13,
+  "documents_with_quality_notes": 14,
   "quality_notes": [
     {
       "source": "义务教育-2022/00-义务教育课程方案（2022年版）.pdf",
@@ -11,6 +11,20 @@
         {
           "type": "empty_page",
           "page": 7
+        }
+      ],
+      "too_short_pages": [],
+      "language_limitation": null
+    },
+    {
+      "source": "义务教育-2022/01-义务教育道德与法治课程标准（2022年版）.pdf",
+      "issues": [
+        {
+          "type": "visual_uncertain",
+          "page": 62,
+          "details": [
+            "按原图重建样题1图示说明和题干；卫星导航图下说明首行仍无法可靠辨读，明确标记未猜。"
+          ]
         }
       ],
       "too_short_pages": [],
