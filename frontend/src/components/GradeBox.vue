@@ -18,8 +18,9 @@
     <p class="hint" v-if="part.llm_comment">模型评语：{{ part.llm_comment }}</p>
     <div class="chips">
       <button class="btn primary" type="button" @click="save">记下这个分数</button>
-      <button class="btn ghost" type="button" @click="regrade">用模型再评一次</button>
+      <button v-if="canRegrade(part)" :disabled="regrading" class="btn ghost" type="button" @click="regrade">用模型再评一次</button>
     </div>
+    <p v-if="part.subjective && part.status === 'pending' && !part.job_state" class="hint">尚未开始模型评分。请检查模型配置，或直接手动评分。</p>
     <p class="hint" v-if="note">{{ note }}</p>
     <p class="err" v-if="error">{{ error }}</p>
   </div>
@@ -27,13 +28,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref } from "vue";
 import { api } from "../api";
+import { canRegrade } from "../gradingPermissions";
 
 const props = defineProps<{ part: any }>();
 const emit = defineEmits<{ saved: [] }>();
 const note = ref("");
 const error = ref("");
+const regrading = ref(false);
+let stopped = false;
 const answerId = computed(() => props.part.answer_id || props.part.id);
 const llmLabel = computed(() => {
   const n = props.part.llm_score ?? props.part.raw_score;
@@ -81,7 +85,9 @@ function applyLlm(row: {
   comment?: string | null;
   admin_score?: number | null;
   admin_touched?: boolean;
+  job_state?: string | null;
 }) {
+  if ("job_state" in row) props.part.job_state = row.job_state;
   if ("llm_score" in row) props.part.llm_score = row.llm_score;
   if ("llm_comment" in row) props.part.llm_comment = row.llm_comment;
   if (!props.part.admin_touched && row.llm_comment) props.part.comment = row.llm_comment;
@@ -103,71 +109,95 @@ function wait(ms: number) {
 async function save() {
   error.value = "";
   clampScore();
-  await api("/api/parent/grade", {
-    method: "POST",
-    body: JSON.stringify({
-      answer_id: answerId.value,
-      score: parseScore(props.part.admin_score ?? props.part.score),
-      comment: props.part.comment || "",
-    }),
-  });
-  props.part.status = "overridden";
-  props.part.status_label = "已改判";
-  props.part.admin_touched = true;
-  note.value = "已改判。";
-  emit("saved");
-}
-
-async function regrade() {
-  error.value = "";
-  const kept = props.part.admin_touched;
-  if (!kept) {
-    props.part.comment = "";
-    props.part.score = null;
-  }
-  props.part.llm_comment = "";
-  props.part.llm_score = null;
-  if (!kept) {
-    props.part.status = "pending";
-    props.part.status_label = "待评分";
-  }
-  note.value = "正在交给模型…";
   try {
     await api("/api/parent/grade", {
       method: "POST",
-      body: JSON.stringify({ answer_id: answerId.value, regrade: true }),
+      body: JSON.stringify({
+        answer_id: answerId.value,
+        score: parseScore(props.part.admin_score ?? props.part.score),
+        comment: props.part.comment || "",
+      }),
     });
-    note.value = kept ? "模型还在评，评完只更新模型分，不会改你的分数。" : "模型还在评，分数和评语稍后出现。";
-    const id = answerId.value;
-    for (let i = 0; i < 60; i++) {
-      await wait(2000);
-      const row = (await api(`/api/parent/answers/${id}`)) as {
-        status?: string;
-        llm_score?: number | null;
-        llm_comment?: string | null;
-        comment?: string | null;
-        admin_score?: number | null;
-        admin_touched?: boolean;
-      };
-      applyLlm(row);
-      const fail = String(row.llm_comment || row.comment || "").startsWith("模型这次没评上");
-      const done = row.llm_score != null || fail;
-      if (done) {
-        if (fail) {
-          error.value = row.llm_comment || row.comment || "模型这次没给出分数和评语。";
-          note.value = "";
-        } else {
-          note.value = kept ? "模型已评好，可作参考。" : row.llm_comment ? "模型已评好，评语已写入。" : "模型已评好。";
-        }
-        emit("saved");
-        return;
-      }
-    }
-    error.value = "模型还没给出分数和评语，可以手改或再点一次。";
+    props.part.status = "overridden";
+    props.part.status_label = "已改判";
+    props.part.admin_touched = true;
+    note.value = "已改判。";
     emit("saved");
-  } catch (err) {
-    error.value = err instanceof Error ? err.message : "再评失败";
-    note.value = "";
-  }
+  } catch (err) { error.value = err instanceof Error ? err.message : "改判失败"; }
 }
+
+type GradeResult = {
+  status?: string;
+  job_state?: string | null;
+  llm_score?: number | null;
+  llm_comment?: string | null;
+  comment?: string | null;
+  admin_score?: number | null;
+  admin_touched?: boolean;
+};
+
+async function pollJob(id: number) {
+  for (let i = 0; i < 60 && !stopped; i++) {
+    await wait(2000);
+    if (stopped) return;
+    const row = await api(`/api/parent/answers/${id}/grade-job`) as GradeResult;
+    if (stopped) return;
+    applyLlm(row);
+    if (row.job_state === "done") {
+      note.value = "模型已评好，参考分已更新。";
+      emit("saved");
+      return;
+    }
+    if (row.job_state === "cancelled") {
+      note.value = "评分任务已取消，请刷新查看当前状态。";
+      emit("saved");
+      return;
+    }
+    if (row.job_state === "failed") {
+      note.value = "";
+      error.value = row.llm_comment || "模型评分失败，请检查模型配置或手动评分。";
+      emit("saved");
+      return;
+    }
+  }
+  if (!stopped) note.value = "模型仍在评分，请稍后刷新查看；也可以手动评分。";
+}
+
+async function trackJob(id: number) {
+  if (regrading.value) return;
+  regrading.value = true;
+  try { await pollJob(id); }
+  catch (err) { if (!stopped) error.value = err instanceof Error ? err.message : "读取评分状态失败，请稍后刷新查看。"; }
+  finally { regrading.value = false; }
+}
+
+async function regrade() {
+  if (regrading.value || !canRegrade(props.part)) return;
+  error.value = "";
+  note.value = "正在交给模型…";
+  regrading.value = true;
+  try {
+    const result = await api("/api/parent/grade", {
+      method: "POST",
+      body: JSON.stringify({ answer_id: answerId.value, regrade: true }),
+    }) as GradeResult;
+    if (stopped) return;
+    applyLlm(result);
+    note.value = "模型任务正在等待或评分；如长时间等待，请检查模型配置，也可以手动评分。已有人工分仍是最终分。";
+    await pollJob(answerId.value);
+  } catch (err) {
+    if (!stopped) {
+      error.value = err instanceof Error ? `${err.message}。请检查模型配置或手动评分。` : "再评失败，请检查模型配置或手动评分。";
+      note.value = "";
+    }
+  } finally { regrading.value = false; }
+}
+
+onMounted(() => {
+  if (props.part.job_state === "queued" || props.part.job_state === "running") {
+    note.value = "模型任务正在等待或评分；如长时间等待，请检查模型配置，也可以手动评分。已有人工分仍是最终分。";
+    void trackJob(answerId.value);
+  }
+});
+onUnmounted(() => { stopped = true; });
 </script>

@@ -52,7 +52,7 @@
         <label class="field-label">{{ draft.item.type === 'passage' ? '阅读材料' : '题干' }}</label>
         <textarea v-model="draft.item.left_md"></textarea>
         <div class="draft-part" v-for="(part, index) in draft.item.parts" :key="part.id">
-          <h3>{{ isContainer(draft.item) ? `第 ${index + 1} 问` : '答案' }}</h3>
+          <h3>{{ isContainer(draft.item) ? `第 ${Number(index) + 1} 问` : '答案' }}</h3>
           <label class="field-label">分值</label>
           <input v-model.number="part.points" type="number" min="0.5" step="0.5" />
           <ItemPartEditor v-model="draft.item.parts[index]" :subject="draft.item.subject" :show-stem="isContainer(draft.item)" :allow-photo-toggle="draft.item.type === 'steps'" />

@@ -8,7 +8,7 @@
       <div class="choice-edit" v-for="(c, i) in part.choices" :key="c.id">
         <button class="choice" :class="{ on: isPicked(c.id) }" type="button" @click="toggleCorrect(c.id)">{{ c.id }}</button>
         <input v-model="c.text" :placeholder="'选项 ' + c.id" />
-        <button class="btn ghost" type="button" @click="removeChoice(i)">去掉</button>
+        <button class="btn ghost" type="button" @click="removeChoice(Number(i))">去掉</button>
       </div>
       <button class="btn" type="button" @click="addChoice">再加一个选项</button>
     </template>
@@ -39,7 +39,7 @@
         <textarea v-model="row.require" placeholder="这一条要学生做到什么"></textarea>
         <p class="field-label">这一条满分</p>
         <input v-model.number="row.points" type="number" min="0" step="0.5" />
-        <button class="btn ghost" type="button" @click="removeRubric(i)">去掉这条</button>
+        <button class="btn ghost" type="button" @click="removeRubric(Number(i))">去掉这条</button>
       </div>
       <button class="btn" type="button" @click="addRubric">再加一条细则</button>
       <label class="photo-toggle" v-if="allowPhotoToggle">

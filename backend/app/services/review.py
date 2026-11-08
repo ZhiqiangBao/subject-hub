@@ -10,6 +10,8 @@ from ..constants import OBJECTIVE_TYPES, SUBJECTS, TYPES
 from ..models import ChallengeRun, ItemAnswer, PaperAttempt, User
 from .bank import BankError, bank
 from .grade import load_value
+from .grade_jobs import GradeJob
+from .snapshots import context_item
 from .groups import teacher_label
 
 
@@ -58,6 +60,8 @@ def _part_review(db: Session, user_id: int, context_type: str, context_id: int, 
         "type_name": TYPES.get(part.type, part.type),
         "stem": part.stem,
         "subjective": part.type not in OBJECTIVE_TYPES,
+        "job_state": db.scalar(select(GradeJob.state).where(GradeJob.answer_id == row.id))
+        if row and part.type not in OBJECTIVE_TYPES else None,
         "value": load_value(row.value_json) if row else None,
         "value_text": _show_value(load_value(row.value_json) if row else None),
         "photos": photos,
@@ -79,9 +83,14 @@ def _part_review(db: Session, user_id: int, context_type: str, context_id: int, 
 
 
 def _item_review(db: Session, user_id: int, context_type: str, context_id: int, slug: str, index: int) -> dict[str, Any]:
-    try:
-        item = bank.get(slug)
-    except BankError:
+    item = context_item(db, context_type, context_id, slug)
+    if not item:
+        from .answers import effective_score
+
+        rows = db.scalars(select(ItemAnswer).where(
+            ItemAnswer.user_id == user_id, ItemAnswer.context_type == context_type,
+            ItemAnswer.context_id == context_id, ItemAnswer.item_slug == slug,
+        )).all()
         return {
             "index": index,
             "slug": slug,
@@ -89,9 +98,9 @@ def _item_review(db: Session, user_id: int, context_type: str, context_id: int, 
             "left_md": "",
             "tags": [],
             "missing": True,
-            "score": 0,
-            "max_score": 0,
-            "pending": 0,
+            "score": round(sum(effective_score(row) or 0 for row in rows if row.status in {"graded", "overridden"}), 2),
+            "max_score": round(sum(row.max_score or 0 for row in rows), 2),
+            "pending": sum(row.status in {"pending", "submitted"} for row in rows),
             "parts": [],
         }
     parts = [_part_review(db, user_id, context_type, context_id, slug, part) for part in item.parts]
@@ -150,7 +159,8 @@ def review_paper(db: Session, attempt_id: int, *, named: bool = False) -> dict[s
         "title": paper.title if paper else "试卷",
         "status": "已交卷" if attempt.status == "submitted" else "未交卷",
         "anonymous": not named,
-        "can_grade": not named,
+        "can_grade": bool(not named and attempt.status in {"submitted", "absent"}
+                          and paper.grading_started_at and not paper.scores_released_at),
         "student_id": attempt.user_id if named else None,
         "student": teacher_label(student),
         "items": items,

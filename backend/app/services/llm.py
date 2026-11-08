@@ -2,21 +2,19 @@ from __future__ import annotations
 
 import base64
 import json
+import math
 import mimetypes
-import queue
 import re
-import threading
 from pathlib import Path
 from typing import Any
 
 import httpx
 
-from ..config import DEFAULT_LLM_BASE_URL, UPLOAD_DIR, llm_configured, llm_settings
+from ..config import DEFAULT_LLM_BASE_URL, UPLOAD_DIR, llm_settings
 from .bank import Item, Part
+from .grade_jobs import enqueue, start_worker
 
 
-_work: queue.Queue[tuple[int, str, str, list[str]]] = queue.Queue()
-_started = False
 LLM_FAIL_PREFIX = "模型这次没评上："
 _GRADE_TIMEOUT = 180.0
 _PING_TIMEOUT = 45.0
@@ -113,18 +111,22 @@ def _extract_json(text: str) -> dict[str, Any] | None:
 
 
 def _as_float(value: Any) -> float | None:
-    if value is None or isinstance(value, bool):
+    if isinstance(value, bool) or value is None:
         return None
     if isinstance(value, (int, float)):
-        return float(value)
-    text = str(value).strip().replace("，", ".").replace("分", "")
-    text = re.sub(r"[^\d.\-]+", "", text)
-    if not text or text in {".", "-", "-."}:
-        return None
-    try:
-        return float(text)
-    except ValueError:
-        return None
+        try:
+            number = float(value)
+        except OverflowError:
+            return None
+    else:
+        text = str(value).strip().replace("，", ".")
+        if not re.fullmatch(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?\s*分?", text):
+            return None
+        try:
+            number = float(text.removesuffix("分").strip())
+        except ValueError:
+            return None
+    return number if math.isfinite(number) else None
 
 
 def _pick(data: dict[str, Any], *names: str) -> Any:
@@ -139,83 +141,58 @@ def _pick(data: dict[str, Any], *names: str) -> Any:
 
 def _coerce_grade(parsed: dict[str, Any], part: Part) -> dict[str, Any] | None:
     rubric = list(part.rubric or [])
+    has_rubric = bool(rubric)
     if not rubric:
         rubric = [{"id": "total", "points": part.points, "require": ""}]
     max_by_id = {str(row["id"]): float(row["points"]) for row in rubric}
+    if (not math.isfinite(float(part.points)) or part.points <= 0 or len(max_by_id) != len(rubric)
+            or any(not math.isfinite(cap) or cap <= 0 for cap in max_by_id.values())):
+        return None
+    claimed = _as_float(_pick(parsed, "total", "score", "总分", "分数"))
+    if claimed is None or claimed < 0 or claimed > float(part.points):
+        return None
+    comment = str(_pick(parsed, "comment", "评语", "reason", "说明") or "")
     raw_items = _pick(parsed, "items", "分项", "scores")
+    if raw_items is None and not has_rubric:
+        raw_items = [{"id": "total", "score": claimed, "reason": comment}]
     if isinstance(raw_items, dict):
-        raw_items = [{"id": k, **(v if isinstance(v, dict) else {"score": v})} for k, v in raw_items.items()]
+        raw_items = [{"id": key, **(value if isinstance(value, dict) else {"score": value})}
+                     for key, value in raw_items.items()]
     if not isinstance(raw_items, list):
-        raw_items = []
-
+        return None
     cleaned: list[dict[str, Any]] = []
     used: set[str] = set()
-    for index, row in enumerate(raw_items):
+    for row in raw_items:
         if not isinstance(row, dict):
-            continue
-        rid = str(_pick(row, "id", "item", "name", "要点") or "").strip()
-        if not rid or rid not in max_by_id or rid in used:
-            leftover = [str(r["id"]) for r in rubric if str(r["id"]) not in used]
-            if index < len(leftover):
-                rid = leftover[index]
-            elif leftover:
-                rid = leftover[0]
-            else:
-                continue
-        cap = max_by_id.get(rid, float(part.points))
-        score = _as_float(_pick(row, "score", "points", "分", "分数"))
-        if score is None:
-            continue
-        score = min(max(0.0, score), cap)
-        used.add(rid)
-        cleaned.append(
-            {
-                "id": rid,
-                "score": round(score, 2),
-                "reason": str(_pick(row, "reason", "comment", "评语", "说明") or ""),
-            }
-        )
-
-    claimed = _as_float(_pick(parsed, "total", "score", "总分", "分数"))
-    comment = str(_pick(parsed, "comment", "评语", "reason", "说明") or "")
-    if not cleaned:
-        if claimed is None:
             return None
-        rid = str(rubric[0]["id"])
-        cap = max_by_id.get(rid, float(part.points))
-        score = min(max(0.0, claimed), cap, float(part.points))
-        cleaned = [{"id": rid, "score": round(score, 2), "reason": comment}]
-        claimed = score
-
-    total = round(sum(row["score"] for row in cleaned), 2)
-    if total > float(part.points) + 1e-6:
-        scale = float(part.points) / total if total else 1
-        for row in cleaned:
-            row["score"] = round(row["score"] * scale, 2)
-        total = round(sum(row["score"] for row in cleaned), 2)
-    if claimed is not None:
-        claimed = min(max(0.0, claimed), float(part.points))
-        if abs(claimed - total) > 0.05:
-            if not raw_items:
-                total = round(claimed, 2)
-                cleaned = [{"id": str(rubric[0]["id"]), "score": total, "reason": comment}]
-            # otherwise keep item sum; small models often mis-add
-    if not str(comment).strip():
-        comment = "；".join(
-            str(row.get("reason") or "").strip() for row in cleaned if str(row.get("reason") or "").strip()
-        )
-    return {
-        "items": cleaned,
-        "total": total,
-        "comment": str(comment).strip(),
-    }
+        rid = str(_pick(row, "id", "item", "name", "要点") or "").strip()
+        if rid not in max_by_id or rid in used:
+            return None
+        score = _as_float(_pick(row, "score", "points", "分", "分数"))
+        if score is None or score < 0 or score > max_by_id[rid]:
+            return None
+        used.add(rid)
+        cleaned.append({"id": rid, "score": score,
+                        "reason": str(_pick(row, "reason", "comment", "评语", "说明") or "")})
+    if used != set(max_by_id):
+        return None
+    total = sum(row["score"] for row in cleaned)
+    if ((total > float(part.points) and not math.isclose(total, float(part.points), rel_tol=0, abs_tol=1e-9))
+            or not math.isclose(claimed, total, rel_tol=0, abs_tol=1e-9)):
+        return None
+    if not comment.strip():
+        comment = "；".join(row["reason"].strip() for row in cleaned if row["reason"].strip())
+    return {"items": cleaned, "total": claimed, "comment": comment.strip()}
 
 
 def _image_part(path: Path) -> dict[str, Any] | None:
     if not path.is_file():
         return None
     mime = mimetypes.guess_type(path.name)[0] or "image/jpeg"
-    b64 = base64.b64encode(path.read_bytes()).decode("ascii")
+    data = path.read_bytes()
+    if not data:
+        return None
+    b64 = base64.b64encode(data).decode("ascii")
     return {"type": "image_url", "image_url": {"url": f"data:{mime};base64,{b64}"}}
 
 
@@ -244,10 +221,14 @@ def _messages(item: Item, part: Part, answer_text: str, photos: list[str], visio
     user: Any
     if vision and photos:
         content: list[dict[str, Any]] = [{"type": "text", "text": text + "\n下面是演算纸照片。"}]
-        for rel in photos[:3]:
-            img = _image_part(UPLOAD_DIR / rel)
-            if img:
-                content.append(img)
+        for rel in photos:
+            path = (UPLOAD_DIR / rel).resolve()
+            if not path.is_relative_to(UPLOAD_DIR.resolve()):
+                raise ValueError("图片路径无效，请人工评分")
+            img = _image_part(path)
+            if not img:
+                raise ValueError("作答图片无法读取，请人工评分")
+            content.append(img)
         user = {"role": "user", "content": content}
     else:
         user = {"role": "user", "content": text}
@@ -459,6 +440,8 @@ def grade_part_attempt(item: Item, part: Part, answer_text: str, photos: list[st
             )
         except httpx.TimeoutException:
             return None, "模型超时，可以再评一次", True
+        except (ValueError, OSError) as exc:
+            return None, f"作答图片或模型响应无法处理：{exc}，请人工评分", False
         except Exception as exc:
             return None, f"没连上模型：{exc}", True
         content = _assistant_text(data)
@@ -475,113 +458,9 @@ def grade_part_attempt(item: Item, part: Part, answer_text: str, photos: list[st
         coerced["photos_used"] = bool(vision and photos)
         return coerced, "", False
 
-    result, err, retryable = call(vision=bool(photos))
-    if result is None and photos:
-        result, err, retryable = call(vision=False)
-        if result is not None:
-            result["comment"] = (result.get("comment") or "") + "（图片未评）"
-    return result, err, retryable
+    return call(vision=bool(photos))
 
 
 def grade_part_llm(item: Item, part: Part, answer_text: str, photos: list[str]) -> dict[str, Any] | None:
     result, _err, _retry = grade_part_attempt(item, part, answer_text, photos)
     return result
-
-
-def start_worker() -> None:
-    global _started
-    if _started:
-        return
-    _started = True
-
-    def loop() -> None:
-        from datetime import datetime
-
-        from ..db import SessionLocal
-        from ..models import ItemAnswer
-        from .bank import bank
-        from .grade import load_value
-
-        while True:
-            answer_id, slug, part_id, photos = _work.get()
-            db = None
-            try:
-                db = SessionLocal()
-                row = db.get(ItemAnswer, answer_id)
-                if not row or row.status == "draft":
-                    continue
-                try:
-                    item = bank.get(slug)
-                    part = next(p for p in item.parts if p.id == part_id)
-                except Exception:
-                    if row:
-                        row.llm_comment = LLM_FAIL_PREFIX + "找不到这道题"
-                    continue
-                text = str(load_value(row.value_json) or "")
-                result, err, _retry = grade_part_attempt(item, part, text, photos)
-                row = db.get(ItemAnswer, answer_id)
-                if not row or row.status == "draft":
-                    continue
-                if result:
-                    from .answers import apply_llm_score
-
-                    apply_llm_score(
-                        row,
-                        float(result["total"]),
-                        comment=result.get("comment") or "",
-                        llm_json=json.dumps(result, ensure_ascii=False),
-                    )
-                else:
-                    if row.override_score is None:
-                        row.status = "pending"
-                    row.llm_comment = LLM_FAIL_PREFIX + (err or "未知原因")
-                db.commit()
-            except Exception as exc:
-                if db:
-                    try:
-                        row = db.get(ItemAnswer, answer_id)
-                        if row and row.status != "draft":
-                            if row.override_score is None:
-                                row.status = "pending"
-                            row.llm_comment = LLM_FAIL_PREFIX + str(exc)
-                            db.commit()
-                    except Exception:
-                        db.rollback()
-            finally:
-                if db:
-                    db.close()
-
-    threading.Thread(target=loop, name="llm-grade", daemon=True).start()
-    _requeue_pending()
-
-
-def _requeue_pending() -> None:
-    if not llm_configured():
-        return
-    try:
-        from sqlalchemy import select
-
-        from ..db import SessionLocal
-        from ..models import ItemAnswer
-
-        db = SessionLocal()
-        try:
-            rows = db.scalars(select(ItemAnswer).where(ItemAnswer.status == "pending")).all()
-            for row in rows:
-                photos = []
-                try:
-                    photos = json.loads(row.photos_json or "[]")
-                except json.JSONDecodeError:
-                    photos = []
-                _work.put((row.id, row.item_slug, row.part_id, photos))
-        finally:
-            db.close()
-    except Exception:
-        pass
-
-
-def enqueue(answer_id: int, slug: str, part_id: str, photos: list[str]) -> None:
-    if not llm_configured():
-        return
-    start_worker()
-    _work.put((answer_id, slug, part_id, photos))

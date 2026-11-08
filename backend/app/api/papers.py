@@ -8,7 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from ..constants import SUBJECTS
-from ..db import get_db
+from ..db import get_db, reserve_write
 from ..deps import get_current_user
 from ..models import Paper, PaperAttempt, User
 from ..schemas import DraftIn
@@ -20,7 +20,7 @@ from ..services.answers import (
     scores_visible_for_paper,
     submit_item,
 )
-from ..services.bank import bank
+from ..services.snapshots import paper_item as snapshot_item
 from ..services.paper_layout import heading_for_slug, paper_layout
 from ..services.timing import (
     audience_for_user,
@@ -79,13 +79,14 @@ def _force_submit(db: Session, attempt: PaperAttempt, paper: Paper) -> None:
         return
     slugs = json.loads(paper.slugs_json)
     for slug in slugs:
-        if slug in bank.items:
+        item = snapshot_item(paper, slug)
+        if item:
             submit_item(
                 db,
                 attempt.user_id,
                 "paper",
                 attempt.id,
-                bank.get(slug),
+                item,
                 None,
                 grade=False,
             )
@@ -98,6 +99,11 @@ def _maybe_expire(db: Session, attempt: PaperAttempt, paper: Paper) -> None:
         return
     aud = audience_for_user(paper, attempt.user)
     if paper_expired(paper, audience=aud):
+        reserve_write(db)
+        db.refresh(attempt)
+        db.refresh(paper)
+        if attempt.status in {"submitted", "absent"} or not paper_expired(paper, audience=audience_for_user(paper, attempt.user)):
+            return
         _force_submit(db, attempt, paper)
         db.commit()
         db.refresh(attempt)
@@ -109,7 +115,7 @@ def _payload(db: Session, paper: Paper, attempt: PaperAttempt, user: User) -> di
     saved = set(progress["saved_slugs"])
     sections = []
     for row in paper_layout(paper):
-        items = [bank.get(s).summary() for s in row["slugs"] if s in bank.items]
+        items = [item.summary() for s in row["slugs"] if (item := snapshot_item(paper, s))]
         sections.append({"heading": row["heading"], "items": _mark_saved(items, saved)})
     ctx = score_context(db, user.id, "paper", attempt.id, slugs)
     visible = scores_visible_for_paper(paper)
@@ -125,7 +131,7 @@ def _payload(db: Session, paper: Paper, attempt: PaperAttempt, user: User) -> di
         "status": attempt.status,
         "slugs": slugs,
         "sheet": _sheet(db, user.id, attempt.id, slugs),
-        "items": _mark_saved([bank.get(s).summary() for s in slugs if s in bank.items], saved),
+        "items": _mark_saved([item.summary() for s in slugs if (item := snapshot_item(paper, s))], saved),
         "sections": sections,
         **timing_fields(paper, aud),
         **ctx,
@@ -139,6 +145,7 @@ def _payload(db: Session, paper: Paper, attempt: PaperAttempt, user: User) -> di
 
 @router.post("/{paper_id}/open")
 def open_paper(paper_id: int, user: User = Depends(get_current_user), db: Session = Depends(get_db)) -> dict:
+    reserve_write(db)
     paper = db.get(Paper, paper_id)
     if not paper:
         raise HTTPException(404, "找不到这份试卷")
@@ -183,7 +190,9 @@ def paper_item(
     slugs = json.loads(paper.slugs_json)
     if slug not in slugs:
         raise HTTPException(404, "这份卷里没有这道题")
-    item = bank.get(slug)
+    item = snapshot_item(paper, slug)
+    if not item:
+        raise HTTPException(404, "试卷中的这道题不可用")
     reveal = scores_visible_for_paper(paper)
     payload = item_state(db, user.id, "paper", attempt.id, item, reveal=reveal)
     index = slugs.index(slug)
@@ -212,17 +221,22 @@ def paper_draft(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> dict:
+    reserve_write(db)
     attempt = db.get(PaperAttempt, attempt_id)
     if not attempt or attempt.user_id != user.id:
         raise HTTPException(404, "找不到这份答卷")
     paper = attempt.paper
     _deny_before_open(paper, user)
     _maybe_expire(db, attempt, paper)
+    if paper.grading_started_at or paper.scores_released_at:
+        raise HTTPException(400, "试卷已开始评分，不能修改答卷")
     if attempt.status in {"submitted", "absent"} and not paper.allow_revise:
         raise HTTPException(400, "已经交卷了")
     if paper_expired(paper, audience=audience_for_user(paper, user)):
         raise HTTPException(400, "时间到了，已经交卷")
-    item = bank.get(slug)
+    item = snapshot_item(paper, slug)
+    if not item:
+        raise HTTPException(404, "试卷中的这道题不可用")
     save_draft(db, user.id, "paper", attempt.id, item, body.parts)
     db.commit()
     slugs = json.loads(paper.slugs_json)
@@ -234,11 +248,14 @@ def paper_draft(
 def paper_submit(
     attempt_id: int, user: User = Depends(get_current_user), db: Session = Depends(get_db)
 ) -> dict:
+    reserve_write(db)
     attempt = db.get(PaperAttempt, attempt_id)
     if not attempt or attempt.user_id != user.id:
         raise HTTPException(404, "找不到这份答卷")
     paper = attempt.paper
     _deny_before_open(paper, user)
+    if paper.grading_started_at or paper.scores_released_at:
+        raise HTTPException(400, "试卷已开始评分，不能修改答卷")
     if attempt.status in {"submitted", "absent"} and not paper.allow_revise:
         raise HTTPException(400, "已经交卷了")
     slugs = json.loads(paper.slugs_json)
@@ -249,8 +266,9 @@ def paper_submit(
             left = len(progress["missing_slugs"])
             raise HTTPException(400, f"还有 {left} 题没保存，不能交卷。限时到点会自动交卷。")
     for slug in slugs:
-        if slug in bank.items:
-            submit_item(db, user.id, "paper", attempt.id, bank.get(slug), None, grade=False)
+        item = snapshot_item(paper, slug)
+        if item:
+            submit_item(db, user.id, "paper", attempt.id, item, None, grade=False)
     attempt.status = "submitted"
     attempt.submitted_at = datetime.utcnow()
     db.commit()

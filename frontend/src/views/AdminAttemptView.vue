@@ -28,7 +28,7 @@
         <p class="hint" v-if="part.reference">参考：{{ part.reference }}</p>
         <p class="hint" v-if="part.comment">评语：{{ part.comment }}</p>
         <p class="hint" v-else-if="part.llm_comment">模型评语：{{ part.llm_comment }}</p>
-        <GradeBox v-if="part.subjective && data.can_grade" :part="part" @saved="reload" />
+        <GradeBox v-if="canOverride(data.can_grade, part)" :part="part" @saved="reload" />
       </div>
     </article>
   </div>
@@ -40,6 +40,7 @@ import { useRoute } from "vue-router";
 import { api } from "../api";
 import { renderMd } from "../markdown";
 import GradeBox from "../components/GradeBox.vue";
+import { canOverride } from "../gradingPermissions";
 
 const route = useRoute();
 const data = ref<any>(null);

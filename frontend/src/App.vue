@@ -71,7 +71,9 @@ async function load() {
 watch(() => route.path, load, { immediate: true });
 
 async function logout() {
-  await Auth.logout();
-  await router.push("/login");
+  // Give the current question's leave guard a chance to save while the
+  // session is still valid. A failed save cancels logout as well.
+  const failure = await router.push("/login");
+  if (!failure) await Auth.logout();
 }
 </script>

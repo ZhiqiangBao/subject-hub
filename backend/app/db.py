@@ -38,6 +38,8 @@ def migrate() -> None:
         if user_cols and "subjects_json" not in user_cols:
             conn.execute(text("ALTER TABLE users ADD COLUMN subjects_json VARCHAR(256) DEFAULT '*'"))
         paper_cols = columns("papers")
+        if paper_cols and "items_snapshot_json" not in paper_cols:
+            conn.execute(text("ALTER TABLE papers ADD COLUMN items_snapshot_json TEXT"))
         if paper_cols and "duration_minutes" not in paper_cols:
             conn.execute(text("ALTER TABLE papers ADD COLUMN duration_minutes INTEGER DEFAULT 0"))
         if paper_cols and "sections_json" not in paper_cols:
@@ -149,6 +151,13 @@ def migrate() -> None:
             )
         )
         conn.execute(text("PRAGMA foreign_keys=ON"))
+
+
+def reserve_write(db: Session) -> None:
+    """Serialize a state check with its write; SQLite normally starts on first DML."""
+    connection = db.connection()
+    if connection.dialect.name == "sqlite" and not connection.connection.driver_connection.in_transaction:
+        connection.exec_driver_sql("BEGIN IMMEDIATE")
 
 
 def get_db() -> Generator[Session, None, None]:

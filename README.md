@@ -23,12 +23,15 @@
 3. 按科目、年级、知识点组卷，或让学生自由闯关
 4. 测验里看匿名答卷、改主观分；分数出齐才能发布成绩。学生页等发布后才能看该生这一次
 5. 加题：先在管理员「模型」页保存出题模型配置（地址、密钥、模型名和思考设置；也供主观题评分复用），再到「加题」页选「AI出题」，填写年级、科目、难度、题型、知识点和题数（1～5）。检查来源、预览每题；需要时改题干或答案，再逐题确认入库
+6. 导入外部题目：粘贴 YAML/聊天回复，或选择 YAML/ZIP 文件；先看预览，再确认入库。已有题目不会被覆盖；题目编号重复时需先取消或调整后再导入。
 
 网页 8090 上的注册永远是学生，第一个注册的人也不会变成管理员。
 
 ## 题目从哪来
 
 仓库里的 `bank/` 是跟代码一起走的题库。老师在网页上改过或新加的题只存在这台主机的 `data/` 里，更新代码时不会被覆盖。
+
+网页「重新读取本机题库」只重新加载当前主机上的 `bank/` 和 `data/local-bank/`，不会访问 GitHub。获取新版题库请在主机运行 [更新脚本](docs/host.md#从-github-更新)。外部导入单次最多 2 MB、100 道题；ZIP 展开后也最多 2 MB。重复编号不会覆盖现有题。
 
 AI 出题按年级查阅本地课标全文：1～9 年级用义务教育 2022 年版，10～12 年级用普通高中 2017 年版 2020 年修订。出题来源会标明文件与 PDF 页码；义务教育标准由扫描件 OCR 得到，遇到复杂表格、公式或识别异常应回查原 PDF。文件路由见 [课标索引](docs/standards/INDEX.md)，知识点标签另见 [docs/curriculum-tags.md](docs/curriculum-tags.md)。
 
@@ -39,13 +42,13 @@ AI 出题按年级查阅本地课标全文：1～9 年级用义务教育 2022 �
 ```bash
 git clone https://github.com/ZhiqiangBao/subject-hub.git
 cd subject-hub
-chmod +x scripts/setup-ubuntu.sh scripts/run-ubuntu.sh scripts/update-from-github.sh
+chmod +x scripts/setup-ubuntu.sh scripts/run-ubuntu.sh scripts/update-from-github.sh scripts/rollback-ubuntu.sh
 ./scripts/setup-ubuntu.sh
 ```
 
-学生端端口 **8090**（局域网）。管理员注册端口 **8091**（只绑本机，不要对网段开放）。
+学生端端口 **8090**（局域网）。管理员注册端口 **8091**（只绑本机，不要对网段开放）。8090 使用未加密 HTTP，只在你信任的家庭或学校局域网内使用；不要做公网端口映射，也不要放在不可信的公共 Wi-Fi 上。
 
-账号、成绩、本地改过的题、演算纸照片都在 `data/`，不进 Git。
+账号、成绩、本地改过的题、演算纸照片、模型设置和会话签名文件都在 `data/`，不进 Git。备份也包含这些敏感数据和模型密钥，应存放在受限位置。
 
 ## 文档
 

@@ -9,7 +9,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from ..constants import CHALLENGE_SIZE, DIFFICULTIES, GRADE_LABELS, SUBJECTS
-from ..db import get_db
+from ..db import get_db, reserve_write
 from ..deps import get_current_user
 from ..models import ChallengeRun, Paper, PaperAttempt, User
 from ..schemas import ChallengeStartIn, DraftIn
@@ -243,10 +243,13 @@ def challenge_draft(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> dict:
+    reserve_write(db)
     run = db.get(ChallengeRun, run_id)
     if not run or run.user_id != user.id or run.status != "active":
         raise HTTPException(400, "这次闯关已经结束")
     slugs = _slugs(run)
+    if index != run.current_index or not 0 <= index < len(slugs):
+        raise HTTPException(409, "只能保存正在作答的这一题")
     item = bank.get(slugs[index])
     save_draft(db, user.id, "challenge", run.id, item, body.parts)
     db.commit()
@@ -261,10 +264,13 @@ def challenge_submit(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> dict:
+    reserve_write(db)
     run = db.get(ChallengeRun, run_id)
     if not run or run.user_id != user.id or run.status != "active":
         raise HTTPException(400, "这次闯关已经结束")
     slugs = _slugs(run)
+    if index != run.current_index or not 0 <= index < len(slugs):
+        raise HTTPException(409, "只能提交正在作答的这一题")
     item = bank.get(slugs[index])
     submit_item(db, user.id, "challenge", run.id, item, body.parts)
     if index >= run.current_index:

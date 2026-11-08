@@ -24,7 +24,7 @@
         <router-link class="card" v-for="p in papers" :key="p.id" :to="`/admin/quiz/${p.id}`">
           <h2>{{ p.title }}</h2>
           <div class="meta">{{ p.subject_name }} · {{ p.flow_label }} · {{ p.submitted }}/{{ p.joined }} 人已交</div>
-          <div class="meta" v-if="p.audiences?.length">{{ (p.audiences || []).map((a) => a.label).join("、") }}</div>
+          <div class="meta" v-if="p.audiences?.length">{{ (p.audiences || []).map((a: { label: string }) => a.label).join("、") }}</div>
           <div class="meta" v-if="p.opens_at">{{ fmtTime(p.opens_at) }} 至 {{ fmtTime(p.closes_at) }}（{{ zoneLabel }}）<span v-if="p.window === 'waiting'"> · 未到答题时间</span></div>
           <div class="meta" v-if="p.ungraded">待评 {{ p.ungraded }}</div>
         </router-link>
@@ -123,11 +123,27 @@
       <summary>从聊天导入</summary>
       <p class="hint">先复制出题说明，贴到任意聊天人工智能里，用普通人说话。回来把回复全文贴上，或上传 `.yaml` / `.yml`，或多个 yaml 打成的 `.zip`。不要传 Word、PDF。</p>
       <button class="btn" type="button" @click="copySkill">复制出题说明</button>
-      <textarea v-model="paste" placeholder="把人工智能的回复整段贴在这里"></textarea>
-      <button class="btn primary" type="button" @click="doPaste">入库</button>
+      <textarea v-model="paste" placeholder="把人工智能的回复整段贴在这里" @input="cancelImport"></textarea>
+      <button class="btn primary" type="button" :disabled="importBusy" @click="doPaste">预览题目</button>
       <label class="btn">选择文件
-        <input type="file" hidden @change="doFile" />
+        <input type="file" hidden :disabled="importBusy" @change="doFile" />
       </label>
+      <div v-if="importPreview">
+        <h3>请检查 {{ importPreview.items.length }} 道题</h3>
+        <article v-for="(candidate, index) in importPreview.items" :key="index" class="card">
+          <h4>{{ candidate.title }}</h4>
+          <div class="md" v-html="renderMd(candidate.left_md || '')"></div>
+          <div v-for="(part, partIndex) in candidate.parts" :key="partIndex">
+            <p>第 {{ partIndex + 1 }} 问 · {{ part.points }} 分</p>
+            <div class="md" v-html="renderMd(part.stem || '')"></div>
+            <p v-for="choice in part.choices || []" :key="choice.id">{{ choice.id }}. {{ choice.text }}</p>
+            <p>答案：{{ formatImportValue(part.answer) }}</p>
+            <p>参考：{{ formatImportValue(part.reference) }}</p>
+          </div>
+        </article>
+        <button class="btn primary" type="button" :disabled="importBusy" @click="confirmImport">确认入库</button>
+        <button class="btn" type="button" :disabled="importBusy" @click="cancelImport">取消</button>
+      </div>
       </details>
       <details class="card" style="margin-top:16px">
       <summary>自己出一题</summary>
@@ -160,7 +176,7 @@
       <textarea v-model="plain.stem" placeholder="题干。选择题可写成 A. … B. …"></textarea>
       <input v-model="plain.answer" placeholder="答案，例如 B，或 12，或填空文字" />
       <button class="btn primary" type="button" @click="doPlain">加到题库</button>
-      <button class="btn ghost" type="button" @click="updateBank">更新题库</button>
+      <button class="btn ghost" type="button" @click="updateBank">重新读取本机题库</button>
       </details>
     </section>
 
@@ -254,6 +270,7 @@
 import { computed, onMounted, reactive, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { api } from "../api";
+import { renderMd } from "../markdown";
 import { displayZone, fmtInZone, zoneName } from "../timeZone";
 import TagScores from "../components/TagScores.vue";
 import GenerateQuestions from "../components/GenerateQuestions.vue";
@@ -297,6 +314,13 @@ const message = ref("");
 const meta = ref<any>(null);
 const progress = ref<any>(null);
 const paste = ref("");
+type ImportPart = { stem?: string; points?: number; choices?: { id: string; text: string }[]; answer?: unknown; reference?: unknown };
+type ImportItem = { title: string; left_md?: string; parts: ImportPart[] };
+const importPreview = ref<{ items: ImportItem[]; source: { kind: "paste"; text: string } | { kind: "file"; file: File } } | null>(null);
+const importBusy = ref(false);
+let importVersion = 0;
+function cancelImport() { importVersion++; importPreview.value = null; }
+function formatImportValue(value: unknown) { return value == null || value === "" ? "（无）" : typeof value === "string" ? value : JSON.stringify(value); }
 const papers = ref<any[]>([]);
 const zoneLabel = computed(() => zoneName(displayZone.value));
 
@@ -617,26 +641,45 @@ async function copySkill() {
   message.value = "出题说明已复制，去任何聊天人工智能里粘贴即可。";
 }
 
-async function doPaste() {
+async function importRequest(source: NonNullable<typeof importPreview.value>["source"], preview: boolean) {
+  const suffix = preview ? "?preview=true" : "";
+  if (source.kind === "paste") return api(`/api/parent/ingest/paste${suffix}`, { method: "POST", body: JSON.stringify({ text: source.text }) });
+  const fd = new FormData();
+  fd.append("file", source.file);
+  return api(`/api/parent/ingest/file${suffix}`, { method: "POST", body: fd });
+}
+async function previewImport(source: NonNullable<typeof importPreview.value>["source"]) {
+  cancelImport();
+  const version = importVersion;
+  importBusy.value = true;
   error.value = "";
   try {
-    const data = (await api("/api/parent/ingest/paste", { method: "POST", body: JSON.stringify({ text: paste.value }) })) as { count: number };
-    message.value = `已入库 ${data.count} 道题。`;
-    paste.value = "";
+    const data = await importRequest(source, true) as { items: ImportItem[]; count: number };
+    if (version === importVersion) importPreview.value = { items: data.items, source };
   } catch (err) {
-    error.value = err instanceof Error ? err.message : "没做成";
-  }
+    if (version === importVersion) error.value = err instanceof Error ? err.message : "没认出题目，再试一次";
+  } finally { importBusy.value = false; }
 }
-
-async function doFile(ev: Event) {
-  const file = (ev.target as HTMLInputElement).files?.[0];
-  if (!file) return;
-  const fd = new FormData();
-  fd.append("file", file);
-  const res = await fetch("/api/parent/ingest/file", { method: "POST", body: fd, credentials: "include" });
-  const data = await res.json();
-  if (!res.ok) error.value = data.detail || "没认出题目，再试一次";
-  else message.value = `已入库 ${data.count} 道题。`;
+function doPaste() { void previewImport({ kind: "paste", text: paste.value }); }
+function doFile(ev: Event) {
+  const input = ev.target as HTMLInputElement;
+  const file = input.files?.[0];
+  input.value = "";
+  if (file) void previewImport({ kind: "file", file });
+  else cancelImport();
+}
+async function confirmImport() {
+  const preview = importPreview.value;
+  if (!preview || importBusy.value) return;
+  importBusy.value = true;
+  error.value = "";
+  try {
+    const data = await importRequest(preview.source, false) as { count: number };
+    message.value = `已入库 ${data.count} 道题。`;
+    if (preview.source.kind === "paste" && paste.value === preview.source.text) paste.value = "";
+    cancelImport();
+  } catch (err) { error.value = err instanceof Error ? err.message : "没做成"; }
+  finally { importBusy.value = false; }
 }
 
 async function doPlain() {

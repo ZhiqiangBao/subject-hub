@@ -14,7 +14,7 @@
         {{ s.name }}
       </button>
     </div>
-    <p v-if="groups.length === 0 && loaded" class="hint">还没有按题记下的分数。</p>
+    <p v-if="!groups && loaded" class="hint">还没有按题记下的分数。</p>
     <template v-for="g in exclusiveGroups" :key="g.key">
       <p v-if="g.chips.length">{{ g.title }}</p>
       <div v-if="g.chips.length" class="chips">
@@ -69,7 +69,7 @@
         </tr>
       </tbody>
     </table>
-    <p v-else-if="loaded && groups.length" class="hint">这个标签组合下还没有题。</p>
+    <p v-else-if="loaded && groups" class="hint">这个标签组合下还没有题。</p>
   </div>
 </template>
 

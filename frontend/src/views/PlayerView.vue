@@ -93,6 +93,17 @@
           <p v-else-if="item.answers?.[part.id]?.status === 'pending'" class="hint">待评分</p>
         </div>
         <p class="err">{{ error }}</p>
+        <div v-if="recoveredDraft" class="card">
+          <p>这台设备上有一份尚未确认保存的草稿。恢复后请检查内容，再继续答题。</p>
+          <button class="btn" type="button" @click="restoreDraft">恢复草稿</button>
+          <button class="btn" type="button" @click="discardDraft">丢弃这份草稿</button>
+        </div>
+        <p v-if="backupFailed" class="err">无法在这台设备保存本地备份，请保持页面打开并重试保存。</p>
+        <p v-if="saveState && !saveFailed" class="hint" role="status">{{ saveState }}</p>
+        <template v-if="saveFailed">
+          <button class="btn" type="button" @click="retrySave">重试保存</button>
+          <button v-if="!backupFailed" class="btn ghost" type="button" @click="leaveWithBackup">保留本机草稿并离开</button>
+        </template>
         <p class="hint" v-if="mode === 'paper' && item.section_heading">{{ item.section_heading }}</p>
         <div class="paper-nav" v-if="mode === 'paper'">
           <button class="btn big" type="button" :disabled="!item.prev_slug" @click="goPaper(item.prev_slug)">上一题</button>
@@ -107,12 +118,15 @@
       </section>
     </div>
   </div>
+  <p v-else role="status">{{ error || "正在读取题目…" }}</p>
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { api } from "../api";
+import { onBeforeRouteLeave, onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
+import { DraftSaver } from "../draftSaver";
+import { api, Auth } from "../api";
+import { draftKey, readDraft, writeDraft, clearSavedDraft } from "../localDraft";
 import { renderMd } from "../markdown";
 import FormulaField from "../components/FormulaField.vue";
 import SheetNav from "../components/SheetNav.vue";
@@ -126,9 +140,16 @@ const values = ref<Record<string, any>>({});
 const photos = ref<Record<string, string[]>>({});
 const error = ref("");
 const left = ref<number | null>(null);
-let saveTimer: number | undefined;
+const saveFailed = ref(false);
+const saveState = ref("");
+const recoveredDraft = ref<Record<string, unknown> | null>(null);
+const backupFailed = ref(false);
+let localKey = "";
+let loadedUserId: number | null = null;
 let clockTimer: number | undefined;
 let jumping = false;
+let loadRevision = 0;
+let leaveWithoutSync = false;
 
 const mode = computed(() => (route.params.runId ? "challenge" : "paper"));
 const attemptId = computed(() => String(route.params.attemptId || ""));
@@ -164,12 +185,31 @@ function markCurrentSaved() {
 }
 
 async function load() {
+  const revision = ++loadRevision;
+  item.value = null;
+  localKey = "";
+  loadedUserId = null;
+  saveState.value = "";
+  saveFailed.value = false;
   error.value = "";
-  if (mode.value === "challenge") {
-    item.value = await api(`/api/challenge/${route.params.runId}/item/${route.params.index}`);
-  } else {
-    item.value = await api(`/api/papers/attempts/${route.params.attemptId}/item/${route.params.slug}`);
+  const kind = mode.value;
+  const context = String(kind === "challenge" ? route.params.runId : route.params.attemptId);
+  const key = String(kind === "challenge" ? route.params.index : route.params.slug);
+  recoveredDraft.value = null;
+  backupFailed.value = false;
+  try {
+    const [user, loaded] = await Promise.all([
+      Auth.me() as Promise<{ id: number }>,
+      api(`/api/${kind === "challenge" ? "challenge" : "papers/attempts"}/${context}/item/${encodeURIComponent(key)}`),
+    ]);
+    if (revision !== loadRevision) return;
+    loadedUserId = user.id;
+    localKey = draftKey(user.id, kind, context, key);
+    item.value = loaded;
     left.value = item.value?.remaining_sec ?? null;
+  } catch (err) {
+    if (revision === loadRevision) error.value = err instanceof Error ? err.message : "读取失败，请刷新后重试";
+    return;
   }
   const next: Record<string, any> = {};
   const ph: Record<string, string[]> = {};
@@ -180,31 +220,93 @@ async function load() {
   }
   values.value = next;
   photos.value = ph;
+  if (!locked.value) recoveredDraft.value = readDraft(localStorage, localKey);
 }
 
+function reportSaveError(err: unknown) {
+  saveFailed.value = true;
+  error.value = err instanceof Error ? `保存失败：${err.message}` : "保存失败，请重试";
+}
+
+const saver = new DraftSaver(async () => {
+  saveState.value = "正在保存…";
+  await save();
+  saveState.value = "已保存";
+  if (saveFailed.value) { saveFailed.value = false; error.value = ""; }
+}, reportSaveError);
 function scheduleSave() {
   if (locked.value) return;
-  window.clearTimeout(saveTimer);
-  saveTimer = window.setTimeout(() => {
-    save().catch((err) => {
-      error.value = err instanceof Error ? err.message : "没保存成";
-    });
-  }, 400);
+  saveState.value = "等待保存…";
+  recoveredDraft.value = null;
+  backupFailed.value = !writeDraft(localStorage, localKey, values.value);
+  saver.changed();
+}
+function restoreDraft() {
+  if (!recoveredDraft.value) return;
+  for (const part of item.value.parts) {
+    if (Object.prototype.hasOwnProperty.call(recoveredDraft.value, part.id)) values.value[part.id] = recoveredDraft.value[part.id];
+  }
+  scheduleSave();
+}
+function discardDraft() {
+  try { localStorage.removeItem(localKey); } catch { backupFailed.value = true; return; }
+  recoveredDraft.value = null;
+}
+async function retrySave() {
+  try {
+    await saver.flush(true);
+    saveFailed.value = false;
+    error.value = "";
+  } catch (err) { reportSaveError(err); }
+}
+async function flushBeforeNavigation() {
+  if (leaveWithoutSync) return true;
+  try {
+    await saver.flush();
+    saveFailed.value = false;
+    return true;
+  } catch (err) {
+    reportSaveError(err);
+    return false;
+  }
+}
+async function leaveWithBackup() {
+  if (!writeDraft(localStorage, localKey, values.value)) { backupFailed.value = true; return; }
+  leaveWithoutSync = true;
+  try { await router.push(mode.value === "paper" ? `/paper/${attemptId.value}` : "/"); }
+  finally { leaveWithoutSync = false; }
+}
+function beforeUnload(event: BeforeUnloadEvent) {
+  if (saver.dirty) { event.preventDefault(); event.returnValue = ""; }
+}
+function saveOnPageHide() { void saver.flush().catch(reportSaveError); }
+function saveWhenHidden() {
+  if (document.visibilityState === "hidden") void saver.flush().catch(reportSaveError);
 }
 
 async function save() {
+  const currentUser = await Auth.me() as { id: number };
+  if (currentUser.id !== loadedUserId) throw new Error("当前账号已切换，请切回原账号恢复草稿");
   const parts = { ...values.value };
+  const saved = JSON.stringify(parts);
+  const body = JSON.stringify({ parts });
+  // Browsers impose a small body quota on keepalive. Long essays must
+  // still be saveable using a normal request.
+  const keepalive = new Blob([body]).size < 60000;
+  const savedKey = localKey;
   if (mode.value === "challenge") {
     await api(`/api/challenge/${route.params.runId}/item/${route.params.index}/draft`, {
       method: "PUT",
-      body: JSON.stringify({ parts }),
+      keepalive, body,
     });
+    clearSavedDraft(localStorage, savedKey, saved);
     return;
   }
   const data = (await api(`/api/papers/attempts/${route.params.attemptId}/item/${route.params.slug}/draft`, {
     method: "PUT",
-    body: JSON.stringify({ parts }),
+    keepalive, body,
   })) as { sheet?: { n: number; slug: string; saved?: boolean }[] };
+  clearSavedDraft(localStorage, savedKey, saved);
   applySheet(data.sheet);
   markCurrentSaved();
 }
@@ -212,22 +314,22 @@ async function save() {
 async function pickSingle(id: string, value: string) {
   if (locked.value || jumping) return;
   values.value[id] = value;
-  if (autoJump.value) {
+  scheduleSave();
+  if (autoJump.value && item.value.parts.every((p: { id: string }) => values.value[p.id] !== "")) {
     jumping = true;
     error.value = "";
     try {
-      await save();
+      await saver.flush();
       const slug = item.value?.next_slug;
       if (slug) await router.push(`/play/paper/${attemptId.value}/${encodeURIComponent(slug)}`);
       else await router.push(`/paper/${attemptId.value}`);
     } catch (err) {
-      error.value = err instanceof Error ? err.message : "没保存成";
+      reportSaveError(err);
     } finally {
       jumping = false;
     }
     return;
   }
-  scheduleSave();
 }
 
 function toggleMulti(id: string, choice: string) {
@@ -254,24 +356,30 @@ async function onPhoto(ev: Event, partId: string) {
   const ctx = mode.value === "challenge" ? "challenge" : "paper";
   const ctxId = mode.value === "challenge" ? route.params.runId : route.params.attemptId;
   const slug = item.value.slug;
-  const data = (await fetch(`/api/uploads/${ctx}/${ctxId}/${slug}/${partId}`, {
-    method: "POST",
-    body: fd,
-    credentials: "include",
-  }).then(async (res) => {
-    const j = await res.json();
-    if (!res.ok) throw new Error(j.detail || "照片没传上去");
-    return j;
-  })) as { photos: string[] };
-  photos.value[partId] = data.photos;
-  input.value = "";
-  scheduleSave();
+  const revision = loadRevision;
+  try {
+    const data = (await fetch(`/api/uploads/${ctx}/${ctxId}/${slug}/${partId}`, {
+      method: "POST",
+      body: fd,
+      credentials: "include",
+    }).then(async (res) => {
+      const j = await res.json();
+      if (!res.ok) throw new Error(j.detail || "照片没传上去");
+      return j;
+    })) as { photos: string[] };
+    if (revision === loadRevision) {
+      photos.value[partId] = data.photos;
+      scheduleSave();
+    }
+  } catch (err) {
+    if (revision === loadRevision) error.value = err instanceof Error ? err.message : "照片没传上去，请重试";
+  } finally { input.value = ""; }
 }
 
 async function submitChallenge() {
   error.value = "";
   try {
-    await save();
+    await saver.flush(true);
     const data = (await api(`/api/challenge/${route.params.runId}/item/${route.params.index}/submit`, {
       method: "POST",
       body: JSON.stringify({ parts: values.value }),
@@ -279,19 +387,17 @@ async function submitChallenge() {
     if (data.done) await router.push(`/challenge/${route.params.runId}/result`);
     else item.value = { ...item.value, submitted: true, ...data };
   } catch (err) {
-    error.value = err instanceof Error ? err.message : "没做成";
+    if (saver.dirty) reportSaveError(err);
+    else error.value = err instanceof Error ? err.message : "没做成";
   }
 }
 
 async function goPaper(slug: string | null) {
   if (!slug || jumping) return;
   error.value = "";
-  if (!locked.value) {
-    try {
-      await save();
-    } catch (err) {
-      error.value = err instanceof Error ? err.message : "没保存成";
-    }
+  // Explicitly moving on from a blank question still records a saved blank.
+  if (!locked.value && !recoveredDraft.value) {
+    try { await saver.flush(true); } catch (err) { reportSaveError(err); return; }
   }
   await router.push(`/play/paper/${attemptId.value}/${encodeURIComponent(slug)}`);
 }
@@ -306,6 +412,7 @@ async function nextChallenge() {
 }
 
 async function expirePaper() {
+  if (!(await flushBeforeNavigation())) return;
   try {
     await api(`/api/papers/attempts/${attemptId.value}/submit`, { method: "POST" });
   } catch {
@@ -314,8 +421,13 @@ async function expirePaper() {
   await router.push(`/paper/${attemptId.value}`);
 }
 
+onBeforeRouteLeave(flushBeforeNavigation);
+onBeforeRouteUpdate(flushBeforeNavigation);
 watch(() => route.fullPath, load);
 onMounted(async () => {
+  window.addEventListener("beforeunload", beforeUnload);
+  document.addEventListener("visibilitychange", saveWhenHidden);
+  window.addEventListener("pagehide", saveOnPageHide);
   await load();
   if (mode.value === "paper" && item.value?.timed && !locked.value) {
     clockTimer = window.setInterval(async () => {
@@ -330,7 +442,11 @@ onMounted(async () => {
   }
 });
 onUnmounted(() => {
-  window.clearTimeout(saveTimer);
+  loadRevision++;
+  saver.dispose();
+  window.removeEventListener("beforeunload", beforeUnload);
+  document.removeEventListener("visibilitychange", saveWhenHidden);
+  window.removeEventListener("pagehide", saveOnPageHide);
   if (clockTimer) window.clearInterval(clockTimer);
 });
 </script>

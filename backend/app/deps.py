@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import base64
+import hashlib
+
 import bcrypt
 from fastapi import Depends, HTTPException, Request, status
 from sqlalchemy import func, select
@@ -10,13 +13,25 @@ from .db import get_db
 from .models import User
 
 
+_PASSWORD_FORMAT = "bcrypt-sha256-v1:"
+
+
+def _password_material(password: str) -> bytes:
+    # The UI limits characters, bcrypt limits bytes. Preserve the entire
+    # Unicode password and use printable, fixed-length input to bcrypt.
+    return base64.b64encode(hashlib.sha256(password.encode("utf-8")).digest())
+
+
 def hash_password(password: str) -> str:
-    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+    return _PASSWORD_FORMAT + bcrypt.hashpw(_password_material(password), bcrypt.gensalt()).decode("ascii")
 
 
 def verify_password(password: str, password_hash: str) -> bool:
     try:
-        return bcrypt.checkpw(password.encode("utf-8"), password_hash.encode("utf-8"))
+        if password_hash.startswith(_PASSWORD_FORMAT):
+            return bcrypt.checkpw(_password_material(password), password_hash[len(_PASSWORD_FORMAT):].encode("ascii"))
+        # Existing raw bcrypt records (including old bcrypt's 72-byte limit).
+        return bcrypt.checkpw(password.encode("utf-8")[:72], password_hash.encode("ascii"))
     except ValueError:
         return False
 

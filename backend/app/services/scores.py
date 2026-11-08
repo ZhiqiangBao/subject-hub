@@ -11,6 +11,7 @@ from ..models import ChallengeRun, ItemAnswer, PaperAttempt, User
 from .answers import scores_visible_for_paper
 from .bank import Item, bank
 from .groups import teacher_label
+from .snapshots import context_item
 
 
 def _points(row: ItemAnswer) -> float | None:
@@ -119,7 +120,7 @@ def _chip(kind: str, key: str, name: str, rows: list[dict[str, Any]]) -> dict[st
     }
 
 
-def scores_by_tag(db: Session, users: list[User], for_self: bool) -> dict[str, Any]:
+def scores_by_tag(db: Session, users: list[User], for_self: bool, allowed_subjects: set[str] | None = None) -> dict[str, Any]:
     if not users:
         return {
             "students": [],
@@ -145,6 +146,10 @@ def scores_by_tag(db: Session, users: list[User], for_self: bool) -> dict[str, A
             paper = attempt.paper if attempt else None
             if not scores_visible_for_paper(paper):
                 continue
+        if allowed_subjects is not None:
+            item = context_item(db, context_type, context_id, slug)
+            if not item or item.subject not in allowed_subjects:
+                continue
         summary = _bundle_summary(parts)
         key = (user_id, slug)
         prev = best.get(key)
@@ -158,9 +163,8 @@ def scores_by_tag(db: Session, users: list[User], for_self: bool) -> dict[str, A
 
     items: list[dict[str, Any]] = []
     for (user_id, slug), summary in best.items():
-        try:
-            item = bank.get(slug)
-        except Exception:
+        item = context_item(db, summary["context_type"], summary["context_id"], slug)
+        if not item:
             continue
         user = user_map[user_id]
         source, href = _source_and_href(db, summary["context_type"], summary["context_id"], for_self)

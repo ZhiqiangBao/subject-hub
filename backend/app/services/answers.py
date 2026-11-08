@@ -5,13 +5,14 @@ from datetime import datetime
 from typing import Any
 
 from sqlalchemy import select
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, object_session
 
 from ..constants import OBJECTIVE_TYPES
 from ..models import ItemAnswer, Paper, PaperAttempt
 from .bank import Item, bank
 from .grade import dump_value, grade_objective, load_value
 from .llm import enqueue
+from .snapshots import paper_item, context_item
 
 
 def get_or_create_answer(
@@ -104,11 +105,12 @@ def save_draft(
             row.status = "draft"
 
 
-def _photos(row: ItemAnswer) -> list[str]:
+def _photos(row: ItemAnswer) -> list[str] | None:
     try:
-        return json.loads(row.photos_json or "[]")
-    except json.JSONDecodeError:
-        return []
+        photos = json.loads(row.photos_json or "[]")
+        return photos if isinstance(photos, list) else None
+    except (json.JSONDecodeError, TypeError):
+        return None
 
 
 def collect_item(
@@ -146,6 +148,10 @@ def machine_grade_row(row: ItemAnswer, item: Item, empty_subjective_zero: bool =
     if part.type in OBJECTIVE_TYPES:
         apply_llm_score(row, grade_objective(part, load_value(row.value_json), item.subject))
         return
+    if photos is None:
+        row.status = "pending"
+        row.llm_comment = "图片记录无法读取，请人工核查评分"
+        return
     text = load_value(row.value_json)
     blank = (text is None or str(text).strip() in {"", "None"}) and not photos
     if empty_subjective_zero and blank:
@@ -153,7 +159,10 @@ def machine_grade_row(row: ItemAnswer, item: Item, empty_subjective_zero: bool =
         return
     if row.override_score is None:
         row.status = "pending"
-    enqueue(row.id, item.slug, part.id, photos)
+    db = object_session(row)
+    if db is None:
+        raise ValueError("评分作答未关联数据库会话")
+    enqueue(db, row, item)
     row.graded_at = now
 
 
@@ -176,7 +185,7 @@ def machine_grade_item(
                 ItemAnswer.part_id == part.id,
             )
         )
-        if not row or row.status == "draft":
+        if not row or row.status in {"draft", "graded", "overridden", "pending"}:
             continue
         machine_grade_row(row, item, empty_subjective_zero)
         rows.append(row)
@@ -198,10 +207,7 @@ def submit_item(
     if not grade:
         return rows
     for row in rows:
-        try:
-            machine_grade_row(row, item, empty_subjective_zero)
-        except Exception:
-            continue
+        machine_grade_row(row, item, empty_subjective_zero)
     db.flush()
     return rows
 
@@ -214,9 +220,9 @@ def grade_paper_attempts(db: Session, paper: Paper) -> int:
         if attempt.status not in {"submitted"}:
             continue
         for slug in slugs:
-            if slug not in bank.items:
+            item = paper_item(paper, slug)
+            if not item:
                 continue
-            item = bank.get(slug)
             machine_grade_item(db, attempt.user_id, "paper", attempt.id, item, empty_zero)
             n += 1
     return n
@@ -248,7 +254,7 @@ def paper_save_progress(db: Session, user_id: int, attempt_id: int, slugs: list[
     saved: list[str] = []
     missing: list[str] = []
     for slug in slugs:
-        item = bank.items.get(slug)
+        item = context_item(db, "paper", attempt_id, slug)
         if not item:
             missing.append(slug)
             continue
@@ -275,9 +281,11 @@ SCORED_STATUSES = {"graded", "overridden"}
 def paper_part_count(paper: Paper) -> int:
     n = 0
     for slug in json.loads(paper.slugs_json or "[]"):
-        item = bank.items.get(slug)
+        item = paper_item(paper, slug)
         if item:
             n += len(item.parts)
+        else:
+            n += 1
     return n
 
 
@@ -295,8 +303,9 @@ def settle_closed_groups(db: Session, paper: Paper) -> None:
             if attempt.status in {"submitted", "absent"}:
                 continue
             for slug in slugs:
-                if slug in bank.items:
-                    submit_item(db, attempt.user_id, "paper", attempt.id, bank.get(slug), None, grade=False)
+                item = paper_item(paper, slug)
+                if item:
+                    submit_item(db, attempt.user_id, "paper", attempt.id, item, None, grade=False)
             attempt.status = "submitted"
             attempt.submitted_at = now
         return
@@ -312,13 +321,14 @@ def settle_closed_groups(db: Session, paper: Paper) -> None:
             db.flush()
             by_user[student.id] = attempt
             for slug in slugs:
-                if slug in bank.items:
+                item = paper_item(paper, slug)
+                if item:
                     submit_item(
                         db,
                         student.id,
                         "paper",
                         attempt.id,
-                        bank.get(slug),
+                        item,
                         None,
                         grade=True,
                         empty_subjective_zero=True,
@@ -329,8 +339,9 @@ def settle_closed_groups(db: Session, paper: Paper) -> None:
         if attempt.status in {"submitted", "absent"}:
             continue
         for slug in slugs:
-            if slug in bank.items:
-                submit_item(db, student.id, "paper", attempt.id, bank.get(slug), None, grade=False)
+            item = paper_item(paper, slug)
+            if item:
+                submit_item(db, student.id, "paper", attempt.id, item, None, grade=False)
         attempt.status = "submitted"
         attempt.submitted_at = now
 
@@ -371,8 +382,9 @@ def paper_ungraded_count(db: Session, paper: Paper) -> int:
         ).all()
         by_part = {(r.item_slug, r.part_id): r for r in rows}
         for slug in slugs:
-            item = bank.items.get(slug)
+            item = paper_item(paper, slug)
             if not item:
+                n += 1
                 continue
             for part in item.parts:
                 row = by_part.get((slug, part.id))
@@ -387,6 +399,8 @@ def paper_can_release_scores(db: Session, paper: Paper) -> bool:
     if not getattr(paper, "grading_started_at", None) or getattr(paper, "scores_released_at", None):
         return False
     if not paper_all_windows_closed(paper):
+        return False
+    if any(paper_item(paper, slug) is None for slug in json.loads(paper.slugs_json or "[]")):
         return False
     return paper_ungraded_count(db, paper) == 0
 

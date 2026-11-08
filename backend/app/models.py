@@ -100,6 +100,7 @@ class Paper(Base):
     allow_revise: Mapped[bool] = mapped_column(Boolean, default=True)
     duration_minutes: Mapped[int] = mapped_column(Integer, default=0)
     sections_json: Mapped[str] = mapped_column(Text, default="[]")
+    items_snapshot_json: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_by: Mapped[int] = mapped_column(ForeignKey("users.id"))
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
     released_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)

@@ -44,7 +44,7 @@
     </label>
 
     <div v-for="(p, i) in item.parts" :key="p.id || i" class="card" style="margin-top:16px">
-      <h2>{{ isContainer ? `第 ${i + 1} 问 · ${p.type_name}` : "答案和细则" }}</h2>
+      <h2>{{ isContainer ? `第 ${Number(i) + 1} 问 · ${p.type_name}` : "答案和细则" }}</h2>
       <p class="field-label">这一问满分</p>
       <input v-model.number="p.points" type="number" min="0" step="0.5" />
       <ItemPartEditor v-model="item.parts[i]" :subject="item.subject" :show-stem="isContainer" :allow-photo-toggle="item.type === 'steps'" />

@@ -1,18 +1,19 @@
 from __future__ import annotations
 
 import json
+import math
 import random
 import re
-import subprocess
+from threading import Lock
 from datetime import datetime
 
 from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from ..config import DEFAULT_LLM_BASE_URL, ROOT, SKILL_PATH, llm_configured, llm_from_env, llm_settings, save_llm_file
+from ..config import DEFAULT_LLM_BASE_URL, SKILL_PATH, llm_configured, llm_from_env, llm_settings, save_llm_file
 from ..constants import DIFFICULTIES, GRADE_LABELS, OBJECTIVE_TYPES, PAPER_SECTIONS, SUBJECTS, TYPES, grade_label
-from ..db import get_db
+from ..db import get_db, reserve_write
 from ..deps import get_admin_user, hash_password
 from ..models import ChallengeRun, ItemAnswer, Paper, PaperAttempt, PaperAudience, StudentGroup, User
 from ..schemas import GenerateItemsIn, GeneratedItemSaveIn, AssembleIn, GradeIn, GroupIn, ItemEditIn, LlmSettingsIn, MemberIn, PaperWindowIn, PasteIn, PlainItemIn, StudentIn, StudentPatchIn
@@ -31,12 +32,13 @@ from ..services.answers import (
 from ..services.bank import BankError, bank
 from ..services.curriculum import CurriculumError
 from ..services.generation import GenerationError, generate, validate
-from ..services.ingest import item_from_editor, items_from_text, items_from_zip, plain_item, save_item
+from ..services.ingest import MAX_IMPORT_BYTES, item_from_editor, items_from_text, items_from_zip, plain_item, save_item
 from ..services.paper_layout import fill_heading, section_spec
 from ..services.llm import enqueue, list_remote_models, ping_llm, start_worker
 from ..services.grade import load_value
 from ..services.review import review_challenge, review_paper
 from ..services.scores import scores_by_tag
+from ..services.snapshots import context_item, freeze_paper, paper_item
 from ..services.groups import (
     add_membership,
     audience_payload,
@@ -164,7 +166,7 @@ def progress(user: User = Depends(get_admin_user), db: Session = Depends(get_db)
     pending_rows = db.scalars(select(ItemAnswer).where(ItemAnswer.status == "pending")).all()
     pending_n = 0
     for row in pending_rows:
-        item = bank.items.get(row.item_slug)
+        item = context_item(db, row.context_type, row.context_id, row.item_slug)
         if item and sees_subject(user, item.subject):
             pending_n += 1
     return {"students": out, "pending": pending_n}
@@ -183,12 +185,7 @@ def scores_tagged(
         users = [student]
     else:
         users = list(db.scalars(select(User).where(User.role == "student").order_by(User.id)).all())
-    data = scores_by_tag(db, users, for_self=False)
-    allowed = set(scoped_subjects(user))
-    if len(allowed) != len(SUBJECTS):
-        data["items"] = [row for row in data["items"] if row["subject"] in allowed]
-        data["subjects"] = [c for c in data["subjects"] if c["id"] in allowed]
-    return data
+    return scores_by_tag(db, users, for_self=False, allowed_subjects=set(scoped_subjects(user)))
 
 
 @router.get("/groups")
@@ -630,6 +627,7 @@ def release_paper(
     user: User = Depends(get_admin_user),
     db: Session = Depends(get_db),
 ) -> dict:
+    reserve_write(db)
     paper = db.get(Paper, paper_id)
     if not paper:
         raise HTTPException(404, "找不到这份试卷")
@@ -638,6 +636,10 @@ def release_paper(
         raise HTTPException(400, "已经发布了")
     _apply_window(paper, body)
     _apply_audiences(db, paper, body)
+    try:
+        freeze_paper(paper)
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
     paper.released_at = datetime.utcnow()
     db.commit()
     return paper_detail(paper_id, user, db)
@@ -650,6 +652,7 @@ def set_paper_window(
     user: User = Depends(get_admin_user),
     db: Session = Depends(get_db),
 ) -> dict:
+    reserve_write(db)
     paper = db.get(Paper, paper_id)
     if not paper:
         raise HTTPException(404, "找不到这份试卷")
@@ -670,10 +673,15 @@ def set_paper_window(
 
 @router.post("/papers/{paper_id}/start-grade")
 def start_grade(paper_id: int, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    reserve_write(db)
     paper = db.get(Paper, paper_id)
     if not paper:
         raise HTTPException(404, "找不到这份试卷")
     _need_subject(user, paper.subject)
+    if paper.scores_released_at:
+        raise HTTPException(400, "成绩已发布，不能重新评分")
+    if paper.grading_started_at:
+        raise HTTPException(400, "已经开始评分，请使用重试功能")
     if not paper_can_start_grade(paper):
         raise HTTPException(400, "答题还没截止，不能开始评分")
     settle_closed_groups(db, paper)
@@ -688,15 +696,18 @@ def start_grade(paper_id: int, user: User = Depends(get_admin_user), db: Session
 
 @router.post("/papers/{paper_id}/release-scores")
 def release_scores(paper_id: int, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    reserve_write(db)
     paper = db.get(Paper, paper_id)
     if not paper:
         raise HTTPException(404, "找不到这份试卷")
     _need_subject(user, paper.subject)
     if not paper.grading_started_at:
         raise HTTPException(400, "请先开始评分")
+    if paper.scores_released_at:
+        raise HTTPException(400, "成绩已经发布")
     ungraded = paper_ungraded_count(db, paper)
-    if ungraded:
-        raise HTTPException(400, f"还有 {ungraded} 问没出分（含模型排队），出齐才能发布成绩")
+    if not paper_can_release_scores(db, paper):
+        raise HTTPException(400, f"还有 {ungraded} 问没出分或答题尚未全部截止，不能发布成绩")
     paper.scores_released_at = datetime.utcnow()
     db.commit()
     return paper_detail(paper_id, user, db)
@@ -802,36 +813,56 @@ def skill(_user: User = Depends(get_admin_user)) -> dict:
     return {"text": text}
 
 
-@router.post("/ingest/paste")
-def ingest_paste(body: PasteIn, user: User = Depends(get_admin_user)) -> dict:
-    items = [i for i in items_from_text(body.text) if sees_subject(user, i.subject)]
+_import_lock = Lock()
+
+
+def _import_items(items, user: User, preview: bool) -> dict:
     if not items:
         raise HTTPException(400, "没认出题目，再试一次")
     for item in items:
-        save_item(item)
-    bank.reload()
+        _need_subject(user, item.subject)
+    with _import_lock:
+        slugs = {i.slug for i in items}
+        if len(slugs) != len(items) or slugs.intersection(bank.items):
+            raise HTTPException(409, "题目标识重复；已有题请从题库编辑，导入不会覆盖")
+        if preview:
+            return {"items": [i.editor() for i in items], "count": len(items)}
+        created = []
+        try:
+            for item in items:
+                created.append(save_item(item, exclusive=True))
+        except Exception as exc:
+            for path in created:
+                path.unlink(missing_ok=True)
+            if isinstance(exc, FileExistsError):
+                raise HTTPException(409, "题目标识重复，未导入") from exc
+            raise
+        bank.reload()
     return {"ok": True, "count": len(items), "titles": [i.title for i in items]}
+
+
+@router.post("/ingest/paste")
+def ingest_paste(body: PasteIn, user: User = Depends(get_admin_user), preview: bool = False) -> dict:
+    return _import_items(items_from_text(body.text), user, preview)
 
 
 @router.post("/ingest/file")
-async def ingest_file(file: UploadFile = File(...), user: User = Depends(get_admin_user)) -> dict:
-    data = await file.read()
+async def ingest_file(file: UploadFile = File(...), user: User = Depends(get_admin_user), preview: bool = False) -> dict:
+    data = await file.read(MAX_IMPORT_BYTES + 1)
+    if len(data) > MAX_IMPORT_BYTES:
+        raise HTTPException(413, "题包超过 2 MB，请拆分后导入")
     name = (file.filename or "").lower()
     if name.endswith(".zip"):
         items = items_from_zip(data)
-    else:
+    elif name.endswith((".yaml", ".yml")):
         try:
-            text = data.decode("utf-8")
+            text = data.decode("utf-8-sig")
         except UnicodeDecodeError as exc:
             raise HTTPException(400, "没认出题目，再试一次") from exc
         items = items_from_text(text)
-    items = [i for i in items if sees_subject(user, i.subject)]
-    if not items:
-        raise HTTPException(400, "没认出题目，再试一次")
-    for item in items:
-        save_item(item)
-    bank.reload()
-    return {"ok": True, "count": len(items), "titles": [i.title for i in items]}
+    else:
+        raise HTTPException(400, "请选择 YAML 或 ZIP 文件")
+    return _import_items(items, user, preview)
 
 
 @router.post("/items/plain")
@@ -847,32 +878,33 @@ def add_plain(body: PlainItemIn, user: User = Depends(get_admin_user)) -> dict:
         body.title,
         body.tags,
     )
-    save_item(item)
-    bank.reload()
+    _import_items([item], user, False)
     return {"ok": True, "title": item.title}
 
 
 @router.post("/bank/update")
 def update_bank(_user: User = Depends(get_admin_user)) -> dict:
-    script = ROOT / "scripts" / "update-from-github.sh"
-    if script.exists() and (ROOT / ".git").exists():
-        try:
-            subprocess.run(["bash", str(script)], cwd=str(ROOT), check=False, timeout=120)
-        except Exception:
-            bank.reload()
-            return {"ok": True, "message": "已经重新读了本机题目。要从网上更新，请到主机上点更新。"}
     bank.reload()
-    return {"ok": True, "message": f"题库已更新，现在有 {len(bank.items)} 道题。", "count": len(bank.items)}
+    return {"ok": True, "message": f"已重新读取本机题库，共 {len(bank.items)} 道题。", "count": len(bank.items)}
 
 
 @router.get("/answers/{answer_id}")
 def get_answer(answer_id: int, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    from ..services.grade_jobs import GradeJob
     row = db.get(ItemAnswer, answer_id)
     if not row:
         raise HTTPException(404, "找不到这份作答")
-    item = bank.get(row.item_slug)
+    item = context_item(db, row.context_type, row.context_id, row.item_slug)
+    if not item:
+        raise HTTPException(404, "试卷中的题目不可用")
     _need_subject(user, item.subject)
-    part = next(p for p in item.parts if p.id == row.part_id)
+    part = next((p for p in item.parts if p.id == row.part_id), None)
+    if not part:
+        raise HTTPException(404, "找不到这道小题")
+    if row.context_type == "paper":
+        attempt = db.get(PaperAttempt, row.context_id)
+        if not attempt or not scores_visible_for_paper(attempt.paper):
+            raise HTTPException(403, "成绩发布前请通过匿名答卷查看")
     student = db.get(User, row.user_id)
     return {
         "id": row.id,
@@ -883,10 +915,11 @@ def get_answer(answer_id: int, user: User = Depends(get_admin_user), db: Session
         "value": load_value(row.value_json),
         "photos": json.loads(row.photos_json or "[]"),
         "status": row.status,
+        "job_state": (job.state if (job := db.get(GradeJob, row.id)) else None),
         "score": effective_score(row),
         "llm_score": row.score,
         "admin_score": row.override_score,
-        "max_score": row.max_score,
+        "max_score": part.points,
         "comment": effective_comment(row),
         "llm_comment": row.llm_comment,
         "admin_comment": row.override_comment,
@@ -905,11 +938,11 @@ def queue(user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -
     ).all()
     out = []
     for row in rows:
-        item = bank.items.get(row.item_slug)
+        item = context_item(db, row.context_type, row.context_id, row.item_slug)
         part = next((p for p in item.parts if p.id == row.part_id), None) if item else None
-        if part and part.type in OBJECTIVE_TYPES:
+        if not item or not part or part.type in OBJECTIVE_TYPES:
             continue
-        if item and not sees_subject(user, item.subject):
+        if not sees_subject(user, item.subject):
             continue
         if row.context_type == "paper":
             attempt = db.get(PaperAttempt, row.context_id)
@@ -935,57 +968,99 @@ def queue(user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -
     return {"answers": out}
 
 
+def _grade_target(db: Session, row: ItemAnswer, user: User):
+    item = context_item(db, row.context_type, row.context_id, row.item_slug)
+    if not item:
+        raise HTTPException(404, "作答对应的题目不可用")
+    _need_subject(user, item.subject)
+    part = next((p for p in item.parts if p.id == row.part_id), None)
+    if not part:
+        raise HTTPException(404, "作答对应的小题不可用")
+    if row.status == "draft" or not row.submitted_at:
+        raise HTTPException(400, "作答尚未提交")
+    if row.context_type == "paper":
+        attempt = db.get(PaperAttempt, row.context_id)
+        if not attempt or attempt.user_id != row.user_id or attempt.status not in {"submitted", "absent"}:
+            raise HTTPException(400, "答卷尚未提交")
+        if not attempt.paper.grading_started_at or attempt.paper.scores_released_at:
+            raise HTTPException(400, "试卷当前不能评分")
+    elif row.context_type != "challenge":
+        raise HTTPException(400, "作答类型不支持评分")
+    return item, part
+
+
 @router.post("/grade")
 def grade(body: GradeIn, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    reserve_write(db)
+    from ..services.grade_jobs import GradeJob
     row = db.get(ItemAnswer, body.answer_id)
     if not row:
         raise HTTPException(404, "找不到这份作答")
-    item = bank.get(row.item_slug)
-    _need_subject(user, item.subject)
+    item, part = _grade_target(db, row, user)
     if body.regrade:
-        photos = json.loads(row.photos_json or "[]")
-        row.score = None
-        row.llm_json = None
-        row.llm_comment = None
+        if part.type in OBJECTIVE_TYPES:
+            raise HTTPException(400, "客观题不能使用模型重评")
         if row.override_score is None:
             row.status = "pending"
             row.graded_at = None
+        else:
+            row.status = "overridden"
+        enqueue(db, row, item, retry=True)
         db.commit()
-        enqueue(row.id, row.item_slug, row.part_id, photos)
-        return {
-            "ok": True,
-            "status": row.status,
-            "score": effective_score(row),
-            "llm_score": None,
-            "admin_score": row.override_score,
-            "comment": effective_comment(row),
-            "llm_comment": None,
-        }
-    row.override_score = float(body.score)
+        return {"ok": True, "status": row.status, "score": effective_score(row),
+                "llm_score": row.score, "admin_score": row.override_score,
+                "comment": effective_comment(row), "llm_comment": row.llm_comment,
+                "job_state": db.get(GradeJob, row.id).state}
+    value = float(body.score)
+    if not math.isfinite(value) or value < 0 or value > part.points:
+        raise HTTPException(400, f"分数必须在 0 到 {part.points} 之间")
+    row.override_score = value
     row.override_comment = body.comment
     row.override_by = user.id
     row.status = "overridden"
+    job = db.get(GradeJob, row.id)
+    if job and job.state in {"queued", "running"}:
+        job.state = "cancelled"
+        job.claim_token = None
+        job.lease_until = None
     db.commit()
-    return {
-        "ok": True,
-        "score": row.override_score,
-        "llm_score": row.score,
-        "admin_score": row.override_score,
-        "comment": row.override_comment,
-    }
+    return {"ok": True, "score": row.override_score, "llm_score": row.score,
+            "admin_score": row.override_score, "comment": row.override_comment,
+            "job_state": job.state if job else None}
+
+
+@router.get("/answers/{answer_id}/grade-job")
+def get_grade_job(answer_id: int, user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    from ..services.grade_jobs import GradeJob
+
+    row = db.get(ItemAnswer, answer_id)
+    if not row:
+        raise HTTPException(404, "找不到这份作答")
+    _item, part = _grade_target(db, row, user)
+    if part.type in OBJECTIVE_TYPES:
+        raise HTTPException(400, "客观题不能使用模型重评")
+    job = db.get(GradeJob, row.id)
+    return {"job_state": job.state if job else None, "status": row.status,
+            "score": effective_score(row), "llm_score": row.score,
+            "admin_score": row.override_score, "comment": effective_comment(row),
+            "llm_comment": row.llm_comment}
 
 
 @router.post("/grade/retry-pending")
 def retry_pending(user: User = Depends(get_admin_user), db: Session = Depends(get_db)) -> dict:
+    reserve_write(db)
     rows = db.scalars(select(ItemAnswer).where(ItemAnswer.status == "pending")).all()
     n = 0
     for row in rows:
-        item = bank.items.get(row.item_slug)
-        if not item or not sees_subject(user, item.subject):
+        try:
+            item, part = _grade_target(db, row, user)
+        except HTTPException:
             continue
-        photos = json.loads(row.photos_json or "[]")
-        enqueue(row.id, row.item_slug, row.part_id, photos)
+        if part.type in OBJECTIVE_TYPES or row.override_score is not None:
+            continue
+        enqueue(db, row, item, retry=True)
         n += 1
+    db.commit()
     return {"ok": True, "count": n}
 
 
@@ -1053,12 +1128,15 @@ def put_llm(body: LlmSettingsIn, user: User = Depends(get_admin_user), db: Sessi
     pending = db.scalars(select(ItemAnswer).where(ItemAnswer.status == "pending")).all()
     n = 0
     for row in pending:
-        item = bank.items.get(row.item_slug)
-        if not item or not sees_subject(user, item.subject):
+        try:
+            item, part = _grade_target(db, row, user)
+        except HTTPException:
             continue
-        photos = json.loads(row.photos_json or "[]")
-        enqueue(row.id, row.item_slug, row.part_id, photos)
+        if part.type in OBJECTIVE_TYPES or row.override_score is not None:
+            continue
+        enqueue(db, row, item, retry=True)
         n += 1
+    db.commit()
     out = get_llm(user)
     out["queued"] = n
     return out

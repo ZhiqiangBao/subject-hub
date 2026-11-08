@@ -16,22 +16,23 @@ from .api.papers import router as papers_router
 from .api.student import router as student_router
 from .api.uploads import router as uploads_router
 from .config import ADMIN_HOST, ADMIN_PORT, COOKIE_NAME, FRONTEND_DIST, HOST, PORT, ensure_dirs, secret_key
-from .db import Base, engine, migrate
-from .services.bank import bank
+from .db import Base, SessionLocal, engine, migrate
+from .services.bank import BankError, bank
 from .services.llm import start_worker
+from .services.snapshots import backfill_legacy_papers
 
-ensure_dirs()
-Base.metadata.create_all(bind=engine)
-migrate()
-bank.reload()
-
-
-@asynccontextmanager
-async def lifespan(_app: FastAPI):
+def initialize() -> None:
     ensure_dirs()
     Base.metadata.create_all(bind=engine)
     migrate()
     bank.reload()
+    with SessionLocal() as db:
+        backfill_legacy_papers(db)
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    initialize()
     start_worker()
     admin_server = None
     admin_task = None
@@ -55,6 +56,13 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(title="学科 Hub", lifespan=lifespan)
+
+
+@app.exception_handler(BankError)
+async def invalid_bank_input(_request: Request, exc: BankError):
+    return JSONResponse({"detail": str(exc)}, status_code=400)
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -104,11 +112,12 @@ if FRONTEND_DIST.is_dir():
     async def spa(request: Request, full_path: str):
         if full_path.startswith("api/"):
             return JSONResponse({"detail": "找不到这个接口，重启答题服务后再试"}, status_code=404)
-        file_path = FRONTEND_DIST / full_path
-        if full_path and file_path.is_file():
-            return FileResponse(file_path)
+        # Vite emits index.html and /assets only. Never interpret a client
+        # route as an operating-system file name (including Windows paths).
         index = FRONTEND_DIST / "index.html"
-        if index.is_file():
+        if any(part == ".." for part in full_path.replace("\\", "/").split("/")):
+            return JSONResponse({"detail": "找不到这个文件"}, status_code=404)
+        if index.is_file() and index.resolve().parent == FRONTEND_DIST.resolve():
             return FileResponse(index)
         return JSONResponse({"detail": "网页还没构建"}, status_code=404)
 

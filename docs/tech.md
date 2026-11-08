@@ -10,9 +10,9 @@
 
 | 路径 | 作用 |
 | --- | --- |
-| `backend/app/main.py` | FastAPI 入口。`lifespan` 建表、`migrate()`、读题库、启动 LLM 后台线程；另绑 `ADMIN_PORT`（默认 8091）只给本机注册管理员。8090 提供学生站 + 同一套 API。静态页来自 `frontend/dist`。未知 `/api/` 返回 JSON 404「找不到这个接口，重启答题服务后再试」（常见原因：改了路由但 **uvicorn 没重启**）。uvicorn **不热重载**。 |
-| `backend/app/config.py` | 路径、端口、LLM 配置（环境变量优先，否则 `data/llm.env`）；出题和判题共用 `llm_settings()`。 |
-| `backend/app/db.py` | SQLite：`data/subject-hub.db`。`migrate()` 给旧库加列/建表：`users.created_by`、`student_groups`（`kind`/`parent_id`）、`student_group_members`、`paper_audiences`。旧 `users.group_id` 启动时拷进 members，之后不要再写。 |
+| `backend/app/main.py` | FastAPI 入口。`lifespan` 建表、`migrate()`、读题库、回填旧试卷快照并启动持久评分 worker；另绑 `ADMIN_HOST`/`ADMIN_PORT`（默认 `127.0.0.1:8091`）只给本机注册管理员。8090 提供学生站 + 同一套 API。静态页来自 `frontend/dist`。未知 `/api/` 返回 JSON 404「找不到这个接口，重启答题服务后再试」（常见原因：改了路由但 **uvicorn 没重启**）。uvicorn **不热重载**。 |
+| `backend/app/config.py` | 路径、端口、LLM 配置（同名环境变量优先，否则读 `data/llm.env`）；出题和判题共用 `llm_settings()`。若环境变量设置模型地址或模型名，网页不能覆盖。 |
+| `backend/app/db.py` | SQLite：`data/subject-hub.db`。`migrate()` 给旧库加列/建表，包括 `papers.items_snapshot_json`、`users.created_by`、`student_groups`（`kind`/`parent_id`）、`student_group_members`、`paper_audiences`。旧 `users.group_id` 启动时拷进 members，之后不要再写。 |
 | `backend/app/models.py` | ORM 表。 |
 | `backend/app/schemas.py` | 请求体。 |
 | `backend/app/deps.py` | 登录会话、管理员校验、密码哈希。 |
@@ -39,6 +39,7 @@
 | `PaperAudience` | `(paper_id, group_id)`；可选本行 `opens_at`/`closes_at` | 测验对象。没选中的分组看不见卷。空时间则用试卷窗口。可按组错开。 |
 | `ChallengeRun` | `slugs_json`，`current_index`，`status` | 一次闯关抽题冻结。 |
 | `Paper` | `slugs_json`，`sections_json` | 组卷冻结题单。 |
+| | `items_snapshot_json` | 发布时冻结各题内容；之后题库编辑不改变已发布卷。旧卷回填限制见 `services/snapshots.py`。 |
 | | `released_at` | 已发布：学生**能看见卡片**。未发布对学生不可见。 |
 | | `opens_at` / `closes_at` | 答题时间段。未到 `opens_at` 不能进、不能下发题目。到点 `closes_at` 强制交卷。 |
 | | `duration_minutes` | 发布时由时间段推出来，兼容旧逻辑。 |
@@ -46,6 +47,7 @@
 | | `scores_released_at` | 成绩对学生可见。此前学生端分数全藏。 |
 | `PaperAttempt` | `(paper_id, user_id)` 唯一；`status` draft/submitted/**absent** | **开考后**第一次成功 `open` 才建行。开考前不建。指定分组截止未作答 → `absent` 缺考 0 分。 |
 | `ItemAnswer` | `(user, context_type, context_id, item_slug, part_id)` | 一问一行。`context_type`=`challenge` 或 `paper`。 |
+| `GradeJob` (`services/grade_jobs.py`) | `answer_id` 主键、`generation`、`state`、输入快照、`claim_token`/`lease_until` | SQLite 持久评分任务；与作答更新在同一事务中记录。 |
 
 ### `ItemAnswer` 分数（两套，不要再加第三套）
 
@@ -137,11 +139,12 @@ assemble（released_at 空）
 | 文件 | 关键函数 | 做什么 |
 | --- | --- | --- |
 | `grade.py` | `grade_objective` | 选择、填空、数值本机比对。填空规则见 `.cursor/rules/formula-blanks.mdc`。 |
-| `llm.py` | `grade_part_attempt` | 调 OpenAI 兼容接口评一问。 |
-| `llm.py` | `enqueue` / `start_worker` | 内存队列。重启丢队列，库里 `pending` 仍在，管理页可重试。Worker 只 `apply_llm_score`，禁止清 override。失败评语前缀「模型这次没评上：」。 |
+| `grade_jobs.py` | `GradeJob` / `enqueue` / `start_worker` | 持久队列，提交事务内保存题目/作答输入快照；worker 以租约领取任务，重启后续跑。旧版没有任务记录的 pending 作答只在能从当前题库找到对应题目时尝试回填。结果写回前核对作答、评分和人工分状态，旧任务不能覆盖新状态。批量重试跳过已有人工分。 |
+| `llm.py` | `grade_part_attempt` | 调 OpenAI 兼容接口评一问；分项与总分严格校验，错误结构作为失败处理，不截断成正式分。含图作答一次携带全部照片，失败不退回纯文字。 |
+| `snapshots.py` | `freeze_paper` / `paper_item` / `backfill_legacy_papers` | 发布时冻结题目。旧版已发布卷用升级时题库尽力回填；缺 slug 或小问 ID/分值冲突时将该题写为不可还原、保留作答分数。仅凭旧库无法识别题干/答案改变但 slug 和结构未变的情况。 |
 | `review.py` | `review_challenge` / `review_paper` | 闯关带姓名、可改判。试卷默认匿名可改判；`named=True` 给学生页只读。 |
 | `bank.py` | `Bank` / `Item` / `Part` | 先读 `bank/` 再读 `data/local-bank/`，同 slug 本机覆盖。内存对象，不是 ORM。 |
-| `ingest.py` | `items_from_text` / `plain_item` / `save_item` | 导入与白话出题，写入本机 yaml。 |
+| `ingest.py` | `items_from_text` / `items_from_zip` / `save_item` | YAML/ZIP 安全解析与校验；单次输入与 ZIP 展开后均不超过 2 MB，最多 100 题/ZIP 条目；slug 冲突拒绝、不覆盖；只有确认导入才写本机 YAML。 |
 | `curriculum.py` | `lookup` | 按科目、1～9/10～12 年级定位课标 Markdown，检索正文页，返回源路径、PDF 页码和原文。义务教育数学按“小学部分/初中部分”和第一至第四学段切片，跨页保持所属学段；不借初中内容给小学出题。缺库或无匹配时拒绝出题；小学物化生史不直接套初中课标。 |
 | `generation.py` | `generate` / `validate` | 读取课标原文，使用统一模型配置生成题目；校验元数据、选项、答案、分值和评分细则后返回预览，不写题库。模型可返回依据不足/超学段错误，不强制编题。 |
 | `blank.py` | `normalize` / `equivalent_blank` / `numeric_value` | 填空写法规范化；保留大小写与英文词间空格，区分化学上下标，规范英语词中的直/弯撇号。数学、物理、化学的有限数值式用受限 AST 与 Fraction 精确比较；`numeric` 也接受分数、百分数和科学记数，再按原有容差比较。不执行输入代码，不做任意代数化简。 |
@@ -216,16 +219,20 @@ assemble（released_at 空）
 | `POST /papers/{id}/start-grade` | `start_grade` | 须 `paper_can_start_grade`（全部截止）。`settle_closed_groups` 再机评。可重复点。 |
 | `POST /papers/{id}/release-scores` | `release_scores` | 须已开始评分，且 `paper_ungraded_count==0`。 |
 | `GET/PUT /items` | 题库列表/编辑 | 写本机 yaml。 |
-| `POST /ingest/*` `POST /items/plain` | 粘贴/文件/白话加题 | |
+| `POST /ingest/paste` `POST /ingest/file` | 粘贴/文件导入 | `preview=true` 返回候选题、不写入；确认时重新校验，重复 slug 返回 409；单次不超过 2 MB、最多 100 题，ZIP 展开总量不超过 2 MB。 |
+| `POST /items/plain` | 白话加题 | 校验后保存本机题库。 |
+| `POST /bank/update` | `update_bank` | 只调用 `bank.reload()` 重读当前主机的 `bank/` 与 `data/local-bank/`；不运行 Git、不联网。 |
 | `POST /items/generate` | `generate_items` | 管理员按科目、年级、难度、题型、题数（1～5）和 `topic` 出题；受科目权限限制。返回编辑格式题目、课标源路径/页码及学段提示。 |
 | `POST /items/generated/save` | `save_generated_item` | 校验编辑后的单题，确认后写本机题库。服务端生成安全 slug，独占创建文件，重复编号返回 409，避免覆盖已有题。 |
-| `GET /answers/{id}` `POST /grade` `POST /grade/retry-pending` | 改判接口 | `regrade` 只清机评列。无独立改判页；测验页可重试未评。 |
+| `GET /answers/{id}` `POST /grade` | 改判/显式重评 | 手改分写 `override_*`；主观题可在合法评分阶段显式 `regrade=true`，只更新模型参考分，人工最终分不变。客观题与成绩已发布的试卷不能重评。 |
+| `POST /grade/retry-pending` | `retry_pending` | 仅重试可评分的待评主观题；自动跳过已有人工分的作答。 |
+| `GET /answers/{id}/grade-job` | `get_grade_job` | 管理员按匿名作答 ID 查看 `queued/running/done/failed/cancelled` 状态与分数，不返回学生姓名。 |
 | `GET /queue` | `queue` | 残留接口；未发成绩的试卷作答不进队列。 |
 | `GET/POST /llm` `POST /llm/test` | 统一模型配置 | 出题和判题共用地址、密钥、模型、思考配置；密钥不回前端。 |
 
 ### `api/uploads.py` — `/api/uploads`
 
-拍演算纸。登录后可读 `/file/{name}`。
+拍演算纸。登录后可读 `/file/{name}`；每问最多 3 张 JPEG/PNG/WebP，每张不超过 6 MB。文件只向作答本人或有权查看该科目的管理员开放。
 
 ---
 
@@ -239,10 +246,10 @@ assemble（released_at 空）
 | `HomeView.vue` | 闯关筛选 | `/home` `/challenge/pool` `/challenge/start` |
 | `StudentPapersView.vue` | 试卷卡片 | `/home`；`can_enter` 才 `open`。waiting/closed 只展示时间，不请求题目。 |
 | `PaperView.vue` | 答题卡 + 交卷 | 题号卡 `SheetNav`；未保存完交卷按钮禁用。 |
-| `PlayerView.vue` | 作答 | 闯关或试卷同一页。自动保存。试卷单选保存后跳下一题；多选/填空/主观点「下一题」。无保存按钮。 |
+| `PlayerView.vue` | 作答 | 闯关或试卷同一页。自动保存；路由离开前 flush，页面隐藏/pagehide 时尝试保存，未完成的页面离开会提示。网络写入失败时在 `localStorage` 按用户 ID、作答上下文和题目保存文字草稿，可在同账号同设备显式恢复；图片已上传到服务端，不进入本地文字备份。 |
 | `ResultView.vue` | 闯关结果 | |
 | `ScoresView.vue` | 我的成绩 | 未公布显示 — |
-| `ParentView.vue` | 管理多 Tab | 学生/测验/组卷/题库/加题/模型/学生账号。账号页：已有分组卡片、新建分组（班级 / 班内 / 其它）、代开（可多选组）。 |
+| `ParentView.vue` | 管理多 Tab | 学生/测验/组卷/题库/加题/模型/学生账号。账号页：已有分组卡片、新建分组（班级 / 班内 / 其它）、代开（可多选组）。外部题包先预览再确认；重复 slug 不覆盖。「重新读取本机题库」仅刷新本机题库。 |
 | `AdminGroupView.vue` | 一个分组 | 组内学生卡片 → 学生档案；可把已有学生加进来、代开进本组。 |
 | `AdminPaperView.vue` | 一份测验 | 选分组、设时间窗（可错开）、发布、截止后开始评分、匿名答卷改判。未截止「开始评分」禁用。未出齐分「发布成绩」禁用。 |
 | `AdminStudentView.vue` | 一名学生 | 登录名只读。可改真名/年级/多个分组。真名学生看不到。闯关可点；试卷未发成绩不能看作答，不跳进测验。 |
@@ -294,7 +301,7 @@ assemble（released_at 空）
 4. `apply_llm_score` 与 LLM worker 不得修改 `override_*`。
 5. 填空答案不用 LaTeX；公式按钮范围见 workspace 规则 `formula-blanks.mdc`。
 6. 改 Vue 后构建 `frontend/dist`，否则 8090 仍是旧页。改 FastAPI 路由后**必须重启 uvicorn**，否则新接口 404，文案就是「找不到这个接口，重启答题服务后再试」。
-7. 密钥、模型 URL 只在主机；8090 注册不能变管理员。
+7. 8090 是未加密 HTTP，只用于可信局域网；8091 默认仅监听 `127.0.0.1`，只供主机本机注册管理员。管理员接口仍需有效登录会话。模型密钥保存在主机且不会返回前端；管理员通过 8090 配置模型，因此不能把服务放到公网或不可信网络。
 8. 界面默认北京时间，顶栏一个下拉可改时区；开考仍用主机 UTC，与谁选哪个时区无关。
 9. 「学生」不跳进「测验」的匿名答卷。未发成绩：学生页不看该次答案。改判只在测验匿名答卷。
 10. `release_scores` 时已截止对象每一问必须已 `graded` 或 `overridden`；有 pending/submitted 就 400，按钮禁用。
@@ -306,12 +313,24 @@ assemble（released_at 空）
 
 ---
 
-## 9. 其它文档怎么分工
+## 9. 本地验证
+
+Python 测试应在隔离数据目录运行，不要让测试读取或写入生产 `data/`。Ubuntu 上可用：
+
+```bash
+TEST_ROOT="$(mktemp -d)"
+SUBJECT_HUB_ROOT="$PWD" SUBJECT_HUB_DATA="$TEST_ROOT/data" SUBJECT_HUB_BANK="$TEST_ROOT/bank" PYTHONPATH="$PWD/backend" .venv/bin/python -m unittest discover -s tests
+(cd frontend && npm ci && npm run typecheck && npm test && npm run build)
+```
+
+`scripts/update-from-github.sh` 会在隔离 staging 目录自动执行这些 Python 测试、前端类型检查、测试和构建；全部通过后才停服备份并切换版本。需要 Python 3.10+ 和 Node.js 22.22.2+（22 系列）、24.15+（24 系列）或 26+。当前固定的 Python 直接依赖只在 Windows/Python 3.13.6 验证，Ubuntu 实机验证仍需 CI 补齐。
+
+## 10. 其它文档怎么分工
 
 | 文件 | 管什么 | 不要写什么 |
 | --- | --- | --- |
 | **本文 `tech.md`** | 文件、函数、表、请求流 | 课标全文、装机步骤 |
 | `architecture.md` | 产品口径、题型、题库磁盘格式 | 每个 FastAPI 函数名（易过期） |
-| `plan.md` | 下一阶段，不是现状 | 当代码地图用 |
+| `plan.md` | 当前功能、限制和维护约定 | 当代码地图用 |
 | `host.md` | 安装与端口 | 判分细节 |
 | `llm-grading.md` | 模型协议与失败行为 | 前端组件树 |
