@@ -88196,8 +88196,8 @@
       "markdown": "普通高中-2017-2020修订/1.普通高中课程方案（2017年版2020年修订）.md",
       "pdf_sha256": "83f1822850bdb8e1512ed768a31b975fe4dd4d596a1cf16b5bbffa388d671c3a",
       "total_pages": 25,
-      "markdown_characters": 10217,
-      "text_characters": 9518,
+      "markdown_characters": 10467,
+      "text_characters": 9759,
       "source_text_pages": [
         1,
         2,
@@ -88233,7 +88233,11 @@
       "ocr_engines": [
         "Windows.Media.Ocr"
       ],
-      "visual_correction_pages": [],
+      "visual_correction_pages": [
+        1,
+        14,
+        15
+      ],
       "language_limitation": null,
       "empty_pages": [
         7,
@@ -88260,7 +88264,7 @@
         "body": "目录之后首个正文长度不少于200字符的页面",
         "table_or_formula_candidate": "匹配表/图/公式/数学符号的页面"
       },
-      "quality_sample_status": "原图和清理后OCR文本已保存；转换器未做人工视觉判定",
+      "quality_sample_status": "已逐页查看原图；待核细节见visual-review.json和Markdown中的待核标记",
       "qa_sample_artifacts": [],
       "issues": [
         {
@@ -88275,21 +88279,25 @@
       "pages": [
         {
           "page": 1,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 43,
-          "non_whitespace_characters": 39,
+          "characters": 51,
+          "non_whitespace_characters": 46,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页查看源PDF封面原图，补回扫描OCR遗漏的出版者名称“人民教育出版社”；其余封面文字按原样保留。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 2,
@@ -88307,7 +88315,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 3,
@@ -88325,7 +88334,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 4,
@@ -88343,7 +88353,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 5,
@@ -88361,7 +88372,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 6,
@@ -88379,7 +88391,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 7,
@@ -88422,7 +88435,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 8,
@@ -88433,14 +88447,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 391,
+          "characters": 390,
           "non_whitespace_characters": 382,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 9,
@@ -88483,7 +88498,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 10,
@@ -88501,7 +88517,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 11,
@@ -88519,7 +88536,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 12,
@@ -88537,7 +88555,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 13,
@@ -88555,43 +88574,52 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 14,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 365,
-          "non_whitespace_characters": 313,
+          "characters": 533,
+          "non_whitespace_characters": 395,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "主代理独立查看源图验收，恢复科目与三类学分的四列表格，保留原图空白格及续表说明。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 15,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 535,
-          "non_whitespace_characters": 497,
+          "characters": 604,
+          "non_whitespace_characters": 534,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "主代理独立查看源图验收，恢复科目与三类学分的四列表格，保留原图空白格及续表说明。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 16,
@@ -88609,7 +88637,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 17,
@@ -88627,7 +88656,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 18,
@@ -88645,7 +88675,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 19,
@@ -88663,7 +88694,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 20,
@@ -88674,14 +88706,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 594,
+          "characters": 592,
           "non_whitespace_characters": 563,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 21,
@@ -88692,14 +88725,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 680,
+          "characters": 679,
           "non_whitespace_characters": 650,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 22,
@@ -88717,7 +88751,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 23,
@@ -88735,7 +88770,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 24,
@@ -88753,7 +88789,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 25,
@@ -88771,17 +88808,46 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         }
-      ]
+      ],
+      "visual_reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "visual_review_uncertain_pages": []
     },
     {
       "source_pdf": "普通高中-2017-2020修订/10.普通高中生物学课程标准（2017年版2020年修订）.pdf",
       "markdown": "普通高中-2017-2020修订/10.普通高中生物学课程标准（2017年版2020年修订）.md",
       "pdf_sha256": "8408986334a8826e6c7e1486c1ef1430cf47ad9e10174fd08f65d590f4d302a4",
       "total_pages": 97,
-      "markdown_characters": 63545,
-      "text_characters": 61820,
+      "markdown_characters": 64370,
+      "text_characters": 62595,
       "source_text_pages": [
         1,
         2,
@@ -88884,7 +88950,28 @@
       "ocr_pages": [],
       "ocr_languages": [],
       "ocr_engines": [],
-      "visual_correction_pages": [],
+      "visual_correction_pages": [
+        1,
+        7,
+        11,
+        18,
+        60,
+        61,
+        62,
+        63,
+        66,
+        83,
+        84,
+        85,
+        87,
+        88,
+        90,
+        91,
+        94,
+        95,
+        96,
+        97
+      ],
       "language_limitation": null,
       "empty_pages": [],
       "too_short_pages": [],
@@ -88908,27 +88995,31 @@
         "body": "目录之后首个正文长度不少于200字符的页面",
         "table_or_formula_candidate": "匹配表/图/公式/数学符号的页面"
       },
-      "quality_sample_status": "原图和清理后OCR文本已保存；转换器未做人工视觉判定",
+      "quality_sample_status": "已逐页查看原图；待核细节见visual-review.json和Markdown中的待核标记",
       "qa_sample_artifacts": [],
       "issues": [],
       "pages": [
         {
           "page": 1,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 46,
-          "non_whitespace_characters": 42,
+          "characters": 54,
+          "non_whitespace_characters": 49,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页看原图，按封面阅读顺序重排并补回文字层遗漏的出版社。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 2,
@@ -88946,7 +89037,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 3,
@@ -88964,7 +89056,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 4,
@@ -88982,7 +89075,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 5,
@@ -89000,7 +89094,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 6,
@@ -89018,25 +89113,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 7,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 345,
-          "non_whitespace_characters": 318,
+          "characters": 337,
+          "non_whitespace_characters": 314,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页对照原图，将目录主标题恢复至页面上方；各章节与印本页码保持不变。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 8,
@@ -89047,14 +89147,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 391,
+          "characters": 389,
           "non_whitespace_characters": 354,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 9,
@@ -89072,7 +89173,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 10,
@@ -89090,25 +89192,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 11,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 569,
+          "characters": 567,
           "non_whitespace_characters": 541,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页对照原图，修正误成西文逗号的中文标点。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 12,
@@ -89126,7 +89233,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 13,
@@ -89144,7 +89252,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 14,
@@ -89162,7 +89271,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 15,
@@ -89180,7 +89290,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 16,
@@ -89198,7 +89309,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 17,
@@ -89216,25 +89328,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 18,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 579,
-          "non_whitespace_characters": 421,
+          "characters": 587,
+          "non_whitespace_characters": 534,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页对照原图，恢复课程结构图中三个类别、五组模块及学分，合并竖排模块名称并明确三条箭头；修正学时范围号。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 19,
@@ -89252,7 +89369,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 20,
@@ -89270,7 +89388,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 21,
@@ -89288,7 +89407,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 22,
@@ -89306,7 +89426,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 23,
@@ -89324,7 +89445,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 24,
@@ -89342,7 +89464,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 25,
@@ -89360,7 +89483,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 26,
@@ -89378,7 +89502,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 27,
@@ -89396,7 +89521,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 28,
@@ -89414,7 +89540,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 29,
@@ -89432,7 +89559,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 30,
@@ -89450,7 +89578,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 31,
@@ -89468,7 +89597,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 32,
@@ -89486,7 +89616,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 33,
@@ -89504,7 +89635,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 34,
@@ -89522,7 +89654,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 35,
@@ -89540,7 +89673,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 36,
@@ -89558,7 +89692,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 37,
@@ -89576,7 +89711,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 38,
@@ -89594,7 +89730,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 39,
@@ -89612,7 +89749,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 40,
@@ -89630,7 +89768,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 41,
@@ -89648,7 +89787,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 42,
@@ -89666,7 +89806,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 43,
@@ -89684,7 +89825,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 44,
@@ -89702,7 +89844,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 45,
@@ -89720,7 +89863,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 46,
@@ -89738,7 +89882,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 47,
@@ -89756,7 +89901,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 48,
@@ -89774,7 +89920,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 49,
@@ -89792,7 +89939,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 50,
@@ -89810,7 +89958,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 51,
@@ -89828,7 +89977,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 52,
@@ -89846,7 +89996,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 53,
@@ -89864,7 +90015,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 54,
@@ -89882,7 +90034,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 55,
@@ -89900,7 +90053,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 56,
@@ -89911,14 +90065,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 747,
+          "characters": 746,
           "non_whitespace_characters": 714,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 57,
@@ -89936,7 +90091,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 58,
@@ -89954,7 +90110,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 59,
@@ -89972,79 +90129,96 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 60,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 386,
-          "non_whitespace_characters": 370,
+          "characters": 413,
+          "non_whitespace_characters": 385,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对学业质量表，恢复水平与质量描述的对应关系；此页1-1续至下一页。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 61,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 953,
-          "non_whitespace_characters": 912,
+          "characters": 985,
+          "non_whitespace_characters": 954,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对学业质量续表，恢复两个水平及各条质量描述的行列对应，保留跨页续文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 62,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 955,
-          "non_whitespace_characters": 915,
+          "characters": 977,
+          "non_whitespace_characters": 945,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对学业质量续表，恢复两个水平及各条质量描述的行列对应，保留跨页续文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 63,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 806,
-          "non_whitespace_characters": 774,
+          "characters": 826,
+          "non_whitespace_characters": 797,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对学业质量续表，恢复水平四的4-2至4-4与其质量描述的对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 64,
@@ -90062,7 +90236,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 65,
@@ -90080,25 +90255,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 66,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 762,
+          "characters": 760,
           "non_whitespace_characters": 727,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "对照原图，将实践后的误识英文逗号恢复为中文逗号。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 67,
@@ -90116,7 +90296,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 68,
@@ -90134,7 +90315,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 69,
@@ -90145,14 +90327,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 816,
+          "characters": 815,
           "non_whitespace_characters": 786,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 70,
@@ -90170,7 +90353,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 71,
@@ -90188,7 +90372,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 72,
@@ -90206,7 +90391,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 73,
@@ -90224,7 +90410,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 74,
@@ -90242,7 +90429,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 75,
@@ -90260,7 +90448,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 76,
@@ -90278,7 +90467,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 77,
@@ -90296,7 +90486,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 78,
@@ -90314,7 +90505,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 79,
@@ -90332,7 +90524,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 80,
@@ -90350,7 +90543,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 81,
@@ -90368,7 +90562,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 82,
@@ -90386,61 +90581,74 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 83,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 437,
-          "non_whitespace_characters": 411,
+          "characters": 468,
+          "non_whitespace_characters": 435,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对四项核心素养的四个水平，恢复表格对应，保留全部原文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 84,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 831,
-          "non_whitespace_characters": 780,
+          "characters": 892,
+          "non_whitespace_characters": 828,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对四项核心素养的四个水平，恢复表格对应，保留全部原文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 85,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 511,
-          "non_whitespace_characters": 483,
+          "characters": 539,
+          "non_whitespace_characters": 507,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对四项核心素养的四个水平，恢复表格对应，保留全部原文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 86,
@@ -90458,43 +90666,52 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 87,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 508,
-          "non_whitespace_characters": 473,
+          "characters": 585,
+          "non_whitespace_characters": 528,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图恢复五步教学思路流程与教学过程的任务—目的对应，保留四个顺序衔接的活动框。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 88,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 643,
-          "non_whitespace_characters": 615,
+          "characters": 713,
+          "non_whitespace_characters": 668,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图恢复教学过程续页两项活动与目的、先后关系，评析及案例3全文保留。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 89,
@@ -90512,43 +90729,52 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 90,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 581,
-          "non_whitespace_characters": 537,
+          "characters": 647,
+          "non_whitespace_characters": 617,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对酵母种群增长曲线，清除乱码并恢复甲乙图、坐标轴、原点与曲线形状，不添加原图没有的数值。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 91,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 698,
-          "non_whitespace_characters": 655,
+          "characters": 706,
+          "non_whitespace_characters": 666,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对种群增长倍数和数量公式，恢复N的下标及λ的t次幂，消除指数另起一行导致的歧义。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 92,
@@ -90566,7 +90792,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 93,
@@ -90584,81 +90811,198 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 94,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 365,
-          "non_whitespace_characters": 334,
+          "characters": 447,
+          "non_whitespace_characters": 417,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对图3、图4及正文，恢复同位素18与下标2，并补录可拖曳试管和四种素材的图示信息。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 95,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 750,
-          "non_whitespace_characters": 600,
+          "characters": 755,
+          "non_whitespace_characters": 687,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对图5、6、7，清除乱码并恢复各支试管的实验编号、原料与同位素标记，保留错误方案及评析。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 96,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 572,
-          "non_whitespace_characters": 523,
+          "characters": 770,
+          "non_whitespace_characters": 691,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图恢复六列表格、由学生填写的划线内容及原页线粒体电镜图，恢复每小组4～6人的范围。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 97,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 796,
-          "non_whitespace_characters": 742,
+          "characters": 844,
+          "non_whitespace_characters": 779,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对课堂教学的五行三列表格，恢复内容、教师活动与学生活动的对应关系，保留案例8评析全文。",
+          "visual_correction_source": "ocr-corrections.json"
         }
-      ]
+      ],
+      "visual_reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "visual_review_uncertain_pages": []
     },
     {
       "source_pdf": "普通高中-2017-2020修订/11.普通高中信息技术课程标准（2017年版2020年修订）.pdf",
@@ -134810,7 +135154,7 @@
       "visual_review_uncertain_pages": []
     }
   ],
-  "visual_correction_page_count": 630,
+  "visual_correction_page_count": 653,
   "ocr_backends": {
     "zh-Hans-CN": {
       "ready": true,
