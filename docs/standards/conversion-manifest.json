@@ -70004,8 +70004,8 @@
       "markdown": "义务教育-2022/13-义务教育信息科技课程标准（2022年版）.md",
       "pdf_sha256": "065f9df22d35da8813508c23782c7853dab3c54e34f552a627f8dd1698fa1e01",
       "total_pages": 74,
-      "markdown_characters": 46091,
-      "text_characters": 44581,
+      "markdown_characters": 46095,
+      "text_characters": 44659,
       "source_text_pages": [],
       "ocr_pages": [
         1,
@@ -70090,9 +70090,80 @@
         "Windows.Media.Ocr"
       ],
       "visual_correction_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
         6,
         7,
-        14
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
       ],
       "language_limitation": null,
       "empty_pages": [],
@@ -70117,7 +70188,7 @@
         "body": "目录之后首个正文长度不少于200字符的页面",
         "table_or_formula_candidate": "匹配表/图/公式/数学符号的页面"
       },
-      "quality_sample_status": "原图和清理后OCR文本已保存；转换器未做人工视觉判定",
+      "quality_sample_status": "已逐页查看原图；待核细节见visual-review.json和Markdown中的待核标记",
       "qa_sample_artifacts": [
         "tmp/pdfs/qa-samples/13-义务教育信息科技课程标准（2022年版）/page-6-directory.png",
         "tmp/pdfs/qa-samples/13-义务教育信息科技课程标准（2022年版）/page-6-directory.cleaned.txt",
@@ -70130,7 +70201,7 @@
       "pages": [
         {
           "page": 1,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70153,27 +70224,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "依据原图重录封面主标题、制定机构及出版集团/出版社中英文标识。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 94,
-          "non_whitespace_characters": 80,
+          "characters": 115,
+          "non_whitespace_characters": 103,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 2,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70196,27 +70268,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "依据原图恢复“前言”“必须”及“一、指导思想”标题，保留正文跨页至“提升智育”和印刷页码1。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 519,
-          "non_whitespace_characters": 487,
+          "characters": 499,
+          "non_whitespace_characters": 489,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 3,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70239,27 +70312,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "校正修订原则首段“有机融入”等字词和各级标题，保留末行“关注学生个性”跨页及页码2。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 584,
-          "non_whitespace_characters": 559,
+          "characters": 558,
+          "non_whitespace_characters": 542,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 4,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70282,27 +70356,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "依据原图补回“三、主要变化”标题和跨页“个性化”后缀，校正“融入”字样、课程设置及页码3。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 591,
-          "non_whitespace_characters": 559,
+          "characters": 574,
+          "non_whitespace_characters": 558,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 5,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70325,27 +70400,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "据图补全“语言”领域并规范“教—学—评”连接符，保留前言结尾全文及页码4。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 747,
-          "non_whitespace_characters": 690,
+          "characters": 682,
+          "non_whitespace_characters": 672,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 6,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70369,7 +70445,7 @@
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
           "visual_correction_applied": true,
-          "visual_correction_reason": "按 PDF 第 6 页原图恢复目录章节序号、年级范围及条目页码；点线简化为空格，保留页脚页码 1。",
+          "visual_correction_reason": "逐项对照目录页，校正跨学科主题名称和印刷页码，保留所有可见条目。",
           "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
@@ -70377,18 +70453,19 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 218,
+          "characters": 238,
           "non_whitespace_characters": 194,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 7,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70412,7 +70489,7 @@
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
           "visual_correction_applied": true,
-          "visual_correction_reason": "按 PDF 第 7 页原图恢复目录条目序号、页码、被 OCR 拆分的“附录”及页眉；点线简化为空格，保留页脚页码 2。",
+          "visual_correction_reason": "逐项对照目录下半页，核实第四学段至附录标题及印刷页码。",
           "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
@@ -70420,18 +70497,19 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 242,
-          "non_whitespace_characters": 221,
+          "characters": 244,
+          "non_whitespace_characters": 201,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 8,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70454,27 +70532,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "依据原图补回“一、课程性质”标题序号并逐句核对课程定位，保留印刷页码1。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 213,
-          "non_whitespace_characters": 204,
+          "characters": 211,
+          "non_whitespace_characters": 205,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 9,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70497,27 +70576,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "依据原图校正“二、课程理念”标题及2、3条编号/标点，保留页末跨页和页码2。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 471,
-          "non_whitespace_characters": 451,
+          "characters": 469,
+          "non_whitespace_characters": 452,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 10,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70540,27 +70620,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第10页图像，恢复页眉“二、课程理念”、4/5编号及标题标点，校正“引入”并重录两段完整正文和页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 356,
-          "non_whitespace_characters": 324,
+          "characters": 340,
+          "non_whitespace_characters": 326,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 11,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70583,27 +70664,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第11页图像，补出“三、课程目标”和“1. 信息意识”编号，校正“融入”并保留“依据法律法”在本页的原始跨页断点；全文与图像一致。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 432,
-          "non_whitespace_characters": 413,
+          "characters": 429,
+          "non_whitespace_characters": 414,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 12,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70626,27 +70708,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第12页图像，补全页眉和2/3/4编号，校正数字化素养标题，逐字重录各段正文；保留“形成良好的信息道德”在本页的原始跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 676,
-          "non_whitespace_characters": 648,
+          "characters": 669,
+          "non_whitespace_characters": 650,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 13,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70669,27 +70752,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第13页图像，校正页眉、总目标标题与1/2/3编号，重录全部目标文字；保留“利用信息”跨页断点及印刷页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 627,
-          "non_whitespace_characters": 599,
+          "characters": 626,
+          "non_whitespace_characters": 601,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 14,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70713,7 +70797,7 @@
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
           "visual_correction_applied": true,
-          "visual_correction_reason": "按 PDF 第 14 页原图更正“个跬化”为“个性化”、补回条目编号点号及被 OCR 破坏的“六三”学制句；更正“融人”为“融入”，保留页眉、页面正文片段和页脚 7。",
+          "visual_correction_reason": "逐行对照PDF第14页图像，校正页眉和续页起始文字，重录第4项目标、整段正文及学段目标说明，保留页码。",
           "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
@@ -70728,11 +70812,12 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 15,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70755,27 +70840,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第15页表格，恢复表题、双列表头、四个学段及全部12项目标；纠正输入/融入等OCR误字和学段范围，保持行列关系及印刷页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 710,
-          "non_whitespace_characters": 638,
+          "characters": 746,
+          "non_whitespace_characters": 696,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 16,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70798,27 +70884,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第16页表格，恢复表题、表头、四个学段和全部13条计算思维目标，校正OCR编号/符号，并保留表格行列关系及页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 793,
-          "non_whitespace_characters": 720,
+          "characters": 828,
+          "non_whitespace_characters": 779,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 17,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70841,27 +70928,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第17页表格，恢复表题、双列表头和四个学段的全部12条数字化学习与创新目标，校正学段范围及OCR漏字，维持表格结构。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 834,
-          "non_whitespace_characters": 761,
+          "characters": 869,
+          "non_whitespace_characters": 819,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 18,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70884,27 +70972,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第18页图像，恢复表4表题、四个学段及全部目标，保留表格列关系；重录“五四”学制说明段及页码，校正数字范围符号。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 851,
-          "non_whitespace_characters": 743,
+          "characters": 845,
+          "non_whitespace_characters": 796,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 19,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70927,27 +71016,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第19页图像，补正课程内容标题和六条逻辑主线及其分项分隔符，重录完整引导段与图1说明，并保留“数据与编”跨页断点、页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 513,
-          "non_whitespace_characters": 462,
+          "characters": 479,
+          "non_whitespace_characters": 461,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 20,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -70970,27 +71060,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第20页图像，补全跨页课程模块说明，校正3～8年级句和“融入”；将图1所有学段、内容模块、跨学科主题及活动标签按原对应关系转录，并保留页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 633,
-          "non_whitespace_characters": 513,
+          "characters": 691,
+          "non_whitespace_characters": 625,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 21,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71013,27 +71104,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第21页图像，修复页眉、学段标题和模块标题，重录模块说明、学习目标及五条内容要求，纠正语音输入/录入文字等OCR误读。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 582,
-          "non_whitespace_characters": 540,
+          "characters": 566,
+          "non_whitespace_characters": 541,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 22,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71056,27 +71148,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第22页图像，校正（6）、学业要求、教学提示编号，重录教学示例和术语，保留“社会活”跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 700,
-          "non_whitespace_characters": 660,
+          "characters": 681,
+          "non_whitespace_characters": 661,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 23,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71099,27 +71192,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第23页图像，校正页眉、续页文字及语音输入等误识，重录两段教学案例和信息隐私与安全模块说明，保留页末断句。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 734,
-          "non_whitespace_characters": 697,
+          "characters": 716,
+          "non_whitespace_characters": 698,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 24,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71142,27 +71236,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第24页图像，恢复续页起始文字、1/2/3编号及六条内容要求，校正“辨别”误识并保留教学提示跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 608,
-          "non_whitespace_characters": 567,
+          "characters": 595,
+          "non_whitespace_characters": 566,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 25,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71185,27 +71280,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第25页图像，补正网络信息诈骗等形近/OCR错误，重录三条教学提示及案例，恢复跨学科主题/项目标题并保留跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 670,
-          "non_whitespace_characters": 616,
+          "characters": 643,
+          "non_whitespace_characters": 617,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 26,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71228,27 +71324,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第26页图像，补齐跨页首字，校正2/3/4项目标题与正文，保留“智能电子设备等”后的原始跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 677,
-          "non_whitespace_characters": 639,
+          "characters": 660,
+          "non_whitespace_characters": 641,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 27,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71271,27 +71368,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第27页图像，校正页眉和第二学段标题，重录信息安全主题续段及在线学习与生活模块全部说明/内容要求，保留末尾跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 649,
-          "non_whitespace_characters": 601,
+          "characters": 627,
+          "non_whitespace_characters": 602,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 28,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71314,27 +71412,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第28页图像，补正跨页“分享”断点，重录（4）至（8）、学业要求和教学提示，恢复项目编号并保留末尾跨页字。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 667,
-          "non_whitespace_characters": 628,
+          "characters": 653,
+          "non_whitespace_characters": 629,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 29,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71357,27 +71456,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第29页图像，续接“发展创新意识”，校正编号/词语，重录四条教学提示及案例，保留页眉和页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 810,
-          "non_whitespace_characters": 766,
+          "characters": 787,
+          "non_whitespace_characters": 767,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 30,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71400,27 +71500,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第30页图像，恢复Wi-Fi例、互联网用字及“（二）数据与编码”标题，全文重录模块目标、编码说明和三个组成部分。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 686,
+          "characters": 654,
           "non_whitespace_characters": 640,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 31,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71443,27 +71544,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第31页图像，校正内容要求编号及全文，补录学业要求完整段落，保留“在日常学习和生”跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 693,
-          "non_whitespace_characters": 648,
+          "characters": 675,
+          "non_whitespace_characters": 649,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 32,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71486,27 +71588,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第32页图像，接续“生活中”跨页段落，校正教学提示标题/文字与案例中的地址编码，重录全文。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 764,
+          "characters": 710,
           "non_whitespace_characters": 691,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 33,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71529,27 +71632,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第33页图像，校正“此外”等OCR错字，重录数据教学提示和案例，补全跨学科主题及在线学习小能手说明。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 713,
+          "characters": 692,
           "non_whitespace_characters": 674,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 34,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71572,27 +71676,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第34页图像，校正2/3/4项目标题与“二维码”等OCR漏字，完整重录三项跨学科主题说明。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 626,
-          "non_whitespace_characters": 599,
+          "characters": 617,
+          "non_whitespace_characters": 600,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 35,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71615,27 +71720,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第35页图像，恢复第三学段标题、算法模块完整介绍和五条内容要求，校正编号及标题层级。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 601,
-          "non_whitespace_characters": 553,
+          "characters": 581,
+          "non_whitespace_characters": 554,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 36,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71658,27 +71764,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第36页图像，校正“输入数据规模”“分别”等OCR误识，重录学业要求和教学提示，保留“最后执”跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 722,
-          "non_whitespace_characters": 676,
+          "characters": 695,
+          "non_whitespace_characters": 675,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 37,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71701,27 +71808,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第37页图像，接续算法教学提示跨页文字，校正过程与控制标题、定义和内容要求（1）完整句尾，恢复“输入—计算—输出”关系。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 650,
-          "non_whitespace_characters": 599,
+          "characters": 629,
+          "non_whitespace_characters": 602,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 38,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71744,27 +71852,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第38页图像，校正数字输入/输出术语，完整重录学业要求、教学提示和微波炉系统案例。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 717,
+          "characters": 702,
           "non_whitespace_characters": 684,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 39,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71787,27 +71896,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第39页图像，恢复反馈/环路示例中的控制系统步骤和全部教学提示，校正规则字样，并录入跨学科主题标题。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 697,
+          "characters": 680,
           "non_whitespace_characters": 658,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 40,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71830,27 +71940,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第40页图像，恢复火柴棒数字范围和汉诺塔术语，重录三项跨学科主题说明与项目标题，保留“小型扩音系统”跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 644,
-          "non_whitespace_characters": 615,
+          "characters": 635,
+          "non_whitespace_characters": 616,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 41,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71873,27 +71984,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第41页图像，接续小型扩音系统说明，校正第四学段及互联网模块介绍，重录模块目标并保留页末跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 637,
-          "non_whitespace_characters": 589,
+          "characters": 611,
+          "non_whitespace_characters": 590,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 42,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71916,27 +72028,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第42页图像，补全在线活动第（1）项跨页句，恢复第（2）—（7）项及学业要求，保持“互联网+”表述与页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 639,
-          "non_whitespace_characters": 596,
+          "characters": 618,
+          "non_whitespace_characters": 597,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 43,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -71959,27 +72072,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第43页图像，校正“互联网/互联协议”等术语和网络信息漏字，重录教学提示及TCP/IP示例，保留（3）项跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 781,
-          "non_whitespace_characters": 742,
+          "characters": 760,
+          "non_whitespace_characters": 743,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 44,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72002,27 +72116,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第44页图像，补正互联网应用教学提示续句，校正物联网模块简介及“特别是”“数字系统”等OCR截断，保留第（2）项页末断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 698,
-          "non_whitespace_characters": 644,
+          "characters": 666,
+          "non_whitespace_characters": 645,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 45,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72045,27 +72160,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第45页图像，补齐物联网万物互联原理的跨页续句，恢复第（3）—（6）项、学业要求及教学提示，并保留“可”跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 671,
-          "non_whitespace_characters": 632,
+          "characters": 663,
+          "non_whitespace_characters": 637,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 46,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72088,27 +72204,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第46页图像，校正物联网实施说明和“基本思想”，补全人工智能模块定义及学习目标，保留“这一新”跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 716,
-          "non_whitespace_characters": 685,
+          "characters": 702,
+          "non_whitespace_characters": 686,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 47,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72131,27 +72248,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第47页图像，接续“新型社会形态”句，重录模块三部分内容、六条要求、学业要求及教学提示首句，校正“投入”误识。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 656,
-          "non_whitespace_characters": 603,
+          "characters": 637,
+          "non_whitespace_characters": 604,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 48,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72174,27 +72292,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第48页图像，补全人工智能教学提示起始句，重录“绝艺”案例、两种实现方式说明和守时预测示例，校正“深入”误识。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 693,
+          "characters": 670,
           "non_whitespace_characters": 656,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 49,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72217,27 +72336,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第49页图像，补齐“（四）跨学科主题 互联智能设计”及三个项目编号，重录学校介绍、无人机互联表演和在线气象站前半段，保留跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 624,
-          "non_whitespace_characters": 598,
+          "characters": 623,
+          "non_whitespace_characters": 601,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 50,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72260,27 +72380,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第50页图像，补全气象站跨页文字，恢复4/5项目标题与正文，完整保留各学科名及说明。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 674,
-          "non_whitespace_characters": 648,
+          "characters": 664,
+          "non_whitespace_characters": 650,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 51,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72303,27 +72424,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第51页图像，补齐“五、学业质量”及两个分标题，重录全部内涵说明、表5引导句和印刷页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 246,
+          "characters": 248,
           "non_whitespace_characters": 234,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 52,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72346,27 +72468,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第52页表5图像，恢复标题及第一至第三学段全部表格文字，纠正输入/责任等OCR误字并重建行列。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 948,
-          "non_whitespace_characters": 897,
+          "characters": 947,
+          "non_whitespace_characters": 920,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 53,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72389,27 +72512,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第53页续表图像，完整重录第四学段描述和“五四”学制说明，修正表格标题与OCR括号误字。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 577,
-          "non_whitespace_characters": 545,
+          "characters": 601,
+          "non_whitespace_characters": 578,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 54,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72432,27 +72556,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐行对照PDF第54页图像，补全“六、课程实施”层级，逐段核对教学建议、教学目标标题和全文。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 402,
-          "non_whitespace_characters": 384,
+          "characters": 399,
+          "non_whitespace_characters": 386,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 55,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72475,27 +72600,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第55页图像，校正核心教学建议标题和公式，完整保留两个评价建议段落及页码。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 611,
-          "non_whitespace_characters": 576,
+          "characters": 625,
+          "non_whitespace_characters": 600,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 56,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72518,27 +72644,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐项对照PDF第56页图像，完整重录过程性评价总要求与五项原则，保留“引导”跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 652,
-          "non_whitespace_characters": 618,
+          "characters": 618,
+          "non_whitespace_characters": 597,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 57,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72561,27 +72688,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第57页图像，补齐跨页语句并重录主要环节评价与学业水平考试的性质、形式。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 657,
-          "non_whitespace_characters": 620,
+          "characters": 648,
+          "non_whitespace_characters": 621,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 58,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72604,27 +72732,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第58页图像，完整校正命题原则、命题规划和题目命制流程，并录入样题1起始句。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 599,
-          "non_whitespace_characters": 560,
+          "characters": 598,
+          "non_whitespace_characters": 566,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 59,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72647,27 +72776,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第59页图像，重录停车场样题题干、问题和表6；补全图2图号/图注并说明图中可读场景元素。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 420,
-          "non_whitespace_characters": 386,
+          "characters": 524,
+          "non_whitespace_characters": 475,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 60,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72690,27 +72820,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐项对照PDF第60页图像，重建表7五条完整示例数据、表8六档空气质量指数及其类别颜色，并校正三项操作要求。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 529,
-          "non_whitespace_characters": 427,
+          "characters": 762,
+          "non_whitespace_characters": 587,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 61,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72733,27 +72864,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第61页图像，补全观点阐述题及课程资源开发与利用各原则、要求、责任主体全文。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 497,
-          "non_whitespace_characters": 469,
+          "characters": 502,
+          "non_whitespace_characters": 472,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 62,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72776,27 +72908,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第62页图像，完整核对培训内容与方式，校正“引入增强现实”等OCR错字并保留岗位跨页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 678,
-          "non_whitespace_characters": 648,
+          "characters": 664,
+          "non_whitespace_characters": 647,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 63,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72819,27 +72952,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第63页图像，补足培训评估跨页句、完整重录培训体系和教学研究两项建议至原页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 737,
-          "non_whitespace_characters": 704,
+          "characters": 730,
+          "non_whitespace_characters": 709,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 64,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72862,27 +72996,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第64页图像，补齐跨页词并完整重录教研制度建设及校本教研三项建议至原页断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 716,
+          "characters": 700,
           "non_whitespace_characters": 677,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 65,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72905,27 +73040,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐句对照PDF第65页图像，补齐“实践”跨页词，校正持续循环教学研究流程与全文。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 135,
-          "non_whitespace_characters": 125,
+          "characters": 132,
+          "non_whitespace_characters": 126,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 66,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72948,27 +73084,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐项对照PDF第66页图像，重建表9信息意识学段特征，准确保留三学段共11条特征与序号。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 474,
-          "non_whitespace_characters": 419,
+          "characters": 517,
+          "non_whitespace_characters": 476,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 67,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -72991,27 +73128,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐项对照PDF第67页图像，补全表9第四学段并完整重建表10四学段特征，逐条核对序号和措辞。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 667,
-          "non_whitespace_characters": 590,
+          "characters": 753,
+          "non_whitespace_characters": 689,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 68,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -73034,27 +73172,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐项对照PDF第68页图像，完整重建表11四学段并录入表12第一学段条目，保留原表分界。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 692,
-          "non_whitespace_characters": 612,
+          "characters": 761,
+          "non_whitespace_characters": 699,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 69,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -73077,27 +73216,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐项对照PDF第69页图像，完整重建表12第二至第四学段特征，核对安全、责任与伦理条目。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 534,
-          "non_whitespace_characters": 477,
+          "characters": 588,
+          "non_whitespace_characters": 548,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 70,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -73120,27 +73260,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第70页图像，完整重录在线数字气象站案例引言及育人价值①至③，并保留页末断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 623,
-          "non_whitespace_characters": 593,
+          "characters": 613,
+          "non_whitespace_characters": 594,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 71,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -73163,27 +73304,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐段对照PDF第71页图像，补足育人价值续句，重录四项目标和实施过程表首行四列文字。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 725,
-          "non_whitespace_characters": 652,
+          "characters": 745,
+          "non_whitespace_characters": 697,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 72,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -73206,27 +73348,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐格对照PDF第72页图像，重建实施过程表后续三任务各列活动、教师支持和意图文字，保留页末续表断点。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 838,
-          "non_whitespace_characters": 715,
+          "characters": 853,
+          "non_whitespace_characters": 793,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 73,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -73249,27 +73392,28 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "Luna逐页目视校订；主代理另看PDF73–74，恢复原页末“核心素”与次页首“养”的分界，消除重复字。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 569,
-          "non_whitespace_characters": 514,
+          "characters": 654,
+          "non_whitespace_characters": 637,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 74,
-          "extraction": "windows_media_ocr",
+          "extraction": "visual_transcription",
           "ocr_engine": "Windows.Media.Ocr",
           "ocr_language": "zh-Hans-CN",
           "ocr_languages": [
@@ -73292,25 +73436,103 @@
           "ocr_render_backend": "poppler",
           "ocr_fallback_attempted": false,
           "ocr_fallback_used": false,
-          "visual_correction_applied": false,
-          "visual_correction_reason": null,
-          "visual_correction_source": null,
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐句对照PDF第74页图像，补齐“核心素养”跨页词并重录附录末段全文。",
+          "visual_correction_source": "ocr-corrections.json",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 60,
+          "characters": 61,
           "non_whitespace_characters": 57,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         }
-      ]
+      ],
+      "visual_reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "visual_review_uncertain_pages": []
     },
     {
       "source_pdf": "义务教育-2022/14-义务教育体育与健康课程标准（2022年版）.pdf",
@@ -91576,8 +91798,8 @@
       "markdown": "普通高中-2017-2020修订/11.普通高中信息技术课程标准（2017年版2020年修订）.md",
       "pdf_sha256": "4e1bf87d1d4903dae8624337cd87bbd947e7d5ef0a20658cc1e41f7ba1dfc677",
       "total_pages": 83,
-      "markdown_characters": 51883,
-      "text_characters": 50190,
+      "markdown_characters": 53065,
+      "text_characters": 51513,
       "source_text_pages": [
         1,
         2,
@@ -91666,7 +91888,30 @@
       "ocr_pages": [],
       "ocr_languages": [],
       "ocr_engines": [],
-      "visual_correction_pages": [],
+      "visual_correction_pages": [
+        1,
+        7,
+        17,
+        29,
+        35,
+        48,
+        49,
+        50,
+        51,
+        54,
+        55,
+        60,
+        61,
+        62,
+        67,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        82
+      ],
       "language_limitation": null,
       "empty_pages": [],
       "too_short_pages": [],
@@ -91690,27 +91935,31 @@
         "body": "目录之后首个正文长度不少于200字符的页面",
         "table_or_formula_candidate": "匹配表/图/公式/数学符号的页面"
       },
-      "quality_sample_status": "原图和清理后OCR文本已保存；转换器未做人工视觉判定",
+      "quality_sample_status": "已逐页查看原图；待核细节见visual-review.json和Markdown中的待核标记",
       "qa_sample_artifacts": [],
       "issues": [],
       "pages": [
         {
           "page": 1,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 47,
-          "non_whitespace_characters": 43,
+          "characters": 55,
+          "non_whitespace_characters": 50,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看封面，补录出版社并按源图恢复标题与版本的阅读顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 2,
@@ -91728,7 +91977,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 3,
@@ -91746,7 +91996,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 4,
@@ -91764,7 +92015,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 5,
@@ -91782,7 +92034,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 6,
@@ -91800,25 +92053,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 7,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 343,
+          "characters": 342,
           "non_whitespace_characters": 319,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看目录页，恢复目录标题的阅读顺序，章节和页码均按原图保留。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 8,
@@ -91836,7 +92094,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 9,
@@ -91854,7 +92113,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 10,
@@ -91872,7 +92132,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 11,
@@ -91890,7 +92151,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 12,
@@ -91908,7 +92170,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 13,
@@ -91926,7 +92189,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 14,
@@ -91944,7 +92208,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 15,
@@ -91962,7 +92227,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 16,
@@ -91980,25 +92246,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 17,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 501,
-          "non_whitespace_characters": 459,
+          "characters": 555,
+          "non_whitespace_characters": 508,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看课程结构表，恢复三类课程与2、6、2个模块的对应，保留各模块完整编号及名称。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 18,
@@ -92016,7 +92287,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 19,
@@ -92034,7 +92306,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 20,
@@ -92052,7 +92325,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 21,
@@ -92070,7 +92344,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 22,
@@ -92088,7 +92363,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 23,
@@ -92106,7 +92382,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 24,
@@ -92124,7 +92401,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 25,
@@ -92142,7 +92420,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 26,
@@ -92160,7 +92439,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 27,
@@ -92178,7 +92458,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 28,
@@ -92196,25 +92477,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 29,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 611,
-          "non_whitespace_characters": 573,
+          "characters": 608,
+          "non_whitespace_characters": 572,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看协议说明，清除文字层多出的独立英文句点，并恢复SSL protocol与其中文释义、并列协议的连续关系。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 30,
@@ -92232,7 +92518,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 31,
@@ -92250,7 +92537,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 32,
@@ -92268,7 +92556,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 33,
@@ -92279,14 +92568,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 709,
+          "characters": 706,
           "non_whitespace_characters": 676,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 34,
@@ -92304,25 +92594,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 35,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 704,
-          "non_whitespace_characters": 667,
+          "characters": 700,
+          "non_whitespace_characters": 666,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看人工智能案例，清除Deep Blue中误加的句点，并恢复系统名称被拆开的文字。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 36,
@@ -92340,7 +92635,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 37,
@@ -92358,7 +92654,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 38,
@@ -92369,14 +92666,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 725,
+          "characters": 724,
           "non_whitespace_characters": 696,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 39,
@@ -92394,7 +92692,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 40,
@@ -92412,7 +92711,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 41,
@@ -92430,7 +92730,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 42,
@@ -92441,14 +92742,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 536,
+          "characters": 534,
           "non_whitespace_characters": 506,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 43,
@@ -92466,7 +92768,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 44,
@@ -92484,7 +92787,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 45,
@@ -92502,7 +92806,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 46,
@@ -92520,7 +92825,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 47,
@@ -92538,79 +92844,96 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 48,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 974,
-          "non_whitespace_characters": 937,
+          "characters": 1017,
+          "non_whitespace_characters": 971,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页查看源图，恢复学业质量表2的水平与16项描述对应及跨页续表，不改写已对图核实的正文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 49,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 1009,
-          "non_whitespace_characters": 968,
+          "characters": 1045,
+          "non_whitespace_characters": 1001,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页查看源图，恢复学业质量表2的水平与16项描述对应及跨页续表，不改写已对图核实的正文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 50,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 910,
-          "non_whitespace_characters": 875,
+          "characters": 937,
+          "non_whitespace_characters": 901,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页查看源图，恢复学业质量表2的水平与16项描述对应及跨页续表，不改写已对图核实的正文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 51,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 543,
-          "non_whitespace_characters": 519,
+          "characters": 569,
+          "non_whitespace_characters": 538,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页查看源图，恢复学业质量表2的水平与16项描述对应及跨页续表，不改写已对图核实的正文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 52,
@@ -92628,7 +92951,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 53,
@@ -92646,43 +92970,52 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 54,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 791,
-          "non_whitespace_characters": 743,
+          "characters": 849,
+          "non_whitespace_characters": 787,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对，恢复表3项目、内容要求、知识与技能要点和五条核心素养对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 55,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 630,
-          "non_whitespace_characters": 552,
+          "characters": 667,
+          "non_whitespace_characters": 606,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对四行四列续表，恢复活动、阶段目标与素养条目对应，保留首行素养原图空白。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 56,
@@ -92700,7 +93033,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 57,
@@ -92718,7 +93052,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 58,
@@ -92736,7 +93071,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 59,
@@ -92754,61 +93090,74 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 60,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 738,
-          "non_whitespace_characters": 702,
+          "characters": 742,
+          "non_whitespace_characters": 700,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对三个项目要求条目，去掉文字层混入的非印刷控制字符。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 61,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 536,
-          "non_whitespace_characters": 501,
+          "characters": 690,
+          "non_whitespace_characters": 581,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对，重建基本项和奖励项各四条标准的四列表，保留权重栏原图空白。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 62,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 478,
-          "non_whitespace_characters": 436,
+          "characters": 893,
+          "non_whitespace_characters": 837,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对，恢复单元综合评价表的六列空表、平均得分合并单元格及两条权重公式。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 63,
@@ -92826,7 +93175,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 64,
@@ -92844,7 +93194,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 65,
@@ -92862,7 +93213,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 66,
@@ -92880,25 +93232,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 67,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 526,
-          "non_whitespace_characters": 455,
+          "characters": 555,
+          "non_whitespace_characters": 452,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对A/B/C类作答与评分，清除非印刷控制字符，恢复分数区间符号。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 68,
@@ -92916,7 +93273,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 69,
@@ -92934,7 +93292,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 70,
@@ -92952,7 +93311,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 71,
@@ -92963,14 +93323,15 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 642,
+          "characters": 641,
           "non_whitespace_characters": 612,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 72,
@@ -92988,7 +93349,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 73,
@@ -93006,115 +93368,140 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 74,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 441,
-          "non_whitespace_characters": 396,
+          "characters": 477,
+          "non_whitespace_characters": 414,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对附录，重建四项核心素养内涵/表现三列表，恢复信息意识预备级与水平1的完整条目对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 75,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 709,
-          "non_whitespace_characters": 638,
+          "characters": 817,
+          "non_whitespace_characters": 717,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对附录，重建四项核心素养内涵/表现三列表，恢复信息意识预备级与水平1的完整条目对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 76,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 653,
-          "non_whitespace_characters": 615,
+          "characters": 750,
+          "non_whitespace_characters": 698,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "已逐页查看源图，重建四项核心素养从预备级到水平3的表格与完整条目，保留跨页续项。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 77,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 681,
-          "non_whitespace_characters": 639,
+          "characters": 771,
+          "non_whitespace_characters": 718,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "已逐页查看源图，重建四项核心素养从预备级到水平3的表格与完整条目，保留跨页续项。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 78,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 563,
-          "non_whitespace_characters": 532,
+          "characters": 642,
+          "non_whitespace_characters": 601,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "已逐页查看源图，重建四项核心素养从预备级到水平3的表格与完整条目，保留跨页续项。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 79,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 236,
-          "non_whitespace_characters": 218,
+          "characters": 275,
+          "non_whitespace_characters": 248,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "已逐页查看源图，重建四项核心素养从预备级到水平3的表格与完整条目，保留跨页续项。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 80,
@@ -93132,7 +93519,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 81,
@@ -93143,32 +93531,37 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 480,
+          "characters": 479,
           "non_whitespace_characters": 445,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 82,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 763,
+          "characters": 762,
           "non_whitespace_characters": 733,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "对照原图恢复“2～3年”的连续范围符号。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 83,
@@ -93186,9 +93579,96 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         }
-      ]
+      ],
+      "visual_reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "visual_review_uncertain_pages": []
     },
     {
       "source_pdf": "普通高中-2017-2020修订/12.普通高中通用技术课程标准（2017年版2020年修订）.pdf",
@@ -135885,7 +136365,7 @@
       "visual_review_uncertain_pages": []
     }
   ],
-  "visual_correction_page_count": 846,
+  "visual_correction_page_count": 939,
   "ocr_backends": {
     "zh-Hans-CN": {
       "ready": true,
