@@ -3818,6 +3818,731 @@
           ]
         }
       ]
+    },
+    "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf": {
+      "total_pages": 98,
+      "reviewed_pages": 98,
+      "corrected_pages": [
+        1,
+        18,
+        29,
+        33,
+        45,
+        55,
+        56,
+        57,
+        65,
+        66,
+        67,
+        73,
+        74,
+        75,
+        87,
+        88,
+        89,
+        90,
+        91,
+        95,
+        96,
+        97
+      ],
+      "uncertain_pages": [],
+      "pages": [
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "原生文字层中课程结构图为乱码，已按原图完整转写。"
+          ]
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 62,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 66,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 67,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 68,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 69,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 70,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 71,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 72,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 73,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "速度—位移图像原被提取为散乱刻度且纵轴单位错误，已恢复图示说明。"
+          ]
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 74,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 75,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "原生文字层中电路图标签乱码，图文已逐项转写。"
+          ]
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 76,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 77,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 78,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 79,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 80,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 81,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 82,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 83,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 84,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 85,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 86,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 87,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 88,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 89,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 90,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 91,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 92,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 93,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 94,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 95,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 96,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 97,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "两个图中文字与图号原被分散到正文前后且字体映射错误，已按图恢复。"
+          ]
+        },
+        {
+          "source_pdf": "普通高中-2017-2020修订/8.普通高中物理课程标准（2017年版2020年修订）.pdf",
+          "page": 98,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        }
+      ]
     }
   }
 }
