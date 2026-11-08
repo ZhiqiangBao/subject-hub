@@ -13450,6 +13450,1327 @@
           "independent_reviewer_checked": true
         }
       ]
+    },
+    "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf": {
+      "total_pages": 71,
+      "reviewed_pages": 71,
+      "corrected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "uncertain_pages": [],
+      "pages": [
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "校对封面书名、版次、制定机构及出版社中英文文字。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐段核对前言和指导思想开头，保留“提升智育”在页尾的跨页断句。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对指导思想续文、三项修订原则及原页尾“关注学生个性”跨页断句。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "校对主要变化中的培养目标、课程设置、实施要求和课程育人导向，恢复本页各段文字。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对课程内容结构、学业质量标准、指导性、学段衔接及前言收束段。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐项核对目录章节名称与印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对目录续页的资源开发、教师培训和附录条目及页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐段核对课程性质两段，保留课程目标、课程属性与育人目标原文。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对课程理念前三项的小标题及正文，保留知行合一、学以致用引语。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对课程理念第4、5项标题及科学探究、评价育人正文。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐字核对课程目标、核心素养定义、物理观念及科学思维开头，保留句末跨页逗号。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "恢复科学思维续文，核对科学探究/责任定义及目标（1）页尾文字。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "逐字核对课程目标（1）续文及（2）—（4）科学推理、探究、科学态度与责任要求。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对五个一级主题及内容要求、学业要求、教学提示、活动建议之间的定义。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "重建表1的一级/二级主题对应关系与编号，保留“科学、技”跨页断句。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "核对物质主题内容要求1.1.1—1.1.4、例1—3及三项活动建议。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句/换行，已保留原页界。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句/换行，已保留原页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句/换行，已保留原页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句/换行，已保留原页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "原图作“有用能量转化与守恒的观点分析问题的意识”，按原字保留，未据语义补“运”。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；页面含跨页续句，按原页界保留。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页面原有跨页续句。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页面原有跨页续句。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页面原有跨页续句。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页面原有跨页续句。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页界。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已直接查看原图并校正文稿；保留页界。",
+            "第56页电热水壶试题参数按原图录入：220 V、800 W、1500 W、5 A。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。",
+            "图1以明确标注的图示说明保留；核对额定电流、电压、功率数值。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 62,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 66,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 67,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 68,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 69,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。",
+            "图2标签“肱二头肌”“桡骨”“肘关节”由明确图示说明保留。"
+          ],
+          "independent_reviewer_checked": true
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 70,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": false
+        },
+        {
+          "source_pdf": "义务教育-2022/10-义务教育物理课程标准（2022年版）.pdf",
+          "page": 71,
+          "status": "checked",
+          "changed": true,
+          "issues": [
+            "已实际查看原图并逐段核对；保留页界和印刷页码。"
+          ],
+          "independent_reviewer_checked": true
+        }
+      ]
+    },
+    "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf": {
+      "total_pages": 65,
+      "reviewed_pages": 65,
+      "corrected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "uncertain_pages": [],
+      "pages": [
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 1,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 2,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 3,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 4,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 5,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 6,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 7,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 8,
+          "status": "checked",
+          "changed": false,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 9,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 10,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 11,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 12,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 13,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 14,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 15,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 16,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 17,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 18,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 19,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 20,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 21,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 22,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 23,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 24,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 25,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 26,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 27,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 28,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 29,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 30,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 31,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 32,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 33,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 34,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 35,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 36,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 37,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 38,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 39,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 40,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 41,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 42,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 43,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 44,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 45,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 46,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 47,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 48,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 49,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 50,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 51,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 52,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 53,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 54,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 55,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 56,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 57,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 58,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 59,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 60,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 61,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 62,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 63,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 64,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        },
+        {
+          "source_pdf": "义务教育-2022/08-义务教育地理课程标准（2022年版）.pdf",
+          "page": 65,
+          "status": "checked",
+          "changed": true,
+          "issues": []
+        }
+      ]
     }
   }
 }
