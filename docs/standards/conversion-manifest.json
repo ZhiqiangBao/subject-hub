@@ -93675,8 +93675,8 @@
       "markdown": "普通高中-2017-2020修订/12.普通高中通用技术课程标准（2017年版2020年修订）.md",
       "pdf_sha256": "d19bc4a5b2176ab429ecaea1b3a68865f1e7e69094770e8a94144c02058d992f",
       "total_pages": 108,
-      "markdown_characters": 69096,
-      "text_characters": 67052,
+      "markdown_characters": 73798,
+      "text_characters": 71837,
       "source_text_pages": [
         1,
         2,
@@ -93790,7 +93790,52 @@
       "ocr_pages": [],
       "ocr_languages": [],
       "ocr_engines": [],
-      "visual_correction_pages": [],
+      "visual_correction_pages": [
+        1,
+        7,
+        8,
+        16,
+        19,
+        23,
+        26,
+        29,
+        32,
+        35,
+        38,
+        42,
+        45,
+        48,
+        50,
+        53,
+        57,
+        60,
+        64,
+        67,
+        69,
+        72,
+        73,
+        74,
+        75,
+        82,
+        83,
+        84,
+        86,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        106,
+        107,
+        108
+      ],
       "language_limitation": null,
       "empty_pages": [],
       "too_short_pages": [],
@@ -93814,27 +93859,31 @@
         "body": "目录之后首个正文长度不少于200字符的页面",
         "table_or_formula_candidate": "匹配表/图/公式/数学符号的页面"
       },
-      "quality_sample_status": "原图和清理后OCR文本已保存；转换器未做人工视觉判定",
+      "quality_sample_status": "已逐页查看原图；待核细节见visual-review.json和Markdown中的待核标记",
       "qa_sample_artifacts": [],
       "issues": [],
       "pages": [
         {
           "page": 1,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 47,
-          "non_whitespace_characters": 43,
+          "characters": 60,
+          "non_whitespace_characters": 50,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对封面顺序并补回原图出版社。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 2,
@@ -93852,7 +93901,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 3,
@@ -93870,7 +93920,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 4,
@@ -93888,7 +93939,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 5,
@@ -93906,7 +93958,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 6,
@@ -93924,43 +93977,52 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 7,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 338,
+          "characters": 339,
           "non_whitespace_characters": 314,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对目录项目和页码，将目录标题与页脚放回阅读顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 8,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 430,
+          "characters": 429,
           "non_whitespace_characters": 401,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对目录续页，恢复页脚位置。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 9,
@@ -93978,7 +94040,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 10,
@@ -93996,7 +94059,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 11,
@@ -94014,7 +94078,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 12,
@@ -94032,7 +94097,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 13,
@@ -94050,7 +94116,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 14,
@@ -94068,7 +94135,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 15,
@@ -94086,25 +94154,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 16,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 698,
-          "non_whitespace_characters": 655,
+          "characters": 782,
+          "non_whitespace_characters": 717,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对课程结构表，恢复三类课程模块与功能的四列对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 17,
@@ -94122,7 +94195,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 18,
@@ -94140,25 +94214,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 19,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 307,
-          "non_whitespace_characters": 288,
+          "characters": 339,
+          "non_whitespace_characters": 321,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对四单元结构图，恢复父节点与四个并列子节点及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 20,
@@ -94176,7 +94255,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 21,
@@ -94194,7 +94274,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 22,
@@ -94212,25 +94293,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 23,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 552,
-          "non_whitespace_characters": 520,
+          "characters": 584,
+          "non_whitespace_characters": 553,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对四单元结构图，恢复并列关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 24,
@@ -94248,7 +94334,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 25,
@@ -94266,25 +94353,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 26,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 513,
-          "non_whitespace_characters": 485,
+          "characters": 545,
+          "non_whitespace_characters": 518,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对现代家政技术结构图，恢复父子关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 27,
@@ -94302,7 +94394,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 28,
@@ -94320,25 +94413,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 29,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 611,
-          "non_whitespace_characters": 581,
+          "characters": 643,
+          "non_whitespace_characters": 614,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对课程模块结构图，恢复父节点与四个并列子节点及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 30,
@@ -94356,7 +94454,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 31,
@@ -94374,25 +94473,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 32,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 659,
-          "non_whitespace_characters": 624,
+          "characters": 684,
+          "non_whitespace_characters": 657,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对课程模块结构图，恢复父节点与四个并列子节点及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 33,
@@ -94410,7 +94514,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 34,
@@ -94428,25 +94533,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 35,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 610,
-          "non_whitespace_characters": 579,
+          "characters": 642,
+          "non_whitespace_characters": 612,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对工程设计基础结构图，恢复父子关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 36,
@@ -94464,7 +94574,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 37,
@@ -94482,25 +94593,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 38,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 593,
-          "non_whitespace_characters": 565,
+          "characters": 625,
+          "non_whitespace_characters": 598,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对电子控制技术结构图，恢复父子关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 39,
@@ -94518,7 +94634,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 40,
@@ -94536,7 +94653,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 41,
@@ -94554,25 +94672,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 42,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 622,
-          "non_whitespace_characters": 595,
+          "characters": 652,
+          "non_whitespace_characters": 628,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对机器人模块结构图，恢复四单元对应及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 43,
@@ -94590,7 +94713,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 44,
@@ -94608,25 +94732,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 45,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 613,
-          "non_whitespace_characters": 582,
+          "characters": 645,
+          "non_whitespace_characters": 615,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对职业系列模块结构图，恢复父子关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 46,
@@ -94644,7 +94773,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 47,
@@ -94662,25 +94792,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 48,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 590,
-          "non_whitespace_characters": 563,
+          "characters": 622,
+          "non_whitespace_characters": 596,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对职业系列模块结构图，恢复父子关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 49,
@@ -94698,25 +94833,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 50,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 593,
-          "non_whitespace_characters": 566,
+          "characters": 625,
+          "non_whitespace_characters": 599,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对创造力开发模块结构图，恢复父子关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 51,
@@ -94734,7 +94874,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 52,
@@ -94752,25 +94893,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 53,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 638,
-          "non_whitespace_characters": 608,
+          "characters": 670,
+          "non_whitespace_characters": 641,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对三维设计模块结构图，恢复父子关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 54,
@@ -94788,7 +94934,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 55,
@@ -94806,7 +94953,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 56,
@@ -94824,25 +94972,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 57,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 693,
-          "non_whitespace_characters": 659,
+          "characters": 721,
+          "non_whitespace_characters": 688,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对模块结构图，恢复并列子节点及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 58,
@@ -94860,7 +95013,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 59,
@@ -94878,25 +95032,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 60,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 590,
-          "non_whitespace_characters": 549,
+          "characters": 614,
+          "non_whitespace_characters": 586,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对模块结构图，恢复并列子节点及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 61,
@@ -94914,7 +95073,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 62,
@@ -94932,7 +95092,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 63,
@@ -94950,25 +95111,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 64,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 613,
-          "non_whitespace_characters": 585,
+          "characters": 643,
+          "non_whitespace_characters": 616,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对新技术模块结构图，明确三项并列单元与父节点对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 65,
@@ -94986,7 +95152,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 66,
@@ -95004,25 +95171,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 67,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 509,
-          "non_whitespace_characters": 474,
+          "characters": 534,
+          "non_whitespace_characters": 507,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对技术集成模块结构图，恢复父子关系及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 68,
@@ -95040,25 +95212,30 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 69,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 620,
-          "non_whitespace_characters": 579,
+          "characters": 647,
+          "non_whitespace_characters": 616,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对现代农业模块结构图，恢复六单元对应及原图左右顺序。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 70,
@@ -95076,7 +95253,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 71,
@@ -95094,79 +95272,96 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 72,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 336,
-          "non_whitespace_characters": 320,
+          "characters": 361,
+          "non_whitespace_characters": 335,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐图核对学业质量表，恢复水平1及1-1条描述的对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 73,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 943,
-          "non_whitespace_characters": 905,
+          "characters": 995,
+          "non_whitespace_characters": 943,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页实际查看学业质量续表，核对全部25项原文并恢复水平与描述的两列对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 74,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 1007,
-          "non_whitespace_characters": 969,
+          "characters": 1065,
+          "non_whitespace_characters": 1010,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页实际查看学业质量续表，核对全部25项原文并恢复水平与描述的两列对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 75,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 872,
-          "non_whitespace_characters": 834,
+          "characters": 942,
+          "non_whitespace_characters": 880,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "逐页实际查看学业质量续表，核对全部25项原文并恢复水平与描述的两列对应。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 76,
@@ -95184,7 +95379,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 77,
@@ -95202,7 +95398,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 78,
@@ -95220,7 +95417,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 79,
@@ -95238,7 +95436,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 80,
@@ -95256,7 +95455,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 81,
@@ -95274,61 +95474,74 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 82,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 598,
-          "non_whitespace_characters": 530,
+          "characters": 719,
+          "non_whitespace_characters": 644,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原图，恢复学习内容、核心素养、观测指标、水平层次的四列表格，完整保留六项指标的15条层次描述。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 83,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 732,
-          "non_whitespace_characters": 675,
+          "characters": 804,
+          "non_whitespace_characters": 760,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看原图，逐项恢复全部尺寸及单位，核对图1三处标注并保留原图，正文与图中的竿/杆按各自印刷字保留。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 84,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 631,
-          "non_whitespace_characters": 563,
+          "characters": 736,
+          "non_whitespace_characters": 680,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看原图，核对2/9/7 mm试验数据及20 cm条件，恢复四列表格和答题空白，将工字形修回原图的工字型；保留试验原图并转写全部标注。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 85,
@@ -95339,32 +95552,37 @@
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 756,
+          "characters": 755,
           "non_whitespace_characters": 725,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 86,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 580,
-          "non_whitespace_characters": 546,
+          "characters": 698,
+          "non_whitespace_characters": 673,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看原页及裁图，恢复图3和图4全部11处中文标注及局部放大关系；保留原结构图，移除原提取乱码和两个控制字符。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 87,
@@ -95382,7 +95600,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 88,
@@ -95400,7 +95619,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 89,
@@ -95418,7 +95638,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 90,
@@ -95436,7 +95657,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 91,
@@ -95454,7 +95676,8 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 92,
@@ -95472,223 +95695,272 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 93,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 544,
-          "non_whitespace_characters": 519,
+          "characters": 573,
+          "non_whitespace_characters": 540,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原页，核对核心素养各水平全部原文后恢复两列表格及续表对应关系；未概括或删减描述。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 94,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 736,
-          "non_whitespace_characters": 700,
+          "characters": 792,
+          "non_whitespace_characters": 739,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原页，核对核心素养各水平全部原文后恢复两列表格及续表对应关系；未概括或删减描述。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 95,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 785,
-          "non_whitespace_characters": 745,
+          "characters": 847,
+          "non_whitespace_characters": 787,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原页，核对核心素养各水平全部原文后恢复两列表格及续表对应关系；未概括或删减描述。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 96,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 747,
-          "non_whitespace_characters": 710,
+          "characters": 810,
+          "non_whitespace_characters": 752,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原页，核对核心素养各水平全部原文后恢复两列表格及续表对应关系；未概括或删减描述。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 97,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 515,
-          "non_whitespace_characters": 488,
+          "characters": 557,
+          "non_whitespace_characters": 515,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原页，恢复物化能力五级描述的两列表格，完整保留原文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 98,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 502,
-          "non_whitespace_characters": 471,
+          "characters": 552,
+          "non_whitespace_characters": 495,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看原页，核对5课时安排，恢复课时与教学内容的两列表格。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 99,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 533,
-          "non_whitespace_characters": 501,
+          "characters": 604,
+          "non_whitespace_characters": 571,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看原页，完整核对案例正文和标准编号，补回原提取遗漏的六种三角警告牌样品图。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 100,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 399,
-          "non_whitespace_characters": 373,
+          "characters": 1281,
+          "non_whitespace_characters": 1242,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原图，恢复七列、两级表头、10行空白记录表：一般要求3行、形状和尺寸5行、离地间距2行；全部待填格按原图留空。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 101,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 498,
-          "non_whitespace_characters": 467,
+          "characters": 790,
+          "non_whitespace_characters": 752,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看原图，恢复两级表头、六列及两行空白试验记录表，保留全部正文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 102,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 430,
-          "non_whitespace_characters": 406,
+          "characters": 917,
+          "non_whitespace_characters": 884,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看原图，恢复六列五行空白记录表，两级表头及首列表头测试条件/技术要求，所有待填格保留空白。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 103,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 428,
-          "non_whitespace_characters": 401,
+          "characters": 915,
+          "non_whitespace_characters": 879,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际查看原图，恢复六列五行空白记录表，两级表头及首列表头测试条件/技术要求，所有待填格保留空白。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 104,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 396,
-          "non_whitespace_characters": 355,
+          "characters": 1189,
+          "non_whitespace_characters": 1143,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原图，恢复过程评价五列表及装置评价四列表、评价方式二级表头、全部九条评价标准和A/B/C/D等级，评分格按原图保留空白。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 105,
@@ -95706,63 +95978,187 @@
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked"
         },
         {
           "page": 106,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 650,
-          "non_whitespace_characters": 621,
+          "characters": 679,
+          "non_whitespace_characters": 636,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原页，完整核对生态鱼缸案例正文、课时范围与内容，恢复表8–11及表8续表，纠正续表标签提取顺序；保留跨页正文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 107,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 485,
-          "non_whitespace_characters": 457,
+          "characters": 587,
+          "non_whitespace_characters": 505,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原页，完整核对生态鱼缸案例正文、课时范围与内容，恢复表8–11及表8续表，纠正续表标签提取顺序；保留跨页正文。",
+          "visual_correction_source": "ocr-corrections.json"
         },
         {
           "page": 108,
-          "extraction": "pypdf",
+          "extraction": "visual_transcription",
           "raw_abnormal_characters": {
             "replacement_characters": 0,
             "nul_characters": 0,
             "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           },
-          "characters": 521,
-          "non_whitespace_characters": 496,
+          "characters": 635,
+          "non_whitespace_characters": 550,
           "empty": false,
           "too_short": false,
           "replacement_characters": 0,
           "nul_characters": 0,
           "private_use_characters": 0,
-          "suspicious_placeholder_runs": 0
+          "suspicious_placeholder_runs": 0,
+          "visual_review_status": "checked",
+          "visual_correction_applied": true,
+          "visual_correction_reason": "实际逐行查看原页，完整核对生态鱼缸案例正文、课时范围与内容，恢复表8–11及表8续表，纠正续表标签提取顺序；保留跨页正文。",
+          "visual_correction_source": "ocr-corrections.json"
         }
-      ]
+      ],
+      "visual_reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "visual_review_uncertain_pages": []
     },
     {
       "source_pdf": "普通高中-2017-2020修订/13.普通高中艺术课程标准（2017年版2020年修订）.pdf",
@@ -136365,7 +136761,7 @@
       "visual_review_uncertain_pages": []
     }
   ],
-  "visual_correction_page_count": 939,
+  "visual_correction_page_count": 983,
   "ocr_backends": {
     "zh-Hans-CN": {
       "ready": true,
