@@ -217,7 +217,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -233,7 +233,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -249,7 +249,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -265,7 +265,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -281,7 +281,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -297,7 +297,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 3,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -313,7 +313,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -329,7 +329,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -345,7 +345,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -361,7 +361,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -377,7 +377,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -393,7 +393,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -409,7 +409,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -425,7 +425,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -441,7 +441,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -457,7 +457,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -473,7 +473,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -489,7 +489,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -505,7 +505,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -521,7 +521,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -537,7 +537,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -553,7 +553,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 4,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -569,7 +569,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 3,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -585,7 +585,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -601,7 +601,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -617,7 +617,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -633,7 +633,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 4,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -649,7 +649,7 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 1,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
         },
@@ -665,9 +665,16 @@
           "cleaned": {
             "replacement_characters": 0,
             "nul_characters": 0,
-            "private_use_characters": 2,
+            "private_use_characters": 0,
             "suspicious_placeholder_runs": 0
           }
+        },
+        {
+          "type": "visual_uncertain",
+          "page": 186,
+          "details": [
+            "原PDF第186页图45内饼图标签和细小统计表分辨率不足，放大后无法可靠逐项辨认。"
+          ]
         }
       ],
       "too_short_pages": [],

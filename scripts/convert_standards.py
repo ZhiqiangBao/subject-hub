@@ -729,6 +729,8 @@ def load_visual_corrections(output_root: Path) -> dict[str, dict[str, dict[str, 
                     raise ValueError(f"Invalid visual OCR correction in {path.name} for {pdf_sha} page {page_key}.")
                 page_number = str(int(page_key))
                 candidate = {"text": text, "reason": reason, "source": filename}
+                if correction.get("status") == "uncertain":
+                    candidate.update({"status": "uncertain", "issues": correction.get("issues", [])})
                 existing = corrections.setdefault(pdf_sha, {}).get(page_number)
                 if existing is not None and existing["text"] != candidate["text"]:
                     raise ValueError(
@@ -818,9 +820,25 @@ def convert(args: argparse.Namespace) -> int:
                     )
             # Place OCR-needed pages in their exact slots while preserving original reading order.
             by_page = {record["page"]: record for record in page_records}
+            document_corrections = visual_corrections.get(pdf_sha, {})
+            for page_key, correction in document_corrections.items():
+                page_number = int(page_key)
+                if not 1 <= page_number <= total_pages:
+                    raise ValueError(f"Visual correction outside PDF: {relative_pdf.as_posix()}, {page_number}.")
+                record = by_page.setdefault(page_number, {"page": page_number})
+                record.update({
+                    "text": clean_page_text(correction["text"]),
+                    "extraction": "visual_transcription",
+                    "visual_correction_applied": True,
+                    "visual_correction_reason": correction["reason"],
+                    "visual_correction_source": correction["source"],
+                    "visual_review_status": correction.get("status", "checked"),
+                    "visual_review_issues": correction.get("issues", []),
+                })
+            pages_needing_ocr = [n for n in ocr_pages if str(n) not in document_corrections]
             uncached_ocr_pages = [
                 page_number
-                for page_number in ocr_pages
+                for page_number in pages_needing_ocr
                 if any(cached_ocr_result(cache, pdf_sha, page_number, language)[0] is None for language in all_ocr_languages)
             ]
             if uncached_ocr_pages:
@@ -863,7 +881,7 @@ def convert(args: argparse.Namespace) -> int:
                     if render_dir.exists():
                         shutil.rmtree(render_dir)
 
-            for page_number in ocr_pages:
+            for page_number in pages_needing_ocr:
                 primary_result, primary_renderer = cached_ocr_result(cache, pdf_sha, page_number, primary_language)
                 if primary_result is None:
                     raise RuntimeError(f"OCR cache is missing {relative_pdf.as_posix()} page {page_number} in {primary_language}.")
@@ -995,6 +1013,8 @@ def convert(args: argparse.Namespace) -> int:
                     issues.append({"type": "abnormal_characters", "page": page_number, "raw": raw_abnormal, "cleaned": abnormal})
                 if record.get("ocr_confidence") is not None and record["ocr_confidence"] < 0.55:
                     issues.append({"type": "low_ocr_confidence", "page": page_number, "average_word_confidence": record["ocr_confidence"]})
+                if record.get("visual_review_status") == "uncertain":
+                    issues.append({"type": "visual_uncertain", "page": page_number, "details": record.get("visual_review_issues", [])})
                 page_records.append(record)
             page_records.sort(key=lambda record: record["page"])
 
@@ -1017,6 +1037,8 @@ def convert(args: argparse.Namespace) -> int:
             for engine_name, language_name in ocr_tool_pairs:
                 image_type = "PNG" if engine_name == "Tesseract.js" else "TIFF, no compression"
                 tools_used.append(f"{engine_name} {language_name} ({image_type}, {OCR_DPI} dpi, max {OCR_SCALE_TO}px)")
+            if document_corrections:
+                tools_used.append("源页图像目视转写校订（ocr-corrections.json）")
             markdown = build_markdown(pdf, relative_pdf.as_posix(), pdf_sha, page_records, tools_used)
             validate_markdown_page_markers(markdown, total_pages, relative_pdf.as_posix())
             output_path.parent.mkdir(parents=True, exist_ok=True)

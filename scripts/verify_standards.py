@@ -52,12 +52,19 @@ def verify(standards: Path, sources: Path) -> dict:
             failures.append(f"Manifest page sequence failed: {relative}")
         if digest in corrections and corrections[digest].get('source_pdf') != relative:
             failures.append(f"Visual correction source differs: {relative}")
-        for number, correction in corrections.get(digest, {}).get("pages", {}).items():
+        visual_pages = corrections.get(digest, {}).get("pages", {})
+        for number, correction in visual_pages.items():
+            if not 1 <= int(number) <= actual_count:
+                failures.append(f"Visual correction page outside PDF: {relative}, {number}")
             if re.sub(r'\s+', '', page_text.get(int(number), '')) != re.sub(r'\s+', '', correction['text']):
                 failures.append(f"Visual correction was not applied: {relative}, {number}")
         for number in document.get("source_text_pages", []):
             if not 1 <= number <= actual_count:
                 failures.append(f"Native page outside PDF: {relative}, {number}")
+                continue
+            # A page explicitly transcribed from its image can repair a corrupt
+            # PDF text layer. Its exact correction text is checked above.
+            if str(number) in visual_pages:
                 continue
             original = (reader.pages[number - 1].extract_text() or "").replace("\x00", "")
             if re.sub(r"\s+", "", original) != re.sub(r"\s+", "", page_text.get(number, "")):
